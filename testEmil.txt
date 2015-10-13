@@ -1,7 +1,0 @@
-Added .txt
-<<<<<<< HEAD
-
-rlkghkjsbfjlnfdvf,nmv.x,d v
-=======
-PRØV AT STOP MIG
->>>>>>> 311e6f48131e6cc4516bde59b9b3062a8031e4b9
