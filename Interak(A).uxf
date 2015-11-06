@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>50</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ClientGUI (navn?)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>130</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>GroupRoomAttributeGUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>250</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>GroupRoomCtrl</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>430</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>GroupRoom</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>480</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>DBconnection</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>70</y>
+      <w>170</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.0: CreateGroupRoom()</panel_attributes>
+    <additional_attributes>80.0;180.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>60</y>
+      <w>200</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+2.0: CreateGroupRoom()</panel_attributes>
+    <additional_attributes>180.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>150</y>
+      <w>440</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+2.1: CreateGroupRoom(name, size, whiteboard, projector, monitor)</panel_attributes>
+    <additional_attributes>110.0;100.0;320.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>270</y>
+      <w>550</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.1: gr= CreateGroupRoom(): GroupRoom
+2.2: gr= CreateGroupRoom(name, size, whiteboard, projector, monitor): GroupRoom</panel_attributes>
+    <additional_attributes>270.0;160.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>270</y>
+      <w>260</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.2: AddGroupRoom(gr)
+2.3: AddGroupRoom(gr)</panel_attributes>
+    <additional_attributes>240.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>580</x>
+      <y>560</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DB</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>500</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.3: sql
+2.4: sql</panel_attributes>
+    <additional_attributes>10.0;80.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>10</x>
+      <y>40</y>
+      <w>340</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>1: Opret et grupperum (uden attributter)
+2: Opret et grupperum med attributter.
+KEEP IT SIMPLE STUPID. 1 eksisterer ikke i det færdige program, men er et skridt på vejen. En måde at holde productowner tilfreds ved at levere et resultat, om end det er et halvt resultat.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>340</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>
+bg=green
+layer=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>70</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+3.0: ShowGroupRooms()
+</panel_attributes>
+    <additional_attributes>200.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>150</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+
+3.1: grList=ShowGroupRooms():List&lt;T&gt;
+</panel_attributes>
+    <additional_attributes>10.0;110.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>260</y>
+      <w>340</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+
+
+
+		
+		3.2: grData= ShowGroupRooms(): SQLDataReader</panel_attributes>
+    <additional_attributes>290.0;220.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>500</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+
+
+3.3: sql
+</panel_attributes>
+    <additional_attributes>10.0;100.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>270</y>
+      <w>590</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+
+
+
+
+3.4: *[1..n]gr=CreateGroupRoom(name, size, whiteboard, projektor, monitor, id): GroupRoom</panel_attributes>
+    <additional_attributes>290.0;160.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>210</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+1.5:*[1..n] Add(gr)</panel_attributes>
+    <additional_attributes>200.0;60.0;60.0;60.0;60.0;10.0;220.0;10.0;220.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>790</x>
+      <y>270</y>
+      <w>250</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>fg=red
+den røde arbejdsgang handler om at ville redigere en et allerede oprettet grupperum... So far er vi kun kommet til at hente objekterne og lagt dem på en liste som man så kan vælge et af dem i GUI...</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
