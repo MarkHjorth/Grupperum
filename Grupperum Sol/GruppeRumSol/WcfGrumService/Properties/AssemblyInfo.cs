@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GrupperumServer")]
+[assembly: AssemblyTitle("WcfGrumService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GrupperumServer")]
+[assembly: AssemblyProduct("WcfGrumService")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e4a75d09-486b-4ffc-957c-73df9bf6c018")]
+[assembly: Guid("6aec567c-e19c-440f-a387-f7fe4c4a8516")]
 
 // Version information for an assembly consists of the following four values:
 //

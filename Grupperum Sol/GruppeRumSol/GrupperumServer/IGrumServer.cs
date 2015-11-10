@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer
 {
-    public class ClassCtrl
+    public interface IGrumServer
     {
+        String SayHello();
     }
 }

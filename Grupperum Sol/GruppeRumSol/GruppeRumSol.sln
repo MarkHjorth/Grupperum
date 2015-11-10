@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grupperum Dedikeret Klient", "Grupperum Dedikeret Klient\Grupperum Dedikeret Klient.csproj", "{37CABAC9-9FB0-409C-BC64-67999E977C5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupperumServer", "GrupperumServer\GrupperumServer.csproj", "{E4A75D09-486B-4FFC-957C-73DF9BF6C018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfGrumService", "WcfGrumService\WcfGrumService.csproj", "{6AEC567C-E19C-440F-A387-F7FE4C4A8516}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{37CABAC9-9FB0-409C-BC64-67999E977C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37CABAC9-9FB0-409C-BC64-67999E977C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37CABAC9-9FB0-409C-BC64-67999E977C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A75D09-486B-4FFC-957C-73DF9BF6C018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A75D09-486B-4FFC-957C-73DF9BF6C018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A75D09-486B-4FFC-957C-73DF9BF6C018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A75D09-486B-4FFC-957C-73DF9BF6C018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AEC567C-E19C-440F-A387-F7FE4C4A8516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AEC567C-E19C-440F-A387-F7FE4C4A8516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AEC567C-E19C-440F-A387-F7FE4C4A8516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AEC567C-E19C-440F-A387-F7FE4C4A8516}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
