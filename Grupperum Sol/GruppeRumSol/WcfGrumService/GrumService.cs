@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using GrupperumServer;
+using GrupperumServer.DBConFold;
 
 namespace WcfGrumService
 {
@@ -12,6 +13,14 @@ namespace WcfGrumService
     public class GrumService : IGrumService
     {
         private static IGrumServer grumServer = new GrumServer();
+        private static DBCon dbCon = new DBCon();
+
+        public void CreateGroupRoom()
+        {
+            dbCon.connect();
+
+        }
+
         public string SayHello()
         {
             return grumServer.SayHello();

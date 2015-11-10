@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grupperum Dedikeret Klient", "Grupperum Dedikeret Klient\Grupperum Dedikeret Klient.csproj", "{37CABAC9-9FB0-409C-BC64-67999E977C5B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6AEC567C-E19C-440F-A387-F7FE4C4A8516} = {6AEC567C-E19C-440F-A387-F7FE4C4A8516}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupperumServer", "GrupperumServer\GrupperumServer.csproj", "{E4A75D09-486B-4FFC-957C-73DF9BF6C018}"
 EndProject
