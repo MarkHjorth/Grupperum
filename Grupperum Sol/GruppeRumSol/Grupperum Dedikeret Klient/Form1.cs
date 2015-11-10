@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfGrumService;
 
 namespace Grupperum_Dedikeret_Klient
 {
     public partial class Form1 : Form
     {
+        private static IGrumService igs = new GrumService();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +22,7 @@ namespace Grupperum_Dedikeret_Klient
 
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
-            grCtrl.CreateRoom();
+            igs.CreateGroupRoom();
         }
     }
 }

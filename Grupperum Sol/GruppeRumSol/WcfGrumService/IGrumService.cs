@@ -14,5 +14,8 @@ namespace WcfGrumService
     {
         [OperationContract]
         string SayHello();
+
+        [OperationContract]
+        void CreateGroupRoom();
     }
 }
