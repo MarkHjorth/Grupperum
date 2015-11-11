@@ -52,6 +52,12 @@ namespace GrupperumServer.DBConFold
             }
             
             return tempList;
+
+        public DBCon dbCon = new DBCon();
+        public void CreateGroupRoom()
+        {
+            String command = ("insert into GroupRoom default values;");
+            dbCon.ExecuteString(command);
         }
     }
 }

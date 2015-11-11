@@ -18,13 +18,20 @@ namespace GrupperumServer.DBConFold
 
         public SqlDataReader ExecuteString(string command)
         {
+            SqlDataReader resultSet = null;
             SqlConnection con = new SqlConnection(conString);
 
             con.Open();
-
-            SqlCommand sc = new SqlCommand(command);
-            SqlDataReader resultSet = sc.ExecuteReader();
-
+            
+            SqlCommand sc = new SqlCommand(command, con);
+            try
+            {
+                resultSet = sc.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                sc.ExecuteReader();
+            }
             con.Close();
             return resultSet;
         }
