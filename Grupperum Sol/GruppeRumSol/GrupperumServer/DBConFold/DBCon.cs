@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.DBConFold
 {
+
     public class DBCon
     {
+        SqlConnection con;
         public void connect()
         {
             string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
@@ -16,10 +18,13 @@ namespace GrupperumServer.DBConFold
                                        "database=dmaa0914_3Sem_2_Grupperum; " +
                                        "connection timeout=30";
 
-            SqlConnection con = new SqlConnection(conString);
+            con = new SqlConnection(conString);
             
+        }
+    public void createGroupRoom()
+        {
+            connect();
             con.Open();
-
             SqlCommand sc = new SqlCommand("insert into GroupRoom DEFAULT VALUES;", con);
 
             sc.ExecuteReader();
