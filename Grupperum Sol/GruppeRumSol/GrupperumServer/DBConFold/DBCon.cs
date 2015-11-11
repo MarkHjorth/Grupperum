@@ -11,7 +11,6 @@ namespace GrupperumServer.DBConFold
     public class DBCon
     {
         SqlConnection con;
-        public void connect();
         string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
                                    "password=IsAllowed;server=kraka.ucn.dk;" +
                                    "database=dmaa0914_3Sem_2_Grupperum; " +

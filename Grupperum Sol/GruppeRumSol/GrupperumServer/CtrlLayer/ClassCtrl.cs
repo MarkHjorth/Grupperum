@@ -4,18 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GrupperumServer.ModelLayer;
+using GrupperumServer.DBConFold;
 
 namespace GrupperumServer.CtrlLayer
 {
-    class ClassCtrl
+    public class ClassCtrl
     {
+        DBCtrl dbCtrl = new DBCtrl();
         public ClassCtrl()
         {
+
         }
         
-        public void addStudentToClass(Student student, Class clas)
+        public Class GetClassFromId(int id)
         {
-            clas.addStudent(student);
+            return dbCtrl.GetClassFromId(id);
+        }
+
+        public Class PopulateClass(Class clas)
+        {
+            int id = clas.Id;
+            List<Student> tempList = dbCtrl.GetStudentsFromClassId(id);
+
+            foreach (Student student in tempList)
+	        {
+                AddStudentToClass(student, clas);
+	        }
+
+            return clas;
+        }
+
+        public void AddStudentToClass(Student student, Class clas)
+        {
         }
     }
 }
