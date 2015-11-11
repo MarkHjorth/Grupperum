@@ -12,23 +12,31 @@ namespace GrupperumServer.DBConFold
     {
         SqlConnection con;
         public void connect()
+        string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
+                                   "password=IsAllowed;server=kraka.ucn.dk;" +
+                                   "database=dmaa0914_3Sem_2_Grupperum; " +
+                                   "connection timeout=30";
+
+        public SqlDataReader ExecuteString(string command)
         {
-            string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
-                                       "password=IsAllowed;server=kraka.ucn.dk;" +
-                                       "database=dmaa0914_3Sem_2_Grupperum; " +
-                                       "connection timeout=30";
 
             con = new SqlConnection(conString);
-            
+
         }
     public void createGroupRoom()
         {
             connect();
             con.Open();
             SqlCommand sc = new SqlCommand("insert into GroupRoom DEFAULT VALUES;", con);
+            SqlConnection con = new SqlConnection(conString);
 
-            sc.ExecuteReader();
+            con.Open();
+
+            SqlCommand sc = new SqlCommand(command);
+            SqlDataReader resultSet = sc.ExecuteReader();
+
             con.Close();
+            return resultSet;
         }
     }
 }
