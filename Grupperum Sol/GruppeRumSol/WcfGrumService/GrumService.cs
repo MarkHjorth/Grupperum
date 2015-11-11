@@ -18,7 +18,6 @@ namespace WcfGrumService
         public void CreateGroupRoom()
         {
             dbCon.connect();
-
         }
 
         public string SayHello()
