@@ -13,11 +13,11 @@ namespace WcfGrumService
     public class GrumService : IGrumService
     {
         private static IGrumServer grumServer = new GrumServer();
-        private static DBCon dbCon = new DBCon();
+        private static DBCtrl dbCtrl = new DBCtrl();
 
         public void CreateGroupRoom()
         {
-            dbCon.createGroupRoom();
+            dbCtrl.CreateGroupRoom();
         }
 
         public string SayHello()

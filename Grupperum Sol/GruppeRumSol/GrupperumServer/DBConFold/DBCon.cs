@@ -10,8 +10,6 @@ namespace GrupperumServer.DBConFold
 
     public class DBCon
     {
-        SqlConnection con;
-        public void connect();
         string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
                                    "password=IsAllowed;server=kraka.ucn.dk;" +
                                    "database=dmaa0914_3Sem_2_Grupperum; " +
@@ -19,13 +17,20 @@ namespace GrupperumServer.DBConFold
 
         public SqlDataReader ExecuteString(string command)
         {
+            SqlDataReader resultSet = null;
             SqlConnection con = new SqlConnection(conString);
 
             con.Open();
-
-            SqlCommand sc = new SqlCommand(command);
-            SqlDataReader resultSet = sc.ExecuteReader();
-
+            
+            SqlCommand sc = new SqlCommand(command, con);
+            try
+            {
+                resultSet = sc.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                sc.ExecuteReader();
+            }
             con.Close();
             return resultSet;
         }
