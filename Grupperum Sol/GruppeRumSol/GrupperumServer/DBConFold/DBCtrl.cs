@@ -10,7 +10,8 @@ namespace GrupperumServer.DBConFold
 {
     public class DBCtrl
     {
-        DBCon dbc = new DBCon();
+        public DBCon dbCon = new DBCon();
+
         public DBCtrl()
         {
 
@@ -18,7 +19,7 @@ namespace GrupperumServer.DBConFold
 
         public Class GetClassFromId(int id)
         {
-            SqlDataReader rs = dbc.ExecuteString("SELECT * FROM [Class] WHERE ID = " + id);
+            SqlDataReader rs = dbCon.ExecuteString("SELECT * FROM [Class] WHERE ID = " + id);
 
             int tempId = 0;
             string tempName = null;
@@ -39,24 +40,38 @@ namespace GrupperumServer.DBConFold
             string tempName = null;
             List<Student> tempList = new List<Student>();
 
-            SqlDataReader rs = dbc.ExecuteString("SELECT * FROM student WHERE ClassID = " + id);
+            SqlDataReader rs = dbCon.ExecuteString("SELECT * FROM student WHERE ClassID = " + id);
 
             while (rs.HasRows)
             {
-                tempId = (int) rs.GetValue(i);
+                tempId = (int)rs.GetValue(i);
                 i++;
-                tempName = (string) rs.GetValue(i);
+                tempName = (string)rs.GetValue(i);
                 i++;
                 Student tempStudent = new Student(tempId, tempName);
                 tempList.Add(tempStudent);
             }
-            
-            return tempList;
 
-        public DBCon dbCon = new DBCon();
-        public void CreateGroupRoom()
+            return tempList;
+        }
+        
+        public void CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
-            String command = ("insert into GroupRoom default values;");
+            string bitWhiteboard = "0";
+            string bitMonitor = "0";
+
+            if(whiteboard)
+            {
+                bitWhiteboard = "1";
+            }
+            if(monitor)
+            {
+                bitMonitor = "1";
+            }
+
+            String command = string.Format(
+                "insert into GroupRoom (name, whiteboard, monitor) VALUES ({0}, {1}, {2});", 
+                name, bitWhiteboard, bitMonitor);
             dbCon.ExecuteString(command);
         }
     }
