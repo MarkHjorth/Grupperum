@@ -19,6 +19,7 @@ namespace GrupperumServer
 
         public void CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
+            DBCtrl dbCtrl = new DBCtrl();
             dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
         }
     }
