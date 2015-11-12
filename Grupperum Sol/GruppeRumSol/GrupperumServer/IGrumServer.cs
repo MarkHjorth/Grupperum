@@ -9,6 +9,6 @@ namespace GrupperumServer
 {
     public interface IGrumServer
     {
-        Class getClassById(int id);
+        Class getClassByStudentId(int id);
     }
 }

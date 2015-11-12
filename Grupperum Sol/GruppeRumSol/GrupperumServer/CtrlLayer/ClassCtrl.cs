@@ -16,16 +16,16 @@ namespace GrupperumServer.CtrlLayer
 
         }
         
-        public Class GetClassById(int id)
+        public Class GetClassByStudentId(int id)
         {
-            Class clas = GetClassFromId(id);
+            Class clas = GetClassFromStudentId(id);
             clas = PopulateClass(clas);
             return clas;
         }
 
-        private Class GetClassFromId(int id)
+        private Class GetClassFromStudentId(int id)
         {
-            return dbCtrl.GetClassFromId(id);
+            return dbCtrl.GetClassFromStudentId(id);
         }
 
         private Class PopulateClass(Class clas)

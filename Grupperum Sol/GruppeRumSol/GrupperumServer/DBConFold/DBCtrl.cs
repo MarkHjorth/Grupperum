@@ -17,9 +17,9 @@ namespace GrupperumServer.DBConFold
 
         }
 
-        public Class GetClassFromId(int id)
+        public Class GetClassFromStudentId(int id)
         {
-            SqlDataReader rs = dbCon.ExecuteString("SELECT * FROM [Class] WHERE ID = " + id);
+            SqlDataReader rs = dbCon.ExecuteString("SELECT * FROM Class where id=(SELECT classId FROM Student where id=" + id + ");");
 
             int tempId = 0;
             string tempName = null;

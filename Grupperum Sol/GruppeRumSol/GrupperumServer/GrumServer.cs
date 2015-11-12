@@ -10,10 +10,10 @@ namespace GrupperumServer
 {
     public class GrumServer : IGrumServer
     {
-        public Class getClassById(int id)
+        public Class getClassByStudentId(int id)
         {
             ClassCtrl classCtrl = new ClassCtrl();
-            return classCtrl.GetClassById(id);
+            return classCtrl.GetClassByStudentId(id);
         }
     }
 }
