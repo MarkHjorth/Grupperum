@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using GrupperumServer;
 using GrupperumServer.DBConFold;
+using GrupperumServer.ModelLayer;
 
 namespace WcfGrumService
 {
@@ -24,6 +25,11 @@ namespace WcfGrumService
         public string SayHello()
         {
             return grumServer.SayHello();
+        }
+
+        public Class getClassById(int id)
+        {
+            return grumServer.getClassById(id);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using GrupperumServer;
+using GrupperumServer.ModelLayer;
 
 namespace WcfGrumService
 {
@@ -14,6 +15,7 @@ namespace WcfGrumService
     {
         [OperationContract]
         string SayHello();
+        Class getClassById(int id);
 
         [OperationContract]
         void CreateGroupRoom();

@@ -16,12 +16,19 @@ namespace GrupperumServer.CtrlLayer
 
         }
         
-        public Class GetClassFromId(int id)
+        public Class GetClassById(int id)
+        {
+            Class clas = GetClassFromId(id);
+            clas = PopulateClass(clas);
+            return clas;
+        }
+
+        private Class GetClassFromId(int id)
         {
             return dbCtrl.GetClassFromId(id);
         }
 
-        public Class PopulateClass(Class clas)
+        private Class PopulateClass(Class clas)
         {
             int id = clas.Id;
             List<Student> tempList = dbCtrl.GetStudentsFromClassId(id);
@@ -36,6 +43,7 @@ namespace GrupperumServer.CtrlLayer
 
         public void AddStudentToClass(Student student, Class clas)
         {
+            clas.addStudent(student);
         }
     }
 }
