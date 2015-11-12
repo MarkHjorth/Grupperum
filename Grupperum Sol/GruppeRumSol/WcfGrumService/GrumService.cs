@@ -16,9 +16,9 @@ namespace WcfGrumService
         private static IGrumServer grumServer = new GrumServer();
         private static DBCtrl dbCtrl = new DBCtrl();
 
-        public void CreateGroupRoom(string name, bool whiteboard, bool monitor)
+        public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
-            grumServer.CreateGroupRoom(name, whiteboard, monitor);
+            return grumServer.CreateGroupRoom(name, whiteboard, monitor);
         }
 
         public Class getClassById(int id)

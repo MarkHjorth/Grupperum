@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,15 +11,16 @@ namespace GrupperumServer
 {
     public class GrumServer : IGrumServer
     {
+        DBCtrl dbCtrl = new DBCtrl();
         public Class getClassByStudentId(int id)
         {
             ClassCtrl classCtrl = new ClassCtrl();
             return classCtrl.GetClassByStudentId(id);
         }
 
-        public void CreateGroupRoom(string name, bool whiteboard, bool monitor)
+        public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
-            dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
+            return dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
         }
     }
 }

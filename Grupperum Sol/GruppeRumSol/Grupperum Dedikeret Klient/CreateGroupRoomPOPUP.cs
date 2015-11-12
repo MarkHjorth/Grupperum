@@ -31,7 +31,14 @@ namespace Grupperum_Dedikeret_Klient
             bool whiteboard = check_whiteboard.Checked;
             bool monitor = Check_Monitor.Checked;
 
-            igs.CreateGroupRoom(name, whiteboard, monitor);
+            if(igs.CreateGroupRoom(name, whiteboard, monitor))
+            {
+                MessageBox.Show("Lol, it works");
+            }
+            else
+            {
+                MessageBox.Show("Nope..");
+            }
 
         }
     }

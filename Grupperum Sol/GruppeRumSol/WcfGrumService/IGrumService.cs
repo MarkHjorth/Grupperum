@@ -17,6 +17,6 @@ namespace WcfGrumService
         Class getClassById(int id);
 
         [OperationContract]
-        void CreateGroupRoom(string name, bool whiteboard, bool monitor);
+        bool CreateGroupRoom(string name, bool whiteboard, bool monitor);
     }
 }

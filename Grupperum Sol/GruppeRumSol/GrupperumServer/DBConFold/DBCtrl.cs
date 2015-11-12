@@ -19,7 +19,7 @@ namespace GrupperumServer.DBConFold
 
         public Class GetClassFromStudentId(int id)
         {
-            SqlDataReader rs = dbCon.ExecuteString("SELECT * FROM Class where id=(SELECT classId FROM Student where id=" + id + ");");
+            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM Class where id=(SELECT classId FROM Student where id=" + id + ");");
 
             int tempId = 0;
             string tempName = null;
@@ -40,7 +40,7 @@ namespace GrupperumServer.DBConFold
             string tempName = null;
             List<Student> tempList = new List<Student>();
 
-            SqlDataReader rs = dbCon.ExecuteString("SELECT * FROM student WHERE ClassID = " + id);
+            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM student WHERE ClassID = " + id);
 
             while (rs.HasRows)
             {
@@ -55,7 +55,7 @@ namespace GrupperumServer.DBConFold
             return tempList;
         }
         
-        public void CreateGroupRoom(string name, bool whiteboard, bool monitor)
+        public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
             string bitWhiteboard = "0";
             string bitMonitor = "0";
@@ -72,7 +72,7 @@ namespace GrupperumServer.DBConFold
             String command = string.Format(
                 "insert into GroupRoom (name, whiteboard, monitor) VALUES ('{0}', {1}, {2});", 
                 name, bitWhiteboard, bitMonitor);
-            dbCon.ExecuteString(command);
+            return dbCon.ExecuteStringPut(command);
         }
     }
 }
