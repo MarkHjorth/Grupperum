@@ -22,7 +22,9 @@ namespace Grupperum_Dedikeret_Klient
 
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
-            
+
+            CreateGroupRoomPOPUP crpop = new CreateGroupRoomPOPUP();
+            crpop.ShowDialog();
         }
     }
 }

@@ -33,7 +33,7 @@
             // 
             // btn_CreateRoom
             // 
-            this.btn_CreateRoom.Location = new System.Drawing.Point(87, 118);
+            this.btn_CreateRoom.Location = new System.Drawing.Point(32, 43);
             this.btn_CreateRoom.Name = "btn_CreateRoom";
             this.btn_CreateRoom.Size = new System.Drawing.Size(75, 23);
             this.btn_CreateRoom.TabIndex = 0;
