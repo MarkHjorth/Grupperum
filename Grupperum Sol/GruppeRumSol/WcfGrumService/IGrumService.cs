@@ -14,7 +14,6 @@ namespace WcfGrumService
     public interface IGrumService
     {
         [OperationContract]
-        string SayHello();
         Class getClassById(int id);
 
         [OperationContract]

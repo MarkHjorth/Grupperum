@@ -9,7 +9,6 @@ namespace GrupperumServer
 {
     public interface IGrumServer
     {
-        String SayHello();
         Class getClassById(int id);
     }
 }

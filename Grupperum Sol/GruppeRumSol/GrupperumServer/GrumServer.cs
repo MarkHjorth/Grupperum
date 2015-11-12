@@ -15,10 +15,5 @@ namespace GrupperumServer
             ClassCtrl classCtrl = new ClassCtrl();
             return classCtrl.GetClassById(id);
         }
-
-        public string SayHello()
-        {
-            return "hej med dig!";
-        }
     }
 }

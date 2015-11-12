@@ -22,11 +22,6 @@ namespace WcfGrumService
             dbCtrl.CreateGroupRoom();
         }
 
-        public string SayHello()
-        {
-            return grumServer.SayHello();
-        }
-
         public Class getClassById(int id)
         {
             return grumServer.getClassById(id);
