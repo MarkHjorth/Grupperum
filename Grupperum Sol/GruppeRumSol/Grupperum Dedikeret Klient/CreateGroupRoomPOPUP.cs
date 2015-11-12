@@ -33,11 +33,11 @@ namespace Grupperum_Dedikeret_Klient
 
             if(igs.CreateGroupRoom(name, whiteboard, monitor))
             {
-                MessageBox.Show("Lol, it works");
+                MessageBox.Show("Grupperum oprettet");
             }
             else
             {
-                MessageBox.Show("Nope..");
+                MessageBox.Show("En fejl er opstået. Grupperum ikke oprettet!");
             }
 
         }

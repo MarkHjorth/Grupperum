@@ -38,7 +38,7 @@
             // Check_Monitor
             // 
             this.Check_Monitor.AutoSize = true;
-            this.Check_Monitor.Location = new System.Drawing.Point(70, 69);
+            this.Check_Monitor.Location = new System.Drawing.Point(15, 51);
             this.Check_Monitor.Name = "Check_Monitor";
             this.Check_Monitor.Size = new System.Drawing.Size(61, 17);
             this.Check_Monitor.TabIndex = 0;
@@ -48,7 +48,7 @@
             // check_whiteboard
             // 
             this.check_whiteboard.AutoSize = true;
-            this.check_whiteboard.Location = new System.Drawing.Point(70, 93);
+            this.check_whiteboard.Location = new System.Drawing.Point(15, 74);
             this.check_whiteboard.Name = "check_whiteboard";
             this.check_whiteboard.Size = new System.Drawing.Size(81, 17);
             this.check_whiteboard.TabIndex = 1;
@@ -57,17 +57,16 @@
             // 
             // txt_Name
             // 
-            this.txt_Name.ForeColor = System.Drawing.Color.LightGray;
-            this.txt_Name.Location = new System.Drawing.Point(70, 39);
+            this.txt_Name.ForeColor = System.Drawing.Color.Black;
+            this.txt_Name.Location = new System.Drawing.Point(12, 25);
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.Size = new System.Drawing.Size(141, 20);
             this.txt_Name.TabIndex = 2;
-            this.txt_Name.Text = "skriv navn på grupperum";
             // 
             // lbl_Name
             // 
             this.lbl_Name.AutoSize = true;
-            this.lbl_Name.Location = new System.Drawing.Point(67, 23);
+            this.lbl_Name.Location = new System.Drawing.Point(12, 9);
             this.lbl_Name.Name = "lbl_Name";
             this.lbl_Name.Size = new System.Drawing.Size(100, 13);
             this.lbl_Name.TabIndex = 3;
@@ -76,9 +75,9 @@
             // 
             // btn_godkend
             // 
-            this.btn_godkend.Location = new System.Drawing.Point(174, 209);
+            this.btn_godkend.Location = new System.Drawing.Point(15, 97);
             this.btn_godkend.Name = "btn_godkend";
-            this.btn_godkend.Size = new System.Drawing.Size(98, 41);
+            this.btn_godkend.Size = new System.Drawing.Size(138, 41);
             this.btn_godkend.TabIndex = 4;
             this.btn_godkend.Text = "Godkend";
             this.btn_godkend.UseVisualStyleBackColor = true;
@@ -88,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(169, 170);
             this.Controls.Add(this.btn_godkend);
             this.Controls.Add(this.lbl_Name);
             this.Controls.Add(this.txt_Name);
