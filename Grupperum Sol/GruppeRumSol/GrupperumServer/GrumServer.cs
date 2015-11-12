@@ -20,9 +20,8 @@ namespace GrupperumServer
 
         public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
-            return dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
             DBCtrl dbCtrl = new DBCtrl();
-            dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
+            return dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
         }
     }
 }
