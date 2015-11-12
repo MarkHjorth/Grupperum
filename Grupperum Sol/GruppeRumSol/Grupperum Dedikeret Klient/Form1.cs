@@ -22,10 +22,7 @@ namespace Grupperum_Dedikeret_Klient
 
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
-            string name = "test";
-            bool whiteboard = true;
-            bool monitor = false;
-            igs.CreateGroupRoom(name, whiteboard, monitor);
+            
         }
     }
 }
