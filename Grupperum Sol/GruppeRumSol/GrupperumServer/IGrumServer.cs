@@ -10,5 +10,7 @@ namespace GrupperumServer
     public interface IGrumServer
     {
         Class getClassById(int id);
+
+        void CreateGroupRoom(string name, bool whiteboard, bool monitor);
     }
 }

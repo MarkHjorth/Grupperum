@@ -70,7 +70,7 @@ namespace GrupperumServer.DBConFold
             }
 
             String command = string.Format(
-                "insert into GroupRoom (name, whiteboard, monitor) VALUES ({0}, {1}, {2});", 
+                "insert into GroupRoom (name, whiteboard, monitor) VALUES ('{0}', {1}, {2});", 
                 name, bitWhiteboard, bitMonitor);
             dbCon.ExecuteString(command);
         }
