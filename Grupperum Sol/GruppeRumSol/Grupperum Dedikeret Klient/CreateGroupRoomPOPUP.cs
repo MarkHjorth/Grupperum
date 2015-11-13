@@ -20,10 +20,7 @@ namespace Grupperum_Dedikeret_Klient
         }
 
         private void lbl_Name_Click(object sender, EventArgs e)
-        {
-
- 
-        }
+        {}
 
         private void btn_godkend_Click(object sender, EventArgs e)
         {
@@ -34,12 +31,12 @@ namespace Grupperum_Dedikeret_Klient
             if(igs.CreateGroupRoom(name, whiteboard, monitor))
             {
                 MessageBox.Show("Grupperum oprettet");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("En fejl er opstået. Grupperum ikke oprettet!");
             }
-
         }
     }
 }
