@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.DBConFold
 {
-
     public class DBCon
     {
         string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
@@ -29,7 +28,7 @@ namespace GrupperumServer.DBConFold
             }
             catch (SqlException e)
             {
-                
+                e.ToString();
             }
             finally
             {
@@ -52,6 +51,7 @@ namespace GrupperumServer.DBConFold
             }
             catch (SqlException e)
             {
+                e.ToString();
                 return false;
             }
             finally
