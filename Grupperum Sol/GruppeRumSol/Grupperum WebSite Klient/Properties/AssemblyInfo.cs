@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Grupperum_WebSite_Klient")]
+[assembly: AssemblyTitle("Grupperum_Website_Klient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Grupperum_WebSite_Klient")]
+[assembly: AssemblyProduct("Grupperum_Website_Klient")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bf3711a8-53f5-408d-8cf6-1a0f4117c869")]
+[assembly: Guid("eabad4eb-6fd4-4c2f-bdd1-855d455773e6")]
 
 // Version information for an assembly consists of the following four values:
 //

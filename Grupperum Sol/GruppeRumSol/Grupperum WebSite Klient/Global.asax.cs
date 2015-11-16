@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace Grupperum_WebSite_Klient
+namespace Grupperum_Website_Klient
 {
     public class MvcApplication : System.Web.HttpApplication
     {

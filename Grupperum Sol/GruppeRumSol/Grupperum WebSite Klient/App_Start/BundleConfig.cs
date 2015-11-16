@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Grupperum_WebSite_Klient
+namespace Grupperum_Website_Klient
 {
     public class BundleConfig
     {

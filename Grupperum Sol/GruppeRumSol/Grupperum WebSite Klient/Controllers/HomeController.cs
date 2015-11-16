@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Grupperum_WebSite_Klient.Controllers
+namespace Grupperum_Website_Klient.Controllers
 {
     public class HomeController : Controller
     {
