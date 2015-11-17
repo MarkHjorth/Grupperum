@@ -1,8 +1,23 @@
 ﻿
 @{
-    ViewBag.Title = "CreateGroup";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Opret Gruppe";
 }
 
-<h2>CreateGroup</h2>
+<h2>Opret Gruppe</h2>
 
+
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Til gruppe</td>
+    </tr>
+    @foreach (Grupperum_Website_Klient.GrumService.Student s in (List<Grupperum_Website_Klient.GrumService.Student>)ViewBag.People)
+    {
+        <tr>
+            <td>@s</td>
+            <td>@s</td>
+            <td><input type="checkbox" value="1" /></td>
+        </tr>
+    }
+</table>

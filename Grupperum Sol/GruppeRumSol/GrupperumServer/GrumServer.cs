@@ -12,15 +12,15 @@ namespace GrupperumServer
     public class GrumServer : IGrumServer
     {
         DBCtrl dbCtrl = new DBCtrl();
+        ClassCtrl classCtrl = new ClassCtrl();
+
         public Class getClassByStudentId(int id)
         {
-            ClassCtrl classCtrl = new ClassCtrl();
             return classCtrl.GetClassByStudentId(id);
         }
 
         public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
-            DBCtrl dbCtrl = new DBCtrl();
             return dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
         }
     }

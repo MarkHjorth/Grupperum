@@ -10,18 +10,27 @@ namespace GrupperumServer.ModelLayer
     [DataContract]
     public class Student
     {
-        private int id;
-        private String name, password;
+        [DataMember]
+        public int Id { get; }
+
+        [DataMember]
+        public string Name { get; }
+
+        [DataMember]
+        private string Password { get; }
+
+        
         public Student(int id, String name)
         {
-            this.id = id;
-            this.name = name;
+            this.Id = id;
+            this.Name = name;
         }
+
         public Student(int id, String name, String password)
         {
-            this.id = id;
-            this.name = name;
-            this.password = password;
+            this.Id = id;
+            this.Name = name;
+            this.Password = password;
         }
 
     }

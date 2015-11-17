@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grupperum_Website_Klient.GrumService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,17 @@ namespace Grupperum_Website_Klient.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Kontakt os";
+
+            return View();
+        }
+
+        public ActionResult CreateGroup()
+        {
+            ViewBag.Message = "Opret Gruppe";
+            using(GrumServiceClient client = new GrumServiceClient())
+            {
+                ViewBag.People = client.getClassById(1).StudentList;
+            }
 
             return View();
         }
