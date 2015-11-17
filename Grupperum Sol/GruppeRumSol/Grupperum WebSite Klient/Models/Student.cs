@@ -11,13 +11,13 @@ namespace GrupperumServer.ModelLayer
     public class Student
     {
         [DataMember]
-        public int Id { get; }
+        public int Id { get; set; }
 
         [DataMember]
-        public string Name { get; }
+        public string Name { get; set; }
 
         [DataMember]
-        private string Password { get; }
+        private string Password { get; set; }
 
         
         public Student(int id, String name)
