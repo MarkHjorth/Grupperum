@@ -10,24 +10,24 @@ namespace GrupperumServer.ModelLayer
     [DataContract]
     public class Class
     {
-        [DataMember]
-        private int id;
-        [DataMember]
-        private List<Student> studentList = new List<Student>();
+        //[DataMember]
+        //private int id;
+        //[DataMember]
+        //private List<Student> studentList = new List<Student>();
         
         public Class(int id)
         {
-            this.id = id;
+            this.Id = id;
         }
 
         public Class(int tempId, string tempName)
         {
-            this.id = tempId;
+            this.Id = tempId;
         }
         
         public void addStudent(Student student)
         {
-            this.studentList.Add(student);
+            this.StudentList.Add(student);
         }
 
         [DataMember]

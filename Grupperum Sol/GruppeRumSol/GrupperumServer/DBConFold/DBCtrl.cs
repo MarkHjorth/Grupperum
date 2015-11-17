@@ -23,10 +23,10 @@ namespace GrupperumServer.DBConFold
 
             int tempId = 0;
             string tempName = null;
-            while(rs.HasRows)
+            while(rs.NextResult())
             {
-                    tempId = rs.GetInt32(0);
-                    tempName = rs.GetString(1);
+                tempId = rs.GetInt32(0);
+                tempName = rs.GetString(1);
             }
             Class tempClass = new Class(tempId, tempName);
                 

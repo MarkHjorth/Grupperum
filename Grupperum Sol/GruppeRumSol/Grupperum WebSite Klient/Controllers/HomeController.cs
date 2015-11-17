@@ -33,7 +33,10 @@ namespace Grupperum_Website_Klient.Controllers
             ViewBag.Message = "Opret Gruppe";
             using(GrumServiceClient client = new GrumServiceClient())
             {
-                ViewBag.People = client.getClassById(1).StudentList;
+                ViewBag.ID1 = client.getClassById(1).Id;
+                ViewBag.ID2 = client.getClassById(2).Id;
+                ViewBag.ID3 = client.getClassById(3).Id;
+                ViewBag.People = client.getClassById(2).StudentList;
             }
 
             return View();
