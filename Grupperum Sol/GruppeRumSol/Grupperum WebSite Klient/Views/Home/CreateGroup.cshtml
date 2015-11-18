@@ -5,19 +5,24 @@
 
 <h2>Opret Gruppe</h2>
 
-<table border="1">
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Til gruppe</td>
-    </tr>
-    @foreach (Grupperum_Website_Klient.GrumService.Student s in ViewBag.People)
-    {
-        <tr>
-            <td>@s.Id</td>
-            <td>@s.Name</td>
-            <td><input type="checkbox" value="1" /></td>
-        </tr>
-    }
+<form method="post" action="Index">
+    <p><input type="text" name="groupName" value="" placeholder="Gruppe navn"></p>
 
-</table>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Til gruppe</td>
+        </tr>
+        @foreach (Grupperum_Website_Klient.GrumService.Student s in ViewBag.People)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td><input type="checkbox" value="1" /></td>
+            </tr>
+        }
+    </table>
+
+    <p class="submit"><input type="submit" name="createGroup" value="Opret gruppe"></p>
+</form>
