@@ -18,5 +18,8 @@ namespace WcfGrumService
 
         [OperationContract]
         bool CreateGroupRoom(string name, bool whiteboard, bool monitor);
+
+        [OperationContract]
+        bool Authenticate(int user, string password);
     }
 }

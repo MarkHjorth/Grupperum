@@ -30,5 +30,10 @@ namespace WcfGrumService
         {
             return grumServer.GetStudentById(id);
         }
+
+        public bool Authenticate(int user, string password)
+        {
+            return grumServer.Authenticate(user, password);
+        }
     }
 }

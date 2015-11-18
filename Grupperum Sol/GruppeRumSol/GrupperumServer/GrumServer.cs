@@ -13,6 +13,7 @@ namespace GrupperumServer
     {
         DBCtrl dbCtrl = new DBCtrl();
         ClassCtrl classCtrl = new ClassCtrl();
+        LoginCtrl loginCtrl = new LoginCtrl();
 
         public Class getClassByStudentId(int id)
         {
@@ -28,6 +29,11 @@ namespace GrupperumServer
         {
             StudentCtrl studentCtrl = new StudentCtrl();
             return studentCtrl.GetSudentById(id);
+        }
+
+        public bool Authenticate(int user, string password)
+        {
+            return loginCtrl.Authenticate(user, password);
         }
     }
 }
