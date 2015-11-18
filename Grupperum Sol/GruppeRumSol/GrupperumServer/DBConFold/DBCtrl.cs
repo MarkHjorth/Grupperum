@@ -84,6 +84,21 @@ namespace GrupperumServer.DBConFold
             return tempList;
         }
         
+        public bool CreateGroup(string name, List<int> studentId)
+        {
+            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) VALUES('" + name + "');");
+
+            foreach (int id in studentId)
+            {
+
+            }
+
+
+
+
+            return true;
+        }
+
         public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
             string bitWhiteboard = "0";

@@ -1,4 +1,5 @@
-﻿using GrupperumServer.ModelLayer;
+﻿using GrupperumServer.DBConFold;
+using GrupperumServer.ModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,15 @@ namespace GrupperumServer.CtrlLayer
 {
     class GroupCtrl
     {
+        DBCtrl dbCtrl = new DBCtrl();
         public GroupCtrl()
         {
         }
 
-        public Group CreateGroup(string name, List<int> studentId)
+        public bool CreateGroup(string name, List<int> studentId)
         {
             Group group = new Group(name, studentId);
-            return group;
+            return dbCtrl.CreateGroup(name, studentId);
         }
     }
 }
