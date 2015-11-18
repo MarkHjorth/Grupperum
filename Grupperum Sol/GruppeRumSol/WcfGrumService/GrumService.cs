@@ -35,5 +35,10 @@ namespace WcfGrumService
         {
             return grumServer.Authenticate(user, password);
         }
+
+        public bool CreateGroup(string name, List<int> studentId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

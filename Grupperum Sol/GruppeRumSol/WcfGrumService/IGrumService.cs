@@ -21,5 +21,8 @@ namespace WcfGrumService
 
         [OperationContract]
         bool Authenticate(int user, string password);
+
+        [OperationContract]
+        bool CreateGroup(string name, List<int> studentId);
     }
 }
