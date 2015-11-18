@@ -28,12 +28,6 @@ namespace Grupperum_Website_Klient.GrumService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Grupperum_Website_Klient.GrumService.Student[] StudentListField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int id1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Grupperum_Website_Klient.GrumService.Student[] studentList1Field;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -70,32 +64,6 @@ namespace Grupperum_Website_Klient.GrumService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="id")]
-        public int id1 {
-            get {
-                return this.id1Field;
-            }
-            set {
-                if ((this.id1Field.Equals(value) != true)) {
-                    this.id1Field = value;
-                    this.RaisePropertyChanged("id1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="studentList")]
-        public Grupperum_Website_Klient.GrumService.Student[] studentList1 {
-            get {
-                return this.studentList1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.studentList1Field, value) != true)) {
-                    this.studentList1Field = value;
-                    this.RaisePropertyChanged("studentList1");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -115,6 +83,15 @@ namespace Grupperum_Website_Klient.GrumService {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -122,6 +99,45 @@ namespace Grupperum_Website_Klient.GrumService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
             }
         }
         

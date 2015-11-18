@@ -25,5 +25,10 @@ namespace WcfGrumService
         {
             return grumServer.getClassByStudentId(id);
         }
+
+        public Student GetStudentById(int id)
+        {
+            return grumServer.GetStudentById(id);
+        }
     }
 }

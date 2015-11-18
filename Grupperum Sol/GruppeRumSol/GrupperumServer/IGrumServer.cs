@@ -11,5 +11,6 @@ namespace GrupperumServer
     {
         Class getClassByStudentId(int id);
         bool CreateGroupRoom(string name, bool whiteboard, bool monitor);
+        Student GetStudentById(int id);
     }
 }

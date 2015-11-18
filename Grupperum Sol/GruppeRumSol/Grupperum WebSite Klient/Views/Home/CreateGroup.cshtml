@@ -14,8 +14,8 @@
     @foreach (Grupperum_Website_Klient.GrumService.Student s in ViewBag.People)
     {
         <tr>
-            <td>@s.Name.get()
-            <td>s.Name</td>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
             <td><input type="checkbox" value="1" /></td>
         </tr>
     }

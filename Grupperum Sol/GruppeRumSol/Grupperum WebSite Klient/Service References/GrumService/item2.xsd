@@ -4,8 +4,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="StudentList" nillable="true" type="tns:ArrayOfStudent" />
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="studentList" nillable="true" type="tns:ArrayOfStudent" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Class" nillable="true" type="tns:Class" />
@@ -16,7 +14,11 @@
   </xs:complexType>
   <xs:element name="ArrayOfStudent" nillable="true" type="tns:ArrayOfStudent" />
   <xs:complexType name="Student">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="Student" nillable="true" type="tns:Student" />
 </xs:schema>

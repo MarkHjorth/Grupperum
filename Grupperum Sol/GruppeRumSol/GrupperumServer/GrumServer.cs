@@ -23,5 +23,11 @@ namespace GrupperumServer
         {
             return dbCtrl.CreateGroupRoom(name, whiteboard, monitor);
         }
+
+        public Student GetStudentById(int id)
+        {
+            StudentCtrl studentCtrl = new StudentCtrl();
+            return studentCtrl.GetSudentById(id);
+        }
     }
 }
