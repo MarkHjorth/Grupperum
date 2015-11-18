@@ -10,16 +10,12 @@ namespace GrupperumServer.ModelLayer
     [DataContract]
     class Group
     {
-        private int id;
         private String name;
-        public Group(string name)
+        private List<int> StudentId;
+        public Group(String name, List<int> studentId)
         {
             this.name = name;
-        }
-        public Group(int id, String name)
-        {
-            this.id = id;
-            this.name = name;
+            this.StudentId = studentId;
         }
     }
 }

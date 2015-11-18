@@ -13,14 +13,9 @@ namespace GrupperumServer.CtrlLayer
         {
         }
 
-        public Group CreateGroup(int id, string name)
+        public Group CreateGroup(string name, List<int> studentId)
         {
-            Group group = new Group(id, name);
-            return group;
-        }
-        public Group CreateGroup(string name)
-        {
-            Group group = new Group(name);
+            Group group = new Group(name, studentId);
             return group;
         }
     }
