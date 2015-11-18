@@ -17,7 +17,7 @@ namespace GrupperumServer.ModelLayer
         public string Name { get; set; }
 
         [DataMember]
-        private string Password { get; set; }
+        public string Password { get; set; }
 
         
         public Student(int id, String name)

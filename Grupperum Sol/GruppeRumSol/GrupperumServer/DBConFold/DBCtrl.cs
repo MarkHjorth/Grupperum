@@ -17,6 +17,30 @@ namespace GrupperumServer.DBConFold
 
         }
 
+        public Student GetStudentById(int id)
+        {
+            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM Student where id=" + id + ");");
+
+
+
+            int tempId = 0;
+            string tempName = null;
+            string tempPassword = null;
+            if (rs.HasRows)
+            {
+                while (rs.Read())
+                {
+                    tempId = (int)rs.GetValue(0);
+                    tempName = rs.GetString(1);
+                    tempPassword = rs.GetString(2);
+                }
+            }
+
+            Student tempStudent = new Student(tempId, tempName, tempPassword);
+
+            return tempStudent;
+        }
+
         public Class GetClassFromStudentId(int id)
         {
             SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM Class where id=(SELECT classId FROM Student where id=" + id + ");");

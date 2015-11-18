@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CtrlLayer\ClassCtrl.cs" />
     <Compile Include="CtrlLayer\GroupCtrl.cs" />
+    <Compile Include="CtrlLayer\LoginCtrl.cs" />
     <Compile Include="CtrlLayer\StudentCtrl.cs" />
     <Compile Include="DBConFold\DBCon.cs" />
     <Compile Include="DBConFold\DBCtrl.cs" />
