@@ -38,11 +38,7 @@ namespace WcfGrumService
 
         public bool CreateGroup(string name, List<int> studentId)
         {
-<<<<<<< HEAD
-            return true;
-=======
-            grumServer.CreateGroup(name, studentId)
->>>>>>> 2dface4b7a60305c2d1b9f9daee9fee59bcd8f22
+            return grumServer.CreateGroup(name, studentId);
         }
     }
 }
