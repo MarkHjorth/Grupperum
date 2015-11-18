@@ -32,7 +32,7 @@ namespace GrupperumServer.DBConFold
             }
             finally
             {
-                //con.Close();
+                con.Close();
             }
             
             return resultSet;

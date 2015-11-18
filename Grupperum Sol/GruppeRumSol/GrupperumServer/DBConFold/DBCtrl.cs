@@ -23,11 +23,15 @@ namespace GrupperumServer.DBConFold
 
             int tempId = 0;
             string tempName = null;
-            while(rs.NextResult())
+            if(rs.HasRows)
             {
-                tempId = rs.GetInt32(0);
-                tempName = rs.GetString(1);
+                while (rs.Read())
+                {
+                    tempId = (int)rs.GetValue(0);
+                    tempName = rs.GetString(1);
+                }
             }
+            
             Class tempClass = new Class(tempId, tempName);
                 
             return tempClass;
@@ -42,14 +46,15 @@ namespace GrupperumServer.DBConFold
 
             SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM student WHERE ClassID = " + id);
 
-            while (rs.HasRows)
+            if(rs.HasRows)
             {
-                tempId = (int)rs.GetValue(i);
-                i++;
-                tempName = (string)rs.GetValue(i);
-                i++;
-                Student tempStudent = new Student(tempId, tempName);
-                tempList.Add(tempStudent);
+                while (rs.Read())
+                {
+                    tempId = (int)rs.GetValue(0);
+                    tempName = (string)rs.GetValue(1);
+                    Student tempStudent = new Student(tempId, tempName);
+                    tempList.Add(tempStudent);
+                }
             }
 
             return tempList;

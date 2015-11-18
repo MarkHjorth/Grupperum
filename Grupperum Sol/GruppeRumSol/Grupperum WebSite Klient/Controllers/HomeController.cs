@@ -30,16 +30,14 @@ namespace Grupperum_Website_Klient.Controllers
 
         public ActionResult CreateGroup()
         {
+
             ViewBag.Message = "Opret Gruppe";
             using(GrumServiceClient client = new GrumServiceClient())
             {
-                ViewBag.ID1 = client.getClassById(1).Id;
-                ViewBag.ID2 = client.getClassById(2).Id;
-                ViewBag.ID3 = client.getClassById(3).Id;
                 ViewBag.People = client.getClassById(2).StudentList;
             }
 
-            return View();
+            return View(ViewBag.People);
         }
     }
 }

@@ -5,30 +5,19 @@
 
 <h2>Opret Gruppe</h2>
 
-@for (int i = 0; i < 1; i++)
-{
-    <p>@ViewBag.ID1</p>
-    <p>@ViewBag.ID2</p>
-    <p>@ViewBag.ID3</p>
-}
-
 <table border="1">
     <tr>
         <td>ID</td>
         <td>Name</td>
         <td>Til gruppe</td>
     </tr>
-    
-    
-
-
-   <!-- foreach (var s in (List<Grupperum_Website_Klient.GrumService.Student>)ViewBag.People)
+    @foreach (Grupperum_Website_Klient.GrumService.Student s in ViewBag.People)
     {
         <tr>
-            <td></td>
-            <td>Nope 2</td>
+            <td>@s.Name.get()
+            <td>s.Name</td>
             <td><input type="checkbox" value="1" /></td>
         </tr>
-    }-->
+    }
 
 </table>

@@ -13,7 +13,7 @@ namespace GrupperumServer.ModelLayer
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public List<Student> StudentList { get; set; }
+        public List<Student> StudentList { get; set; } = new List<Student>();
 
         public Class(int id)
         {
@@ -29,7 +29,7 @@ namespace GrupperumServer.ModelLayer
         {
             this.StudentList.Add(student);
         }
-
+        
         public Student getStudent(int index)
         {
             return StudentList[index];
