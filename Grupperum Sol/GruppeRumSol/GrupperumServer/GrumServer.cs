@@ -14,6 +14,7 @@ namespace GrupperumServer
         DBCtrl dbCtrl = new DBCtrl();
         ClassCtrl classCtrl = new ClassCtrl();
         LoginCtrl loginCtrl = new LoginCtrl();
+        GroupCtrl groupCtrl = new GroupCtrl();
 
         public Class getClassByStudentId(int id)
         {
@@ -34,6 +35,11 @@ namespace GrupperumServer
         public bool Authenticate(int user, string password)
         {
             return loginCtrl.Authenticate(user, password);
+        }
+
+        public bool CreateGroup(string name, List<int> studentId)
+        {
+            return groupCtrl.CreateGroup(name, studentId);
         }
     }
 }
