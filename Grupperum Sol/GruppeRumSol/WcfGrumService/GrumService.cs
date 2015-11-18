@@ -38,7 +38,7 @@ namespace WcfGrumService
 
         public bool CreateGroup(string name, List<int> studentId)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

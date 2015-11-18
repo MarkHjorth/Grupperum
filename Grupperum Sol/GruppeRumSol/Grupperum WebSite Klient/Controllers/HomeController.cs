@@ -37,7 +37,7 @@ namespace Grupperum_Website_Klient.Controllers
                 ViewBag.People = client.getClassById(2).StudentList;
             }
 
-            return View(ViewBag.People);
+            return View();
         }
     }
 }

@@ -63,7 +63,6 @@ namespace GrupperumServer.DBConFold
 
         public List<Student> GetStudentsFromClassId(int id)
         {
-            int i = 0;
             int tempId = 0;
             string tempName = null;
             List<Student> tempList = new List<Student>();

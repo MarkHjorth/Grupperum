@@ -162,6 +162,9 @@
     <None Include="Service References\GrumService\item.disco" />
     <None Include="Service References\GrumService\configuration91.svcinfo" />
     <None Include="Service References\GrumService\configuration.svcinfo" />
+    <None Include="Service References\GrumService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\GrumService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

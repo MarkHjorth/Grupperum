@@ -166,6 +166,18 @@ namespace Grupperum_Website_Klient.GrumService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/CreateGroupRoom", ReplyAction="http://tempuri.org/IGrumService/CreateGroupRoomResponse")]
         System.Threading.Tasks.Task<bool> CreateGroupRoomAsync(string name, bool whiteboard, bool monitor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/Authenticate", ReplyAction="http://tempuri.org/IGrumService/AuthenticateResponse")]
+        bool Authenticate(int user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/Authenticate", ReplyAction="http://tempuri.org/IGrumService/AuthenticateResponse")]
+        System.Threading.Tasks.Task<bool> AuthenticateAsync(int user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/CreateGroup", ReplyAction="http://tempuri.org/IGrumService/CreateGroupResponse")]
+        bool CreateGroup(string name, int[] studentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/CreateGroup", ReplyAction="http://tempuri.org/IGrumService/CreateGroupResponse")]
+        System.Threading.Tasks.Task<bool> CreateGroupAsync(string name, int[] studentId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -209,6 +221,22 @@ namespace Grupperum_Website_Klient.GrumService {
         
         public System.Threading.Tasks.Task<bool> CreateGroupRoomAsync(string name, bool whiteboard, bool monitor) {
             return base.Channel.CreateGroupRoomAsync(name, whiteboard, monitor);
+        }
+        
+        public bool Authenticate(int user, string password) {
+            return base.Channel.Authenticate(user, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AuthenticateAsync(int user, string password) {
+            return base.Channel.AuthenticateAsync(user, password);
+        }
+        
+        public bool CreateGroup(string name, int[] studentId) {
+            return base.Channel.CreateGroup(name, studentId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateGroupAsync(string name, int[] studentId) {
+            return base.Channel.CreateGroupAsync(name, studentId);
         }
     }
 }

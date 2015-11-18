@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8733/WcfGrumService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/WcfGrumService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8733/WcfGrumService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer" />
+      <xsd:import schemaLocation="http://localhost:8733/WcfGrumService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGrumService_getClassById_InputMessage">
@@ -19,6 +20,18 @@
   <wsdl:message name="IGrumService_CreateGroupRoom_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateGroupRoomResponse" />
   </wsdl:message>
+  <wsdl:message name="IGrumService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IGrumService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGrumService_CreateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGrumService_CreateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroupResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGrumService">
     <wsdl:operation name="getClassById">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/getClassById" message="tns:IGrumService_getClassById_InputMessage" />
@@ -27,6 +40,14 @@
     <wsdl:operation name="CreateGroupRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/CreateGroupRoom" message="tns:IGrumService_CreateGroupRoom_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/CreateGroupRoomResponse" message="tns:IGrumService_CreateGroupRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/Authenticate" message="tns:IGrumService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/AuthenticateResponse" message="tns:IGrumService_Authenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/CreateGroup" message="tns:IGrumService_CreateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/CreateGroupResponse" message="tns:IGrumService_CreateGroup_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGrumService" type="tns:IGrumService">
@@ -42,6 +63,24 @@
     </wsdl:operation>
     <wsdl:operation name="CreateGroupRoom">
       <soap:operation soapAction="http://tempuri.org/IGrumService/CreateGroupRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/IGrumService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://tempuri.org/IGrumService/CreateGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
