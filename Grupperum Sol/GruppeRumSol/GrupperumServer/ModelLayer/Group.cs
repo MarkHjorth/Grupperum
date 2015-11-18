@@ -12,6 +12,10 @@ namespace GrupperumServer.ModelLayer
     {
         private int id;
         private String name;
+        public Group(string name)
+        {
+            this.name = name;
+        }
         public Group(int id, String name)
         {
             this.id = id;
