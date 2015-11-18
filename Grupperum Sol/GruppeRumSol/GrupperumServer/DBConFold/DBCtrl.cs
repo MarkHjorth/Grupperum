@@ -85,17 +85,25 @@ namespace GrupperumServer.DBConFold
         
         public bool CreateGroup(string name, List<int> studentId)
         {
-            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) VALUES('" + name + "');");
+            int groupId = 0;
+            bool done = false;
+            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) OUTPUT Inserted.id VALUES('" + name + "');");
+
+            if(rs.HasRows)
+            {
+                while (rs.Read())
+                {
+                    groupId = (int)rs.GetValue(0);
+                    done = true;
+                }
+            }
 
             foreach (int id in studentId)
             {
-
+                rs = dbCon.ExecuteStringGet("UPDATE Student SET groupId = " + groupId + " WHERE id = " + id + ");");
             }
 
-
-
-
-            return true;
+            return done;
         }
 
         public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
