@@ -29,13 +29,9 @@
             <tr>
                 <td>@s.Id</td>
                 <td>@s.Name</td>
-
-                <!--<td>@//Html.CheckBox("Checked", new { value = s.Selected })</td> -->
+                <td>@Html.CheckBox(s.Id.ToString(), new { value = s.Selected })</td>
             </tr>
         }
     </table>
-
     <p class="submit"><input type="submit" name="createGroup" value="Opret gruppe"></p>
 }
-    
-    

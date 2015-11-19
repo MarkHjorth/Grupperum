@@ -28,17 +28,16 @@ namespace Grupperum_Website_Klient.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult CreateGroup(FormCollection form)
+        [HttpGet]
+        public ActionResult CreateGroup()
         {
-            
             ViewBag.Message = "Opret Gruppe";
             using(GrumServiceClient client = new GrumServiceClient())
             {
                 ViewBag.People = client.getClassById(2).StudentList;
             }
-            var model = new Student();
-            return View(model);
+
+            return View();
         }
 
         public ActionResult Rent(List<Student> sList)

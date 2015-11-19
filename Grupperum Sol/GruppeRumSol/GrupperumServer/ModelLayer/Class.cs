@@ -13,15 +13,23 @@ namespace GrupperumServer.ModelLayer
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public List<Student> StudentList { get; set; } = new List<Student>();
+        public List<Student> StudentList { get ; set; }
 
         public Class(int id)
         {
+            if(StudentList == null)
+            {
+                StudentList = new List<Student>();
+            }
             this.Id = id;
         }
 
         public Class(int tempId, string tempName)
         {
+            if (StudentList == null)
+            {
+                StudentList = new List<Student>();
+            }
             this.Id = tempId;
         }
         
