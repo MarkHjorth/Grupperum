@@ -6,12 +6,12 @@
 
 <h2>Opret Gruppe</h2>
 
-@using (Html.BeginForm("Rent", "Home", FormMethod.Post))
+@using (Html.BeginForm("CreateGroup", "Home", FormMethod.Post))
 {
     StudentList sList = new StudentList();
-    
-    @Html.TextBox("groupName", null, new { placeholder = "Gruppe navn", required = "required"})
-    
+
+    @Html.TextBox("groupName", null, new { placeholder = "Gruppe navn", required = "required" })
+
     foreach (Grupperum_Website_Klient.GrumService.Student s in ViewBag.People)
     {
         Student stud = new Student(s.Id, s.Name);
@@ -24,14 +24,20 @@
             <td>Name</td>
             <td>Til gruppe</td>
         </tr>
+        @{int i = 0;}
         @foreach (Student s in sList.studList)
         {
             <tr>
                 <td>@s.Id</td>
                 <td>@s.Name</td>
-                <td>@Html.CheckBox(s.Id.ToString(), new { value = s.Selected })</td>
+                <td>@Html.CheckBox("Checkbox" + i, new { value=s.Selected })</td>
             </tr>
+            i++;
         }
     </table>
+    @Html.CheckBox("chkbx1");
+    @Html.CheckBox("chkbx2");
+    @Html.CheckBox("chkbx3");
+
     <p class="submit"><input type="submit" name="createGroup" value="Opret gruppe"></p>
 }
