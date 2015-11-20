@@ -19,6 +19,7 @@ namespace Grupperum_Website_Klient.Models
         {
             this.Id = id;
             this.Name = name;
+            this.Selected = 0;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@using Grupperum_Website_Klient.Models;
 
+
 @{
     ViewBag.Title = "Opret Gruppe";
 }
@@ -30,7 +31,8 @@
             <tr>
                 <td>@s.Id</td>
                 <td>@s.Name</td>
-                <td>@Html.CheckBox("Checkbox" + i, new { value=s.Selected })</td>
+                @*<td>@Html.CheckBox(s.Id.ToString(), new { value = s.Id, id = s.Id })</td>*@
+                <td><input type="checkbox" value="@s.Id" name="selected" /></td>
             </tr>
             i++;
         }

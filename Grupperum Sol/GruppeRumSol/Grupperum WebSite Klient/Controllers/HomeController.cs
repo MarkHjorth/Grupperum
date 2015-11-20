@@ -44,28 +44,16 @@ namespace Grupperum_Website_Klient.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateGroup(FormCollection form)
+        public ActionResult CreateGroup(FormCollection form, List<int> selected)
         {
-            int i = 0;
-            var groupName = form.GetValue("groupName");
-            List< int > studentIdList = new List<int>();
-            /*
-            while (form.GetValue("Checkbox" + i) != null)
-            {
-                var tempvar = (form.GetValue("Checkbox" + i));
-                int studentId = Int32.Parse(tempvar);
-                studentIdList.Add(tempvar);
-                form.
-                i++;
-            }
-            */
-            var ckbx1 = form.GetValue("chkbx1");
-            var ckbx2 = form.GetValue("chkbx2");
-            var ckbx3 = form.GetValue("chkbx3");
+            var gn = form.Get("groupName");
+            string groupName = gn.ToString();
+
+            int[] sel = selected.ToArray();
 
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                //client.CreateGroup(groupName, );
+                client.CreateGroup(groupName, sel);
             }
 
             return Redirect("Rent");
