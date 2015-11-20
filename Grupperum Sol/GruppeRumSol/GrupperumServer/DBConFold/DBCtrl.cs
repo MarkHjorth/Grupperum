@@ -97,7 +97,7 @@ namespace GrupperumServer.DBConFold
 
             foreach (int id in studentId)
             {
-                rs = dbCon.ExecuteStringGet("UPDATE Student SET groupId = " + groupId + " WHERE id = " + id + ");");
+                done = dbCon.ExecuteStringPut("UPDATE Student SET groupId = " + groupId + " WHERE id = " + id + ";");
             }
 
             return done;
