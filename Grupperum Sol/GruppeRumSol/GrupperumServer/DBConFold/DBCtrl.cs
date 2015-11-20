@@ -89,13 +89,10 @@ namespace GrupperumServer.DBConFold
             bool done = false;
             SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) OUTPUT Inserted.id VALUES('" + name + "');");
 
-            if(rs.HasRows)
+            while (rs.Read())
             {
-                while (rs.Read())
-                {
-                    groupId = (int)rs.GetValue(0);
-                    done = true;
-                }
+                groupId = (int)rs.GetValue(0);
+                done = true;
             }
 
             foreach (int id in studentId)
