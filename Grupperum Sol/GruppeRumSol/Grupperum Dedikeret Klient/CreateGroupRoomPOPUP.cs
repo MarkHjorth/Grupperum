@@ -20,7 +20,9 @@ namespace Grupperum_Dedikeret_Klient
         }
 
         private void lbl_Name_Click(object sender, EventArgs e)
-        {}
+        {
+            MessageBox.Show("Lol wat XD");
+        }
 
         private void btn_godkend_Click(object sender, EventArgs e)
         {

@@ -58,11 +58,7 @@ namespace Grupperum_Website_Klient.Controllers
 
             return Redirect("Rent");
         }
-
-
-
-
-
+        
         public ActionResult Rent(List<Grupperum_Website_Klient.GrumService.Student> sList)
         {
             ViewBag.Message = "Lej grupperum";
