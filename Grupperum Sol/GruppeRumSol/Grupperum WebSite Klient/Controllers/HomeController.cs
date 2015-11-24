@@ -60,16 +60,27 @@ namespace Grupperum_Website_Klient.Controllers
 
             return Redirect("Rent");
         }
-
-
-
-
-
-        public ActionResult Rent(List<Grupperum_Website_Klient.GrumService.Student> sList)
+        
+        [HttpGet]
+        public ActionResult Rent()
         {
-            ViewBag.Message = "Lej grupperum";
+            RentClassroomModel model = new RentClassroomModel();
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult Rent(RentClassroomModel formModel)
+        {
+            using (GrumServiceClient client = new GrumServiceClient())
+            {
+                //client.RequestClassRoom(
+                int id = formModel.GrId;
+                int si= formModel.GrSize;
+                bool wh = formModel.Whiteboard;
+                bool mon = formModel.Monitor;
+                bool pr= formModel.Projector;
+            }
+                return Redirect("Rent");
         }
     }
 }

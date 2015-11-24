@@ -1,8 +1,45 @@
-﻿
+﻿@model Grupperum_Website_Klient.Models.Home.RentClassroomModel
+
 @{
     ViewBag.Title = "Rent";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Rent</h2>
+<h2>@ViewBag.Title</h2>
 
+@{List<int> antalList = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };}
+
+@using (Html.BeginForm("Rent", "Home", FormMethod.Post))
+{
+    <table border="1">
+        <tr>
+            <td>Atribut</td>
+            <td>Valgt</td>
+        </tr>
+
+        <tr>
+            <td>Antal medlemmer</td>
+            <td>@Html.DropDownList("name", new SelectList(antalList))</td>
+        </tr>
+
+        @Html.Hidden("Whiteboard", Model.Whiteboard)
+        <tr>
+            <td>Whiteboard</td>
+            <td>@Html.CheckBox("Request.Whiteboard")</td>
+        </tr>
+
+        @Html.Hidden("Request.Monitor", Model.Monitor)
+        <tr>
+            <td>Monitor</td>
+            <td>@Html.CheckBox("Request.Monitor.Selected")</td>
+        </tr>
+
+        @Html.Hidden("Request.Projector", Model.Projector)
+        <tr>
+            <td>Projector</td>
+            <td>@Html.CheckBox("Request.Projector.Selected")</td>
+        </tr>
+    </table>
+
+    <p class="submit"><input type="submit" name="requestClassroom" value="Book klasselokale"></p>
+}
