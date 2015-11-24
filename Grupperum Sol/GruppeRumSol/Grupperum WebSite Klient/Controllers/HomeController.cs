@@ -74,11 +74,11 @@ namespace Grupperum_Website_Klient.Controllers
             using (GrumServiceClient client = new GrumServiceClient())
             {
                 //client.RequestClassRoom(
-                int id = formModel.GrId;
-                int si= formModel.GrSize;
-                bool wh = formModel.Whiteboard;
-                bool mon = formModel.Monitor;
-                bool pr= formModel.Projector;
+                int id = formModel.request.GrId;
+                int si= formModel.request.GrSize;
+                bool wh = formModel.request.Whiteboard;
+                bool mon = formModel.request.Monitor;
+                bool pr= formModel.request.Projector;
             }
                 return Redirect("Rent");
         }

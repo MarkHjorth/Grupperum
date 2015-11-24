@@ -17,27 +17,28 @@
             <td>Valgt</td>
         </tr>
 
+        @Html.Hidden("m.request.GrSize", Model.GrSize)
         <tr>
             <td>Antal medlemmer</td>
-            <td>@Html.DropDownList("name", new SelectList(antalList))</td>
+            <td>@Html.DropDownList("Request.GrSize", new SelectList(antalList))</td>
         </tr>
 
-        @Html.Hidden("Whiteboard", Model.Whiteboard)
+        @Html.Hidden("m.request.Whiteboard", Model.Whiteboard)
         <tr>
             <td>Whiteboard</td>
             <td>@Html.CheckBox("Request.Whiteboard")</td>
         </tr>
 
-        @Html.Hidden("Request.Monitor", Model.Monitor)
+        @Html.Hidden("m.request.Monitor", Model.Monitor)
         <tr>
             <td>Monitor</td>
-            <td>@Html.CheckBox("Request.Monitor.Selected")</td>
+            <td>@Html.CheckBox("Request.Monitor")</td>
         </tr>
 
-        @Html.Hidden("Request.Projector", Model.Projector)
+        @Html.Hidden("m.request.Projector", Model.Projector)
         <tr>
             <td>Projector</td>
-            <td>@Html.CheckBox("Request.Projector.Selected")</td>
+            <td>@Html.CheckBox("Request.Projector")</td>
         </tr>
     </table>
 
