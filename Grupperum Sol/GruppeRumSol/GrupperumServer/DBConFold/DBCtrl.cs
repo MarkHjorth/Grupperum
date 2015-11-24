@@ -122,5 +122,11 @@ namespace GrupperumServer.DBConFold
                 name, bitWhiteboard, bitMonitor);
             return dbCon.ExecuteStringPut(command);
         }
+        public Class GetClassByAttributes(bool whiteboard, bool monitor, bool projector)
+        {
+            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) OUTPUT Inserted.id VALUES('" + name + "');");
+
+        }
+
     }
 }

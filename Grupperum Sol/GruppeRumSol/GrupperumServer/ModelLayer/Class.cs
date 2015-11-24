@@ -17,11 +17,11 @@ namespace GrupperumServer.ModelLayer
 
         public Class(int id)
         {
-            if(StudentList == null)
+            this.Id = id;
+            if (StudentList == null)
             {
                 StudentList = new List<Student>();
             }
-            this.Id = id;
         }
 
         public Class(int tempId, string tempName)

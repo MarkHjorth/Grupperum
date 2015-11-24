@@ -41,5 +41,10 @@ namespace GrupperumServer
         {
             return groupCtrl.CreateGroup(name, studentId);
         }
+
+        public bool RequestClassRoom(int groupSize, bool whiteboard, bool monitor, bool projector)
+        {
+            
+        }
     }
 }
