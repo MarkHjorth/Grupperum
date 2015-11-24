@@ -26,6 +26,6 @@ namespace WcfGrumService
         bool CreateGroup(string name, List<int> studentId);
 
         [OperationContract]
-        bool RequestClassRoom(int groupSize, bool whiteboard, bool monitor, bool projector);
+        bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector);
     }
 }

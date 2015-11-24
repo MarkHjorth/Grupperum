@@ -73,14 +73,14 @@ namespace Grupperum_Website_Klient.Controllers
         {
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                client.
                 int id = formModel.request.GrId;
                 int si= formModel.request.GrSize;
                 bool wh = formModel.request.Whiteboard;
                 bool mon = formModel.request.Monitor;
                 bool pr= formModel.request.Projector;
+                client.RequestClassRoom(id, si, wh, mon, pr);
             }
-                return Redirect("Rent");
+            return Redirect("Rent");
         }
     }
 }

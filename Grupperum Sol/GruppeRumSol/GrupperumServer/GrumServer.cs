@@ -15,6 +15,7 @@ namespace GrupperumServer
         ClassCtrl classCtrl = new ClassCtrl();
         LoginCtrl loginCtrl = new LoginCtrl();
         GroupCtrl groupCtrl = new GroupCtrl();
+        ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
 
         public Class getClassByStudentId(int id)
         {
@@ -42,9 +43,9 @@ namespace GrupperumServer
             return groupCtrl.CreateGroup(name, studentId);
         }
 
-        public bool RequestClassRoom(int groupSize, bool whiteboard, bool monitor, bool projector)
+        public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector)
         {
-            
+           return classRoomCtrl.RequestClassRoom(groupId, groupSize, whiteboard, monitor, projector);
         }
     }
 }

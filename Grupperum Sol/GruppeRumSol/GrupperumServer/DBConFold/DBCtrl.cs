@@ -122,37 +122,43 @@ namespace GrupperumServer.DBConFold
                 name, bitWhiteboard, bitMonitor);
             return dbCon.ExecuteStringPut(command);
         }
-        public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
+        //public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
+        //{
+        //    String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
+        //    if(whiteboard)
+        //    {
+        //        exString = exString + " AND whiteboard = 1";
+        //    }
+
+        //    if (monitor)
+        //    {
+        //        exString = exString + " AND monitor = 1";
+        //    }
+
+        //    if (projector)
+        //    {
+        //        exString = exString + " AND projector = 1";
+        //    }
+        //    exString = exString + ");";
+
+        //    SqlDataReader rs = dbCon.ExecuteStringGet(exString);
+
+        //    int classRoomId;
+        //    List <ClassRoom>  classRoomList = new List<ClassRoom>();
+        //    while (rs.Read())
+        //    {
+        //        classRoomId = (int)rs.GetValue(0);
+        //        ClassRoom tempClassRoom = new ClassRoom(classRoomId);
+
+        //        classRoomList.Add(tempClassRoom);
+        //    }
+        //    return classRoomList;
+        //}
+
+        public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector)
         {
-            String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
-            if(whiteboard)
-            {
-                exString = exString + " AND whiteboard = 1";
-            }
-
-            if (monitor)
-            {
-                exString = exString + " AND monitor = 1";
-            }
-
-            if (projector)
-            {
-                exString = exString + " AND projector = 1";
-            }
-            exString = exString + ");";
-
-            SqlDataReader rs = dbCon.ExecuteStringGet(exString);
-
-            int classRoomId;
-            List <ClassRoom>  classRoomList = new List<ClassRoom>();
-            while (rs.Read())
-            {
-                classRoomId = (int)rs.GetValue(0);
-                ClassRoom tempClassRoom = new ClassRoom(classRoomId);
-
-                classRoomList.Add(tempClassRoom);
-            }
-            return classRoomList;
+            string exString = string.Format("INSERT INTO ClassRoomWaitingList(groupId, size, whiteboard, monitor, projector) VALUES ({0}, {1}, {2}, {3}, {4});", groupId, groupSize, whiteboard, monitor, projector);
+            return dbCon.ExecuteStringPut(exString);
         }
 
     }
