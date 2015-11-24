@@ -45,5 +45,13 @@ namespace GrupperumServer.CtrlLayer
         {
             clas.addStudent(student);
         }
+
+        public Class GetClassByAttributes(bool whiteboard, bool monitor, bool projector)
+        {
+            Class tempclass = dbCtrl.GetClassByAttributes(whiteboard, monitor, projector);
+            return tempclass;
+
+        }
     }
+
 }

@@ -124,8 +124,30 @@ namespace GrupperumServer.DBConFold
         }
         public Class GetClassByAttributes(bool whiteboard, bool monitor, bool projector)
         {
-            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) OUTPUT Inserted.id VALUES('" + name + "');");
+            String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
+            if(whiteboard)
+            {
+                exString = exString + " AND whiteboard = 1";
+            }
 
+            if (monitor)
+            {
+                exString = exString + " AND monitor = 1";
+            }
+
+            if (projector)
+            {
+                exString = exString + " AND projector = 1";
+            }
+            exString = exString + ");";
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(exString);
+
+            int classRoomId;
+            List <ClassRoom>  classRoomList = new List<ClassRoom>();
+            while (rs.Read())
+            {
+                classRoomId = (int)rs.GetValue(0);            }
         }
 
     }
