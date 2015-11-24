@@ -157,7 +157,7 @@ namespace GrupperumServer.DBConFold
 
         public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector)
         {
-            string exString = ("INSERT INTO ClassRoomWaitingList(groupId, size, whiteboard, monitor, projector) VALUES ({0}, {1}, {2}, {3}, {4}); ", groupId, groupSize, whiteboard, monitor, projector);
+            string exString = string.Format("INSERT INTO ClassRoomWaitingList(groupId, size, whiteboard, monitor, projector) VALUES ({0}, {1}, {2}, {3}, {4});", groupId, groupSize, whiteboard, monitor, projector);
             return dbCon.ExecuteStringPut(exString);
         }
 
