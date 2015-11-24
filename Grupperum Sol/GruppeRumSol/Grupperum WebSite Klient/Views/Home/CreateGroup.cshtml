@@ -1,23 +1,14 @@
-﻿@using Grupperum_Website_Klient.Models;
-
+﻿@model Grupperum_Website_Klient.Models.Home.CreateGroupModel
 
 @{
     ViewBag.Title = "Opret Gruppe";
 }
 
-<h2>Opret Gruppe</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("CreateGroup", "Home", FormMethod.Post))
 {
-    StudentList sList = new StudentList();
-
-    @Html.TextBox("groupName", null, new { placeholder = "Gruppe navn", required = "required" })
-
-    foreach (Grupperum_Website_Klient.GrumService.Student s in ViewBag.People)
-    {
-        Student stud = new Student(s.Id, s.Name);
-        sList.Add(stud);
-    }
+    @Html.TextBoxFor(m => m.Name, null, new { placeholder = "Gruppe navn", required = "required" });
 
     <table border="1">
         <tr>
@@ -25,16 +16,15 @@
             <td>Name</td>
             <td>Til gruppe</td>
         </tr>
-        @{int i = 0;}
-        @foreach (Student s in sList.studList)
+        @for (int i = 0; i < Model.Students.Count; i++)
         {
+            @Html.Hidden("Students[" + i + "].Id", Model.Students[i].Id);
+            @Html.Hidden("Students[" + i + "].Name", Model.Students[i].Id);
             <tr>
-                <td>@s.Id</td>
-                <td>@s.Name</td>
-                @*<td>@Html.CheckBox(s.Id.ToString(), new { value = s.Id, id = s.Id })</td>*@
-                <td><input type="checkbox" value="@s.Id" name="selected" /></td>
+                <td>@Model.Students[i].Id</td>
+                <td>@Model.Students[i].Name</td>
+                <td>@Html.CheckBox("Students[" + i + "].Selected")</td>
             </tr>
-            i++;
         }
     </table>
 

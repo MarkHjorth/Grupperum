@@ -1,5 +1,6 @@
 ﻿using Grupperum_Website_Klient.GrumService;
 using Grupperum_Website_Klient.Models;
+using Grupperum_Website_Klient.Models.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,28 +33,29 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpGet]
         public ActionResult CreateGroup()
         {
-            
-            ViewBag.Message = "Opret Gruppe";
-
+            CreateGroupModel model = new CreateGroupModel();
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                ViewBag.People = client.getClassById(2).StudentList;
+                model.Students = client.getClassById(2).StudentList
+                    .Select(s => new Models.Student(s.Id, s.Name))
+                    .ToList();
             }
 
-            return View();
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult CreateGroup(FormCollection form, List<int> selected)
+        public ActionResult CreateGroup(CreateGroupModel formModel)
         {
-            var gn = form.Get("groupName");
-            string groupName = gn.ToString();
-
-            int[] sel = selected.ToArray();
+            // check for students selected
+            if (formModel.Students == null || formModel.Students.Count == 0) { return View(formModel); }
 
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                client.CreateGroup(groupName, sel);
+                client.CreateGroup(formModel.Name, formModel.Students
+                    .Where(s => s.Selected)
+                    .Select(s => s.Id)
+                    .ToArray());
             }
 
             return Redirect("Rent");

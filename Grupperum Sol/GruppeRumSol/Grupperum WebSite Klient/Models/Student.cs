@@ -13,13 +13,18 @@ namespace Grupperum_Website_Klient.Models
 
         public string Name { get; set; }
 
-        public int Selected { get; set; }
+        public bool Selected { get; set; }
+
+        public Student()
+        {
+
+        }
 
         public Student(int id, String name)
         {
             this.Id = id;
             this.Name = name;
-            this.Selected = 0;
+            this.Selected = false;
         }
     }
 }

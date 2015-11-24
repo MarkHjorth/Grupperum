@@ -126,6 +126,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Home\CreateGroupModel.cs" />
     <Compile Include="Models\StudentList.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,6 +196,7 @@
     <None Include="Service References\GrumService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Home\Rent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
