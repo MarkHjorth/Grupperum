@@ -122,7 +122,7 @@ namespace GrupperumServer.DBConFold
                 name, bitWhiteboard, bitMonitor);
             return dbCon.ExecuteStringPut(command);
         }
-        public Class GetClassByAttributes(bool whiteboard, bool monitor, bool projector)
+        public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
         {
             String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
             if(whiteboard)
@@ -147,7 +147,12 @@ namespace GrupperumServer.DBConFold
             List <ClassRoom>  classRoomList = new List<ClassRoom>();
             while (rs.Read())
             {
-                classRoomId = (int)rs.GetValue(0);            }
+                classRoomId = (int)rs.GetValue(0);
+                ClassRoom tempClassRoom = new ClassRoom(classRoomId);
+
+                classRoomList.Add(tempClassRoom);
+            }
+            return classRoomList;
         }
 
     }
