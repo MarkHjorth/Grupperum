@@ -17,5 +17,10 @@ namespace GrupperumServer.CtrlLayer
             return tempclass;
 
         }
+        public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector)
+        {
+            return dbCtrl.RequestClassRoom(groupId, groupSize, whiteboard, monitor, projector);
+        }
+        
     }
 }

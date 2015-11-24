@@ -14,6 +14,6 @@ namespace GrupperumServer
         Student GetStudentById(int id);
         bool Authenticate(int user, string password);
         bool CreateGroup(string name, List<int> studentId);
-        bool RequestClassRoom(int groupSize, bool whiteboard, bool monitor, bool projector);
+        bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector);
     }
 }
