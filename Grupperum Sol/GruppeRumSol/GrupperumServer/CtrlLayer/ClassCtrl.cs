@@ -45,5 +45,8 @@ namespace GrupperumServer.CtrlLayer
         {
             clas.addStudent(student);
         }
+
+      
     }
+
 }

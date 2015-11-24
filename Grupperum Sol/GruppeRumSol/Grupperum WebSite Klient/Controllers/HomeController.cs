@@ -63,7 +63,7 @@ namespace Grupperum_Website_Klient.Controllers
         
         [HttpGet]
         public ActionResult Rent()
-        {
+        { 
             RentClassroomModel model = new RentClassroomModel();
             return View(model);
         }
@@ -73,7 +73,7 @@ namespace Grupperum_Website_Klient.Controllers
         {
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                //client.RequestClassRoom(
+                client.
                 int id = formModel.request.GrId;
                 int si= formModel.request.GrSize;
                 bool wh = formModel.request.Whiteboard;

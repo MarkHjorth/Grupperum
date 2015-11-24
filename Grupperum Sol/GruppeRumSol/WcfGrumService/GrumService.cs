@@ -40,5 +40,10 @@ namespace WcfGrumService
         {
             return grumServer.CreateGroup(name, studentId);
         }
+
+        public bool RequestClassRoom(int groupSize, bool whiteboard, bool monitor, bool projector)
+        {
+            return grumServer.RequestClassRoom(groupSize, whiteboard, monitor, projector);
+        }
     }
 }
