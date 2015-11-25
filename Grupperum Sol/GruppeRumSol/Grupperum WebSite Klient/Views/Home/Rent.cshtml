@@ -17,6 +17,11 @@
             <td>Valgt</td>
         </tr>
 
+        <tr>
+            <td>Gruppe Id</td>
+            <td>@Html.TextBoxFor(m => m.GrIdStr, null, new { placeholder = "Gruppe Id", required = "required" })</td>
+        </tr>
+
         @Html.Hidden("m.request.GrSize", Model.GrSize)
         <tr>
             <td>Antal medlemmer</td>

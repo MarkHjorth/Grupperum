@@ -8,6 +8,7 @@ namespace Grupperum_Website_Klient.Models.Home
     public class RentClassroomModel
     {
         public int GrId { get; set; }
+        public string GrIdStr { get; set; }
         public int GrSize { get; set; }
         public bool Whiteboard { get; set; }
         public bool Monitor { get; set; }

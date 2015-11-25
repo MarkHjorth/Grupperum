@@ -7,7 +7,8 @@ namespace Grupperum_Website_Klient.Models
 {
     public class Request
     {
-        public int GrId{ get; set; }
+        public int GrId { get; set; }
+        public string GrIdStr { get; set; }
         public int GrSize{ get; set; }
         public bool Whiteboard { get; set; }
         public bool Monitor { get; set; }
@@ -15,7 +16,7 @@ namespace Grupperum_Website_Klient.Models
 
         public Request()
         {
-
+            
         }
     }
 }

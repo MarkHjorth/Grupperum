@@ -73,7 +73,8 @@ namespace Grupperum_Website_Klient.Controllers
         {
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                int id = formModel.request.GrId;
+                string idS = formModel.GrIdStr;
+                int id = Int32.Parse(idS);
                 int si= formModel.request.GrSize;
                 bool wh = formModel.request.Whiteboard;
                 bool mon = formModel.request.Monitor;
