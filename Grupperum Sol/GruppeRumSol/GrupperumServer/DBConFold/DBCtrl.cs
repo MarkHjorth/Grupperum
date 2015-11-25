@@ -74,7 +74,7 @@ namespace GrupperumServer.DBConFold
                 while (rs.Read())
                 {
                     tempId = (int)rs.GetValue(0);
-                    tempName = (string)rs.GetValue(1);
+                    tempName = (string)rs.GetValue(2);
                     Student tempStudent = new Student(tempId, tempName);
                     tempList.Add(tempStudent);
                 }
