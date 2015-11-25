@@ -86,8 +86,9 @@ namespace GrupperumServer.DBConFold
         public bool CreateGroup(string name, List<int> studentId)
         {
             int groupId = 0;
+            int groupSize = studentId.Count();
             bool done = false;
-            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name) OUTPUT Inserted.id VALUES('" + name + "');");
+            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name, size) OUTPUT Inserted.id VALUES('" + name + "', '" + groupSize + "');");
 
             while (rs.Read())
             {
