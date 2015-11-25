@@ -45,5 +45,10 @@ namespace WcfGrumService
         {
            return grumServer.RequestClassRoom(groupId, groupSize, whiteboard, monitor, projector);
         }
+
+        public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
+        {
+            return grumServer.GetClassRoomByAttributes(whiteboard, monitor, projector);
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.CtrlLayer
 {
-    class LoginCtrl
+    public class LoginCtrl
     {
         StudentCtrl studentCtrl = new StudentCtrl();
         public LoginCtrl()

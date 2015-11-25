@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.CtrlLayer
 {
-    class GroupCtrl
+    public class GroupCtrl
     {
         DBCtrl dbCtrl = new DBCtrl();
         public GroupCtrl()

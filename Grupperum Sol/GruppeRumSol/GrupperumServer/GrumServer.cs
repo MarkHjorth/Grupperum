@@ -47,5 +47,10 @@ namespace GrupperumServer
         {
            return classRoomCtrl.RequestClassRoom(groupId, groupSize, whiteboard, monitor, projector);
         }
+
+        public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
+        {
+            return classRoomCtrl.GetClassRoomByAttributes(whiteboard, monitor, projector);
+        }
     }
 }

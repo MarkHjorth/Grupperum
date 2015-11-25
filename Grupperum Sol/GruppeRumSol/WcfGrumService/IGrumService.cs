@@ -27,5 +27,7 @@ namespace WcfGrumService
 
         [OperationContract]
         bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector);
+        [OperationContract]
+        List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector);
     }
 }
