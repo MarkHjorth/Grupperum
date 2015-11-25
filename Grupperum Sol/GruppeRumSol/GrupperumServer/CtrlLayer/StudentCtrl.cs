@@ -8,7 +8,7 @@ using GrupperumServer.DBConFold;
 
 namespace GrupperumServer.CtrlLayer
 {
-    class StudentCtrl
+    public class StudentCtrl
     {
         DBCtrl dbCtrl = new DBCtrl();
         public StudentCtrl()

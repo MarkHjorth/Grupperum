@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.ModelLayer
 {
-    class ClassRoom
+    public class ClassRoom
     {
         int id, size;
         bool whiteboard, monitor, projector;
