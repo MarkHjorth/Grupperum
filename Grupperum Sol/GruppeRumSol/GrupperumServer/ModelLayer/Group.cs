@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GrupperumServer.ModelLayer
 {
     [DataContract]
-    class Group
+    public class Group
     {
         private String name;
         private List<int> StudentId;

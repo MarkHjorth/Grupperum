@@ -53,6 +53,16 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrupperumServer\GrupperumServer.csproj">
+      <Project>{e4a75d09-486b-4ffc-957c-73df9bf6c018}</Project>
+      <Name>GrupperumServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestData\TestData.csproj">
+      <Project>{c4ccd1ca-3a57-425d-80fc-074717d92e06}</Project>
+      <Name>TestData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -1,23 +1,43 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using controllayer;
-using unittest.Testmodel;
+using GrupperumServer.CtrlLayer;
+using TestData;
+
 
 namespace TestProject
 {
     [TestClass]
     public class UnitTest1
     {
+        TestContainer tc = new TestContainer();
         [TestMethod]
-        public void TestMethod1()
+        public void DoesTestContainerExist()
         {
-            //var classList = Unittest.Testmodel.GetClassRoomList();
-            // var grouproomList = Unittest.TestmodelGetGroupRoomList();
-            // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());
-
-            // ctlr.Add()..
-
-            Assert.AreEqual<int>(classList.First().Groups.Count, 5);
+            Assert.IsNotNull(tc);
         }
+
+        [TestMethod]
+        public void IsClassRoomsCreated()
+        {
+            Assert.AreEqual<int>(tc.classRooms.Count, 50);
+        }
+
+        [TestMethod]
+        public void IsGroupsCreated()
+        {
+            Assert.AreEqual<int>(tc.groups.Count, 100);
+        }
+
+        //var classList = Unittest.Testmodel.GetClassRoomList();
+        // var grouproomList = Unittest.TestmodelGetGroupRoomList();
+        // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());
+
+        // ctlr.Add()..
+
+
+
+
+
+
     }
 }
