@@ -18,13 +18,29 @@ namespace Grupperum_Dedikeret_Klient
         public Form1()
         {
             InitializeComponent();
+            List<string> grl = igs.GetGroupRoomNames();
+            string[] grlArr = grl.ToArray();
+
+            comBx_groupRooms.Items.AddRange(grlArr);
+
+            foreach (string s in grl)
+            {
+                comBx_groupRooms.Items.Add(s);
+            }
+            comBx_groupRooms.SelectedIndex = 0;
         }
 
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
-
             CreateGroupRoomPOPUP crpop = new CreateGroupRoomPOPUP();
             crpop.ShowDialog();
+        }
+
+        private void btn_editRoom_Click(object sender, EventArgs e)
+        {
+            string roomName = comBx_groupRooms.SelectedItem.ToString();
+            EditGroupRoomPOPUP edpop = new EditGroupRoomPOPUP(roomName);
+            edpop.ShowDialog();
         }
     }
 }

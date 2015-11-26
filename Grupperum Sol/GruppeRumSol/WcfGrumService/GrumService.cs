@@ -50,5 +50,15 @@ namespace WcfGrumService
         {
             return grumServer.GetClassRoomByAttributes(whiteboard, monitor, projector);
         }
+
+        public List<string> GetGroupRoomNames()
+        {
+            return grumServer.GetGroupRoomNames();
+        }
+
+        public bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        {
+            return grumServer.UpdateGroupRoom(name, whiteboard, monitor);
+        }
     }
 }

@@ -33,11 +33,5 @@ namespace TestProject
         // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());
 
         // ctlr.Add()..
-
-
-
-
-
-
     }
 }

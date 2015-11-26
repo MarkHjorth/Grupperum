@@ -52,5 +52,15 @@ namespace GrupperumServer
         {
             return classRoomCtrl.GetClassRoomByAttributes(whiteboard, monitor, projector);
         }
+
+        public List<string> GetGroupRoomNames()
+        {
+            return dbCtrl.GetGroupRoomNames();
+        }
+
+        public bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        {
+            return dbCtrl.UpdateGroupRoom(name, whiteboard, monitor);
+        }
     }
 }

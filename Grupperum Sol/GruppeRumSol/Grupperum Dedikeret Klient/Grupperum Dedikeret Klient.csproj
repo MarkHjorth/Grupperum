@@ -55,6 +55,12 @@
     <Compile Include="CreateGroupRoomPOPUP.Designer.cs">
       <DependentUpon>CreateGroupRoomPOPUP.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditGroupRoomPOPUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditGroupRoomPOPUP.Designer.cs">
+      <DependentUpon>EditGroupRoomPOPUP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <EmbeddedResource Include="CreateGroupRoomPOPUP.resx">
       <DependentUpon>CreateGroupRoomPOPUP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditGroupRoomPOPUP.resx">
+      <DependentUpon>EditGroupRoomPOPUP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

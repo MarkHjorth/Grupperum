@@ -82,7 +82,40 @@ namespace GrupperumServer.DBConFold
 
             return tempList;
         }
-        
+
+        internal bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        {
+            int whiteboardBit = 0;
+            int monitorBit = 0;
+
+            if(whiteboard)
+            {
+                whiteboardBit = 1;
+            }
+            if(monitor)
+            {
+                monitorBit = 1;
+            }
+
+            string sqlCommand = string.Format("UPDATE GroupRoom SET whiteboard={0}, monitor={1} WHERE name='{2}'", whiteboardBit, monitorBit, name);
+            return dbCon.ExecuteStringPut(sqlCommand);
+        }
+
+        internal List<string> GetGroupRoomNames()
+        {
+            List<string> roomNames = new List<string>();
+
+            string sqlCommand = "SELECT [name] FROM [GroupRoom]";
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCommand);
+
+            while(rs.Read())
+            {
+                roomNames.Add(rs.GetString(0));
+            }
+
+            return roomNames;
+        }
+
         public bool CreateGroup(string name, List<int> studentId)
         {
             int groupId = 0;
