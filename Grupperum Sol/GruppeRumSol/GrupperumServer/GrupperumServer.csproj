@@ -45,6 +45,7 @@
     <Compile Include="CtrlLayer\ClassRoomCtrl.cs" />
     <Compile Include="CtrlLayer\GroupCtrl.cs" />
     <Compile Include="CtrlLayer\LoginCtrl.cs" />
+    <Compile Include="CtrlLayer\RequestCtrl.cs" />
     <Compile Include="CtrlLayer\StudentCtrl.cs" />
     <Compile Include="DBConFold\DBCon.cs" />
     <Compile Include="DBConFold\DBCtrl.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="ModelLayer\Class.cs" />
     <Compile Include="ModelLayer\ClassRoom.cs" />
     <Compile Include="ModelLayer\Group.cs" />
+    <Compile Include="ModelLayer\RequestClassroom.cs" />
     <Compile Include="ModelLayer\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

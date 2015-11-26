@@ -179,5 +179,65 @@ namespace GrupperumServer.DBConFold
             return dbCon.ExecuteStringPut(exString);
         }
 
+        //takes boolbits from DB and creates a binary code to int... Denne metode skal bruges når DB-table 
+        // over classRoomWaitingList skal omskrives til objekter. Objektet skal dannes som et 
+        //  RequestClassroom med denne property requestCode.
+        public RequestClassroom GetAllRequests(int id)
+        {
+            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM ClassRoomWaitinglist where id=" + id + ");");
+
+            int tempId = 0;
+            int tempGroupId = null;
+            int tempSize = null;
+            string bitWhiteboard = null;
+            string bitMonitor = null;
+            string bitProjector = null;
+            if (rs.HasRows)
+            {
+                while (rs.Read())
+                {
+                    tempId = (int)rs.GetValue(0);
+                    tempGroupId = rs.GetValue(1);
+                    tempSize = rs.GetValue(2);
+                    bitWhiteboard = rs.GetString(3);
+                    bitMonitor = rs.GetString(4);
+                    bitProjector = rs.GetString(5);
+
+                    StringBuilder byteList = new StringBuilder(int 3);
+                    byteList.Insert(int 0, string bitWhiteboard);
+                    byteList.Insert(int 1, string bitMonitor);
+                    byteList.Insert(int 2, string bitProjector);
+
+                }
+            }
+
+            Student tempStudent = new Student(tempId, tempName, tempPassword);
+
+            return tempStudent;
+        }
+
+        public int CreateBinaryCode(bool whiteboard, bool monitor, bool projector)
+        {
+            int requestCode = 0;
+
+            if (whiteboard)
+            {
+               int requestCode += 4;
+               else requestCode += 0
+               if (monitor)
+                {
+                    int requestCode += 2;
+                    else requestCode += 0;
+                    if (projector)
+                    {
+                        int requestCode += 1;
+                        else requestCode += 0;
+                    }
+                    return requestCode; 
+                }
+
+            }
+    
+        }
     }
 }
