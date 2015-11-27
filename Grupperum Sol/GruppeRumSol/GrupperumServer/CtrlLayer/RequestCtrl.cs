@@ -24,21 +24,28 @@ namespace GrupperumServer.CtrlLayer
             {
                 if (rc.RequestCode == 7)
                 {
-                    foreach(ClassRoom c in lessThanThree)  
-                    {
-                        if(c.RequestMatch == 7)
-                        {
-                            rc.ClassroomName = c.Name;
-                            stillNotFulfilled.Remove(rc);
-                            c.SpaceLeft -= rc.GroupSize;
-                            c.RequestMatch -= rc.RequestCode;
-                            c.GroupCount++;
-                        }
-                    }          
+         //kald metode                       
                 }
             }
 
         }
+        public void CycleLessThanThree()
+        {
+            foreach (ClassRoom c in lessThanThree)
+            {
+                for (int y = 0; y <= 7; y++)
+                {
+                    if (c.RequestMatch == y)
+                    {
+                        rc.ClassroomName = c.Name;
+                        stillNotFulfilled.Remove(rc);
+                        c.SpaceLeft -= rc.GroupSize;
+                        c.RequestMatch -= rc.RequestCode;
+                        c.GroupCount++;
+                        y = 10;
+                    }
+                }
+            }
+        }
 
-    }
 }
