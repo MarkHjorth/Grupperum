@@ -197,9 +197,6 @@ namespace GrupperumServer.DBConFold
 
             if (rs.HasRows)
             {
-                
-                
-
                 while (rs.Read())
                 {
                     tempId = (int) rs.GetValue(0);
@@ -241,5 +238,45 @@ namespace GrupperumServer.DBConFold
             return requestCode;
     
         }
+        // Her laves liste LessThanThree med klasselokaler hentet fra DB. Denne liste bruges til 
+        // algoritmesammenligningen. LessThanThree refererer til at objekterne kun skal blive på
+        // listen så længe groupCount er under 3.       
+        public List<ClassRoom> LessThanThree()
+        {
+            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM ClassRoom");
+
+            int tempId = 0;
+            string tempName = null;
+            int tempSize = 0;
+            bool bitWhiteboard = false;
+            bool bitMonitor = false;
+            bool bitProjector = false;
+            int requestMatch = 0;
+            int groupCount = 0;
+            int spaceLeft = 0;
+            List<ClassRoom> LessThanThree = new List<ClassRoom>();
+
+            if (rs.HasRows)
+            {
+                while (rs.Read())
+                {
+                    tempId = (int)rs.GetValue(0);
+                    tempName = rs.GetString(1);
+                    tempSize = (int)rs.GetValue(2);
+                    bitWhiteboard = (bool)rs.GetValue(3);
+                    bitMonitor = (bool)rs.GetValue(4);
+                    bitProjector = (bool)rs.GetValue(5);
+
+                    requestMatch = CreateBinaryCode(bitWhiteboard, bitMonitor, bitProjector);
+
+                    ClassRoom classroom = new ClassRoom(tempId, tempSize, tempName, requestMatch, spaceLeft, groupCount);
+                    LessThanThree.Add(classroom);
+
+                }
+            }
+            return LessThanThree;
+        }
+
     }
+    
 }
