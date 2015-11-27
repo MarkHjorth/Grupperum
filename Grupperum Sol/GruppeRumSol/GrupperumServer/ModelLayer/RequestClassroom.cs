@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.ModelLayer
 {
-    class RequestClassroom
+    public class RequestClassroom
     {
         int groupId, groupSize, requestCode;
         string classroomName;
 
-        public RequestClassroom(int groupId, int groupSize, int requestCode, String classroomName)
+        public RequestClassroom(int groupId, int groupSize, int requestCode)
         {
             this.groupId = groupId;
             this.groupSize = groupSize;
             this.requestCode = requestCode;
-            
-
         }
-    }
+     }
 }
