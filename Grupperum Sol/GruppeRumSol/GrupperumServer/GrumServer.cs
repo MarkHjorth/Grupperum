@@ -62,5 +62,10 @@ namespace GrupperumServer
         {
             return dbCtrl.UpdateGroupRoom(name, whiteboard, monitor);
         }
+
+        public bool HasGroupRooms()
+        {
+            return dbCtrl.HasGroupRooms();
+        }
     }
 }

@@ -18,5 +18,6 @@ namespace GrupperumServer
         List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector);
         List<string> GetGroupRoomNames();
         bool UpdateGroupRoom(string name, bool whiteboard, bool monitor);
+        bool HasGroupRooms();
     }
 }

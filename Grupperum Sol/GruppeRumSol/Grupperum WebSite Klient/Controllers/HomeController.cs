@@ -61,8 +61,12 @@ namespace Grupperum_Website_Klient.Controllers
                     .Where(s => s.Selected)
                     .Select(s => s.Id)
                     .ToArray());
-            }
 
+                if (client.HasGroupRooms())
+                {
+                    return Redirect("RentGroupRoom");
+                }
+            }
             return Redirect("Rent");
         }
         

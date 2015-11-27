@@ -28,6 +28,12 @@ namespace TestProject
             Assert.AreEqual<int>(tc.groups.Count, 100);
         }
 
+        [TestMethod]
+        public void test()
+        {
+            Assert.IsTrue(true);
+        }
+
         //var classList = Unittest.Testmodel.GetClassRoomList();
         // var grouproomList = Unittest.TestmodelGetGroupRoomList();
         // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());

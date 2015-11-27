@@ -212,5 +212,23 @@ namespace GrupperumServer.DBConFold
             return dbCon.ExecuteStringPut(exString);
         }
 
+        public bool HasGroupRooms()
+        {
+            string dbCommand = "SELECT id FROM GroupRoom";
+            SqlDataReader rs = dbCon.ExecuteStringGet(dbCommand);
+            
+            while(rs.Read())
+            {
+                if(rs.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
     }
 }
