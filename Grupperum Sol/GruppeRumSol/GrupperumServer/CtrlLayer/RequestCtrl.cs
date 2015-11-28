@@ -9,7 +9,7 @@ namespace GrupperumServer.CtrlLayer
 {
     // requestCtrl sammenligner lister af objekterne RequestClassroom og ClassRoom. (De dannes i 
     // modellaget og som lister på DBCtrl ved navn stillNotFulfilled og LessThanThree)
-    class RequestCtrl    
+    class RequestCtrl
     {
         public RequestCtrl()
         {
@@ -18,18 +18,24 @@ namespace GrupperumServer.CtrlLayer
             ClassRoom classRoom;
             List<ClassRoom> lessThanThree = new List<ClassRoom>();
         }
+
+        public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
+        {
+
+        }
+        /*
         public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
             foreach (RequestClassroom rc in stillNotFulfilled)
             {
                 if (rc.RequestCode == 7)
                 {
-         //kald metode                       
+                    //kald metode                       
                 }
             }
 
-        }
-        public void CycleLessThanThree()
+        }*/
+        /*public void CycleLessThanThree()
         {
             foreach (ClassRoom c in lessThanThree)
             {
@@ -46,6 +52,6 @@ namespace GrupperumServer.CtrlLayer
                     }
                 }
             }
-        }
-
-}
+        }*/
+    } //Slut på klasse
+} // Slut på namespace
