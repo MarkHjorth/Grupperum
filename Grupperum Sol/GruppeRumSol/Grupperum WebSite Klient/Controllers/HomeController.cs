@@ -62,10 +62,10 @@ namespace Grupperum_Website_Klient.Controllers
                     .Select(s => s.Id)
                     .ToArray());
 
-                if (client.HasGroupRooms())
-                {
-                    return Redirect("RentGroupRoom");
-                }
+                //if (client.HasGroupRooms())
+                //{
+                //    return Redirect("RentGroupRoom");
+                //}
             }
             return Redirect("Rent");
         }

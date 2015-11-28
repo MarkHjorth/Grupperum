@@ -132,11 +132,6 @@
     <Compile Include="Models\StudentList.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\GrumService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -160,17 +155,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Service References\GrumService\GrumService.wsdl" />
-    <Content Include="Service References\GrumService\Grupperum_Website_Klient.GrumService.Class.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\GrumService\item.disco" />
-    <None Include="Service References\GrumService\configuration91.svcinfo" />
-    <None Include="Service References\GrumService\configuration.svcinfo" />
-    <None Include="Service References\GrumService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -187,18 +171,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CreateGroup.cshtml" />
     <Content Include="Views\Home\Rent.cshtml" />
-    <None Include="Service References\GrumService\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrumService\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrumService\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrumService\item3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -214,9 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GrumService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
