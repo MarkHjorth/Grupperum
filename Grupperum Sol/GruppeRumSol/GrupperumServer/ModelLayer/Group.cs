@@ -17,5 +17,19 @@ namespace GrupperumServer.ModelLayer
             this.name = name;
             this.StudentId = studentId;
         }
+
+        public Group(int id, String name, List<int> studentId)
+        {
+            this.Id = id;
+            this.name = name;
+            this.StudentId = studentId;
+        }
+
+        public int Id { get; set; }
+
+        public int Size()
+        {
+            return StudentId.Count();
+        }
     }
 }

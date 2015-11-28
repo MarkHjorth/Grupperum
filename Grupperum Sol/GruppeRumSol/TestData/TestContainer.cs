@@ -13,12 +13,16 @@ namespace TestData
         
         public List<Group> groups { get; set; }
 
+        public List<RequestClassroom> requests { get; set; }
+
         public TestContainer()
         {
             classRooms = new List<ClassRoom>();
             groups = new List<Group>();
+            requests = new List<RequestClassroom>();
             CreateRooms();
             CreateGroups();
+            CreateRequests();
         }
 
         private void CreateRooms()
@@ -51,8 +55,23 @@ namespace TestData
                     ls.Add(j);
                 }
 
-                Group g = new Group(name, ls);
+                Group g = new Group(i, name, ls);
                 groups.Add(g);
+            }
+        }
+
+        private void CreateRequests()
+        {
+            int i = 1;
+            int[] iray = { 0, 1, 2, 3, 4, 5, 6, 7 };
+            Random rand = new Random();
+            int reqcode;
+
+            foreach (Group group in groups)
+            {
+                reqcode= rand.Next(7);
+                RequestClassroom request = new RequestClassroom(group.Id, group.Size(), reqcode);
+                i++;
             }
         }
 
