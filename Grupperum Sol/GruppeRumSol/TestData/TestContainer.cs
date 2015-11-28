@@ -71,6 +71,7 @@ namespace TestData
             {
                 reqcode= rand.Next(7);
                 RequestClassroom request = new RequestClassroom(group.Id, group.Size(), reqcode);
+                requests.Add(request);
                 i++;
             }
         }
