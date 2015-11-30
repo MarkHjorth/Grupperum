@@ -10,9 +10,18 @@ namespace GrupperumServer.ModelLayer
     [DataContract]
     public class ClassRoom
     {
-        int requestMatch, spaceLeft, groupCount;
-[DataMember]        
-public string Name {get; set;}
+        [DataMember]
+        public int RequestMatch { get; set; }
+
+        [DataMember]
+        public int SpaceLeft { get; set; }
+
+        [DataMember]
+        public int GroupCount { get; set; }
+
+        [DataMember]        
+        public string Name {get; set;}
+
         [DataMember]
         public int Id { get; set; }
 
@@ -44,17 +53,12 @@ public string Name {get; set;}
 
         public ClassRoom(int id, int size, string name, int requestMatch, int spaceLeft, int groupCount)
         {
-            this.id = id;
-            this.size = size;
+            this.Id = id;
+            this.Size = size;
             this.Name = name;
             this.RequestMatch = requestMatch;
             this.SpaceLeft = spaceLeft;
             this.GroupCount = groupCount;
         }
-
-        public int RequestMatch { get; set; }
-        public string Name { get; set; }
-        public int SpaceLeft { get; set; }
-        public int GroupCount { get; set; }
     }
 }
