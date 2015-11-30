@@ -60,7 +60,7 @@ namespace Grupperum_Website_Klient.Controllers
                 client.CreateGroup(formModel.Name, formModel.Students
                     .Where(s => s.Selected)
                     .Select(s => s.Id)
-                    .ToArray());
+                    .ToList());
 
                 //if (client.HasGroupRooms())
                 //{
