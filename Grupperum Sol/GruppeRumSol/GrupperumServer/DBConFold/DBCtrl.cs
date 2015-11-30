@@ -310,6 +310,24 @@ namespace GrupperumServer.DBConFold
             return LessThanThree;
         }
 
+        public bool HasGroupRooms()
+        {
+            string dbCommand = "SELECT GroupRoom.id FROM GroupRoom LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId WHERE Rent.GroupRoomId IS NULL";
+            SqlDataReader rs = dbCon.ExecuteStringGet(dbCommand);
+            
+            while(rs.Read())
+            {
+                if(rs.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
     }
     
 }

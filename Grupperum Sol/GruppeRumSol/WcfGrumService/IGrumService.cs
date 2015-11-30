@@ -36,5 +36,8 @@ namespace WcfGrumService
 
         [OperationContract]
         List<string> GetGroupRoomNames();
+
+        [OperationContract]
+        bool HasGroupRooms();
     }
 }

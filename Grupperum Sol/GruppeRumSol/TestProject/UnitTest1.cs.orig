@@ -29,12 +29,16 @@ namespace TestProject
         }
 
         [TestMethod]
+<<<<<<< HEAD
         public void IsRequestsCreated()
         {
             Assert.AreEqual<int>(tc.requests.Count, 100);
+=======
+        public void test()
+        {
+            Assert.IsTrue(true);
+>>>>>>> David
         }
-
-       
 
         //var classList = Unittest.Testmodel.GetClassRoomList();
         // var grouproomList = Unittest.TestmodelGetGroupRoomList();

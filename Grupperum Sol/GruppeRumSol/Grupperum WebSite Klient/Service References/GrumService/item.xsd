@@ -21,4 +21,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Student" nillable="true" type="tns:Student" />
+  <xs:complexType name="ArrayOfClassRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassRoom" nillable="true" type="tns:ClassRoom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassRoom" nillable="true" type="tns:ArrayOfClassRoom" />
+  <xs:complexType name="ClassRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Monitor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Projector" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Size" type="xs:int" />
+      <xs:element minOccurs="0" name="Whiteboard" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassRoom" nillable="true" type="tns:ClassRoom" />
 </xs:schema>

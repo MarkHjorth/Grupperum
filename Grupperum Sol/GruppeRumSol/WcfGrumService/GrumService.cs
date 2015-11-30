@@ -60,5 +60,10 @@ namespace WcfGrumService
         {
             return grumServer.UpdateGroupRoom(name, whiteboard, monitor);
         }
+
+        public bool HasGroupRooms()
+        {
+            return grumServer.HasGroupRooms();
+        }
     }
 }

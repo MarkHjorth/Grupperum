@@ -164,6 +164,9 @@
     <Content Include="Service References\GrumService\Grupperum_Website_Klient.GrumService.Class.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\GrumService\Grupperum_Website_Klient.GrumService.ClassRoom.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\GrumService\item.disco" />
     <None Include="Service References\GrumService\configuration91.svcinfo" />
     <None Include="Service References\GrumService\configuration.svcinfo" />

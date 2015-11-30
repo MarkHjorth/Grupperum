@@ -10,9 +10,11 @@ namespace GrupperumServer.ModelLayer
     [DataContract]
     public class ClassRoom
     {
-        int requestMatch, spaceLeft, groupCount;
-[DataMember]        
-public string Name {get; set;}
+<<<<<<< HEAD
+        int id, size, requestMatch, spaceLeft, groupCount;
+        string name;
+        bool whiteboard, monitor, projector;
+=======
         [DataMember]
         public int Id { get; set; }
 
@@ -27,6 +29,7 @@ public string Name {get; set;}
 
         [DataMember]
         public bool Projector { get; set; }
+>>>>>>> David
 
         public ClassRoom(int id, int size, bool whiteboard, bool monitor, bool projector)
         {
