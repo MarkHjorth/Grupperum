@@ -1,4 +1,5 @@
-﻿using GrupperumServer.ModelLayer;
+﻿using GrupperumServer.DBConFold;
+using GrupperumServer.ModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,32 @@ namespace GrupperumServer.CtrlLayer
 {
     // requestCtrl sammenligner lister af objekterne RequestClassroom og ClassRoom. (De dannes i 
     // modellaget og som lister på DBCtrl ved navn stillNotFulfilled og LessThanThree)
-    class RequestCtrl
+    public class RequestCtrl
     {
+        public List<RequestClassroom> stillNotFulfilled { get; set; }
+        DBCtrl dBCtrl = new DBCtrl();
+
+
         public RequestCtrl()
         {
             RequestClassroom requestClassroom;
-            List<RequestClassroom> stillNotFulfilled = new List<RequestClassroom>();
+            stillNotFulfilled = new List<RequestClassroom>();
             ClassRoom classRoom;
             List<ClassRoom> lessThanThree = new List<ClassRoom>();
+        }
+
+        public List<RequestClassroom> GetAllRequests()
+        {
+            stillNotFulfilled = dBCtrl.GetAllRequests();
+            stillNotFulfilled = sortRequestList(stillNotFulfilled);
+            return stillNotFulfilled;
+        }
+            
+        // List<> har en metode OrderBy som bruger en lambda til at sortere på en enkelt attribut.
+        public List<RequestClassroom> sortRequestList(List<RequestClassroom> stillNotFulfilled)
+        {
+           
+            return stillNotFulfilled.OrderBy(x => x.RequestCode).ToList();               
         }
 
         public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)

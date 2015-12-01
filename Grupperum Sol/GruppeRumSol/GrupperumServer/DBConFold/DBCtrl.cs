@@ -219,7 +219,7 @@ namespace GrupperumServer.DBConFold
         //takes boolbits from DB and creates a binary code to int... Denne metode skal bruges når DB-table 
         // over classRoomWaitingList skal omskrives til objekter. Objektet skal dannes som et 
         //  RequestClassroom med denne property requestCode.
-        public List<RequestClassroom> GetAllRequests(int id)
+        public List<RequestClassroom> GetAllRequests()
         {
             SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM ClassRoomWaitinglist");
 
@@ -246,15 +246,20 @@ namespace GrupperumServer.DBConFold
                     requestCode = CreateBinaryCode(bitWhiteboard, bitMonitor, bitProjector);
 
                     RequestClassroom requestClassroom = new RequestClassroom(tempGroupId, tempSize, requestCode);
-                    stillNotFulfilled.Add(requestClassroom);
-                   
+                    stillNotFulfilled.Add(requestClassroom);                   
                 }
-
-
             }
             return stillNotFulfilled;
-
         }
+        //public List<RequestClassroom> SortListByHighest()
+        //{ List<RequestClassroom> sortedList = new List<RequestClassroom>();
+
+        //    do
+        //    {
+        //       sortedList.Add(RequestClassroom)
+        //    }
+        //    while (RequestClassroom()
+        //}
 
         public int CreateBinaryCode(bool whiteboard, bool monitor, bool projector)
         {

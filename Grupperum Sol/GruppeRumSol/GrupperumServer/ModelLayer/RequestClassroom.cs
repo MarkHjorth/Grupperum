@@ -17,6 +17,7 @@ namespace GrupperumServer.ModelLayer
             this.RequestCode = requestCode;
             
         }
+
         public int RequestCode { get; set; }
         public string ClassroomName { get; set; }
         public int GroupSize { get; set; }
