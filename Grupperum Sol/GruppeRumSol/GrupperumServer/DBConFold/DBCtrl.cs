@@ -101,19 +101,23 @@ namespace GrupperumServer.DBConFold
             return dbCon.ExecuteStringPut(sqlCommand);
         }
 
-        internal List<string> GetGroupRoomNames()
+        public List<GroupRoom> GetGroupRooms()
         {
-            List<string> roomNames = new List<string>();
+            List<GroupRoom> groupRooms = new List<GroupRoom>();
 
-            string sqlCommand = "SELECT [name] FROM [GroupRoom]";
+            string sqlCommand = "SELECT * FROM [GroupRoom]";
             SqlDataReader rs = dbCon.ExecuteStringGet(sqlCommand);
 
             while(rs.Read())
             {
-                roomNames.Add(rs.GetString(0));
+                bool whiteboard = (bool)rs.GetValue(2);
+                bool monitor = (bool)rs.GetValue(2);
+                
+                GroupRoom room = new GroupRoom(rs.GetInt32(0), rs.GetString(1), whiteboard, monitor);
+                groupRooms.Add(room);
             }
 
-            return roomNames;
+            return groupRooms;
         }
 
         public bool CreateGroup(string name, List<int> studentId)

@@ -13,7 +13,8 @@ namespace Grupperum_Dedikeret_Klient
 {
     public partial class CreateGroupRoomPOPUP : Form
     {
-        private static IGrumService igs = new GrumService(); 
+        private static IGrumService igs = new GrumService();
+
         public CreateGroupRoomPOPUP()
         {
             InitializeComponent();

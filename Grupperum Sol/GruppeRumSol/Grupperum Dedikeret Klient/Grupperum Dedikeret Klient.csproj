@@ -69,11 +69,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceRefGRum\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CreateGroupRoomPOPUP.resx">
       <DependentUpon>CreateGroupRoomPOPUP.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +88,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\GrupperumServer.ModelLayer.Class.datasource" />
+    <None Include="Properties\DataSources\GrupperumServer.ModelLayer.ClassRoom.datasource" />
+    <None Include="Properties\DataSources\GrupperumServer.ModelLayer.GroupRoom.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,13 +100,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceRefGRum\service.wsdl" />
-    <None Include="Service References\ServiceRefGRum\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceRefGRum\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -117,21 +108,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceRefGRum\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceRefGRum\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceRefGRum\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceRefGRum\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\GrupperumServer\GrupperumServer.csproj">
+      <Project>{e4a75d09-486b-4ffc-957c-73df9bf6c018}</Project>
+      <Name>GrupperumServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WcfGrumService\WcfGrumService.csproj">
       <Project>{6aec567c-e19c-440f-a387-f7fe4c4a8516}</Project>
       <Name>WcfGrumService</Name>
