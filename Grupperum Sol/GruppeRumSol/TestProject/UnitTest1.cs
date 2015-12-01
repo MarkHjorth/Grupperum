@@ -10,6 +10,8 @@ namespace TestProject
     public class UnitTest1
     {
         TestContainer tc = new TestContainer();
+        RequestCtrl reqCtrl = new RequestCtrl();
+
         [TestMethod]
         public void DoesTestContainerExist()
         {
@@ -39,14 +41,15 @@ namespace TestProject
         [TestMethod]
         public void AreListsSorted()
         {
+            System.Diagnostics.Debug.WriteLine(tc.requests[0].RequestCode);
+            tc.requests = reqCtrl.sortRequestList(tc.requests);
             bool isSorted = true;
             int i = tc.requests[0].RequestCode;
             int index = 0;
             int length = tc.requests.Count;
             while (index < length && isSorted == true)
             {
-                index++;
-                if(tc.requests[index].RequestCode < i)
+                if (tc.requests[index].RequestCode < i)
                 {
                     i = tc.requests[index].RequestCode;                   
                 }
@@ -55,6 +58,7 @@ namespace TestProject
                 {
                     isSorted = false;              
                 }
+                index++;
             }
 
             Assert.IsTrue(isSorted);
