@@ -23,7 +23,7 @@ namespace GrupperumServer.CtrlLayer
             ClassRoom classRoom;
             List<ClassRoom> lessThanThree = new List<ClassRoom>();
         }
-
+        // Det er denne metode der skal kaldes når man vil have fat i listen af requestClassrooms som også er sorteret.
         public List<RequestClassroom> GetAllRequests()
         {
             stillNotFulfilled = dBCtrl.GetAllRequests();
