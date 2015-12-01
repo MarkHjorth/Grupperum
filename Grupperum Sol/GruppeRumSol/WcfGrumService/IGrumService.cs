@@ -35,7 +35,7 @@ namespace WcfGrumService
         List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector);
 
         [OperationContract]
-        List<string> GetGroupRoomNames();
+        List<string> GetGroupRooms();
 
         [OperationContract]
         bool HasGroupRooms();

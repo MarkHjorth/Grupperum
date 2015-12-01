@@ -18,16 +18,7 @@ namespace Grupperum_Dedikeret_Klient
         public Form1()
         {
             InitializeComponent();
-            List<string> grl = igs.GetGroupRoomNames();
-            string[] grlArr = grl.ToArray();
-
-            comBx_groupRooms.Items.AddRange(grlArr);
-
-            foreach (string s in grl)
-            {
-                comBx_groupRooms.Items.Add(s);
-            }
-            comBx_groupRooms.SelectedIndex = 0;
+            CreateDropDownList();
         }
 
         private void btn_CreateRoom_Click(object sender, EventArgs e)
@@ -41,6 +32,17 @@ namespace Grupperum_Dedikeret_Klient
             string roomName = comBx_groupRooms.SelectedItem.ToString();
             EditGroupRoomPOPUP edpop = new EditGroupRoomPOPUP(roomName);
             edpop.ShowDialog();
+        }
+
+        private void CreateDropDownList()
+        {
+            List<string> grl = igs.GetGroupRooms();
+            
+            foreach (string s in grl)
+            {
+                comBx_groupRooms.Items.Add(s.Name);
+            }
+            comBx_groupRooms.SelectedIndex = 0;
         }
     }
 }
