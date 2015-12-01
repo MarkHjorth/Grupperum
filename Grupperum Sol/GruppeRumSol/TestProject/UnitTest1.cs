@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GrupperumServer.CtrlLayer;
-using TestData;
-
+using TestData.TestContainer;
+using GrupperumServer.ModelLayer;
 
 namespace TestProject
 {
@@ -34,6 +34,31 @@ namespace TestProject
             Assert.AreEqual<int>(tc.requests.Count, 100);
         }
 
+        // Undersøger om Requestkoderne er sorteret efter højest først i listen requests[]. 
+        //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
+        [TestMethod]
+        public void AreListsSorted()
+        {
+            bool isSorted = true;
+            int i = tc.requests[0].RequestCode;
+            int index = 0;
+            int length = tc.requests.Count;
+            while (index < length && isSorted == true)
+            {
+                index++;
+                if(tc.requests[index].RequestCode < i)
+                {
+                    i = tc.requests[index].RequestCode;                   
+                }
+
+                if(tc.requests[index].RequestCode > i)
+                {
+                    isSorted = false;              
+                }
+            }
+
+            Assert.IsTrue(isSorted);
+        }
        
 
         //var classList = Unittest.Testmodel.GetClassRoomList();

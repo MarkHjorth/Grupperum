@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GrupperumServer.ModelLayer;
 
-namespace TestData
+namespace TestData.TestContainer
 {
     public class TestContainer
     {
