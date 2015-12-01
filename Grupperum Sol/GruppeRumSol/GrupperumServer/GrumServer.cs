@@ -67,5 +67,10 @@ namespace GrupperumServer
         {
             return dbCtrl.HasGroupRooms();
         }
+
+        public List<GroupRoom> GetGroupRoomList(string dateStart, string dateEnd, int grStrl, bool whiteboard, bool monitor)
+        {
+            return dbCtrl.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
     }
 }

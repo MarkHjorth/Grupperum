@@ -83,6 +83,25 @@ namespace GrupperumServer.DBConFold
             return tempList;
         }
 
+        internal List<GroupRoom> GetGroupRoomList(string dateStart, string dateEnd, int grStrl, bool whiteboard, bool monitor)
+        {
+            List<GroupRoom> roomList = new List<GroupRoom>();
+            string sqlCmd = string.Format(
+                "SELECT * FROM [GroupRoom] " + 
+                "LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId " + 
+                "WHERE Rent.GroupRoomId IS NULL AND [GroupRoom].whiteboard = '{0}' "+ 
+                "AND [GroupRoom].monitor = '{1}';", whiteboard, monitor);
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
+
+            while(rs.Read())
+            {
+                roomList.Add(new GroupRoom(rs.GetInt32(0), rs.GetString(1), rs.GetBoolean(2), rs.GetBoolean(3)));
+            }
+
+            return roomList;
+        }
+
         internal bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
         {
             int whiteboardBit = 0;

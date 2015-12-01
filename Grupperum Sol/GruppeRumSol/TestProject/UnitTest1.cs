@@ -59,7 +59,13 @@ namespace TestProject
 
             Assert.IsTrue(isSorted);
         }
-       
+
+        [TestMethod]
+        public void CanGetGroupRooms()
+        {
+            GrupperumServer.GrumServer gs = new GrupperumServer.GrumServer();
+            Assert.IsNotNull(gs.GetGroupRoomList("01-01-01", "01-01-01", 4, true, false));
+        }
 
         //var classList = Unittest.Testmodel.GetClassRoomList();
         // var grouproomList = Unittest.TestmodelGetGroupRoomList();
