@@ -40,7 +40,7 @@ namespace TestProject
         // Undersøger om Requestkoderne er sorteret efter højest først i listen requests[]. 
         //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
         [TestMethod]
-        public void AreListsSorted()
+        public void AreListsSortedByDescending()
         {
             tc.requests = reqCtrl.sortRequestList(tc.requests);
             bool isSorted = true;
@@ -49,7 +49,7 @@ namespace TestProject
             int length = tc.requests.Count;
             while (index < length && isSorted == true)
             {
-                if (tc.requests[index].RequestCode < i)
+                if (tc.requests[index].RequestCode <= i)
                 {
                     i = tc.requests[index].RequestCode;                   
                 }
@@ -66,7 +66,7 @@ namespace TestProject
         // Undersøger om klasselokalerne er sorteret på requestmatch efter laveste først i listen af classrooms. 
         //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
         [TestMethod]
-        public void AreListSortedByDescending()
+        public void AreListSorted()
         {
             tc.classRooms = reqCtrl.sortClassroomList(tc.classRooms);
             bool isSorted = true;
@@ -75,7 +75,7 @@ namespace TestProject
             int length = tc.classRooms.Count;
             while (index < length && isSorted == true)
             {
-                if (tc.classRooms[index].RequestMatch > i)
+                if (tc.classRooms[index].RequestMatch >= i)
                 {
                     i = tc.classRooms[index].RequestMatch;
                 }
