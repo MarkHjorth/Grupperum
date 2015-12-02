@@ -112,15 +112,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGroupRoomNames">
+  <xs:element name="GetGroupRooms">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGroupRoomNamesResponse">
+  <xs:element name="GetGroupRoomsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetGroupRoomNamesResult" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer" minOccurs="0" name="GetGroupRoomsResult" nillable="true" type="q4:ArrayOfGroupRoom" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -133,6 +133,24 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="HasGroupRoomsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupRoomList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dateEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="grStrl" type="xs:int" />
+        <xs:element minOccurs="0" name="whiteboard" type="xs:boolean" />
+        <xs:element minOccurs="0" name="monitor" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupRoomListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer" minOccurs="0" name="GetGroupRoomListResult" nillable="true" type="q5:ArrayOfGroupRoom" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

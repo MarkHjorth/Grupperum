@@ -83,14 +83,19 @@ namespace GrupperumServer.DBConFold
             return tempList;
         }
 
-        internal List<GroupRoom> GetGroupRoomList(string dateStart, string dateEnd, int grStrl, bool whiteboard, bool monitor)
+        internal List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
         {
             List<GroupRoom> roomList = new List<GroupRoom>();
             string sqlCmd = string.Format(
-                "SELECT * FROM [GroupRoom] " + 
-                "LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId " + 
-                "WHERE Rent.GroupRoomId IS NULL AND [GroupRoom].whiteboard = '{0}' "+ 
-                "AND [GroupRoom].monitor = '{1}';", whiteboard, monitor);
+                "SELECT * FROM [GroupRoom] " +
+                "LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId " +
+                "WHERE(StartDate NOT BETWEEN '{0}' AND '{1}' " +
+                "AND EndDate NOT BETWEEN '{0}' AND '{1}' " +
+                "AND '{0}' NOT BETWEEN StartDate AND EndDate " +
+                "AND '{1}' NOT BETWEEN StartDate AND EndDate) " +
+                "OR Rent.GroupRoomId IS NULL " +
+                "AND[GroupRoom].whiteboard = '{2}' " +
+                "AND[GroupRoom].monitor = '{3}';", dateStart, dateEnd, whiteboard, monitor);
 
             SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
 

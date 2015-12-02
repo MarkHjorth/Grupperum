@@ -41,6 +41,6 @@ namespace WcfGrumService
         bool HasGroupRooms();
 
         [OperationContract]
-        List<GroupRoom> GetGroupRoomList(string dateStart, string dateEnd, int grStrl, bool whiteboard, bool monitor);
+        List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
     }
 }

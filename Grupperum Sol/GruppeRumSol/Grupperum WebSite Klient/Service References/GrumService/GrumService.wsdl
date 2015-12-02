@@ -50,17 +50,23 @@
   <wsdl:message name="IGrumService_GetClassRoomByAttributes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClassRoomByAttributesResponse" />
   </wsdl:message>
-  <wsdl:message name="IGrumService_GetGroupRoomNames_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGroupRoomNames" />
+  <wsdl:message name="IGrumService_GetGroupRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupRooms" />
   </wsdl:message>
-  <wsdl:message name="IGrumService_GetGroupRoomNames_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGroupRoomNamesResponse" />
+  <wsdl:message name="IGrumService_GetGroupRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupRoomsResponse" />
   </wsdl:message>
   <wsdl:message name="IGrumService_HasGroupRooms_InputMessage">
     <wsdl:part name="parameters" element="tns:HasGroupRooms" />
   </wsdl:message>
   <wsdl:message name="IGrumService_HasGroupRooms_OutputMessage">
     <wsdl:part name="parameters" element="tns:HasGroupRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGrumService_GetGroupRoomList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupRoomList" />
+  </wsdl:message>
+  <wsdl:message name="IGrumService_GetGroupRoomList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupRoomListResponse" />
   </wsdl:message>
   <wsdl:portType name="IGrumService">
     <wsdl:operation name="getClassById">
@@ -91,13 +97,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/GetClassRoomByAttributes" message="tns:IGrumService_GetClassRoomByAttributes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/GetClassRoomByAttributesResponse" message="tns:IGrumService_GetClassRoomByAttributes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetGroupRoomNames">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomNames" message="tns:IGrumService_GetGroupRoomNames_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomNamesResponse" message="tns:IGrumService_GetGroupRoomNames_OutputMessage" />
+    <wsdl:operation name="GetGroupRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/GetGroupRooms" message="tns:IGrumService_GetGroupRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomsResponse" message="tns:IGrumService_GetGroupRooms_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="HasGroupRooms">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/HasGroupRooms" message="tns:IGrumService_HasGroupRooms_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/HasGroupRoomsResponse" message="tns:IGrumService_HasGroupRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupRoomList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomList" message="tns:IGrumService_GetGroupRoomList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomListResponse" message="tns:IGrumService_GetGroupRoomList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGrumService" type="tns:IGrumService">
@@ -165,8 +175,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetGroupRoomNames">
-      <soap:operation soapAction="http://tempuri.org/IGrumService/GetGroupRoomNames" style="document" />
+    <wsdl:operation name="GetGroupRooms">
+      <soap:operation soapAction="http://tempuri.org/IGrumService/GetGroupRooms" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -176,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="HasGroupRooms">
       <soap:operation soapAction="http://tempuri.org/IGrumService/HasGroupRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupRoomList">
+      <soap:operation soapAction="http://tempuri.org/IGrumService/GetGroupRoomList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
