@@ -11,6 +11,7 @@ namespace TestProject
     {
         TestContainer tc = new TestContainer();
         RequestCtrl reqCtrl = new RequestCtrl();
+        ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
 
         [TestMethod]
         public void DoesTestContainerExist()
@@ -41,7 +42,6 @@ namespace TestProject
         [TestMethod]
         public void AreListsSorted()
         {
-            System.Diagnostics.Debug.WriteLine(tc.requests[0].RequestCode);
             tc.requests = reqCtrl.sortRequestList(tc.requests);
             bool isSorted = true;
             int i = tc.requests[0].RequestCode;
@@ -63,8 +63,31 @@ namespace TestProject
 
             Assert.IsTrue(isSorted);
         }
-       
+        // Undersøger om klasselokalerne er sorteret på requestmatch efter laveste først i listen af classrooms. 
+        //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
+        [TestMethod]
+        public void AreListSortedByDescending()
+        {
+            tc.classRooms = reqCtrl.sortClassroomList(tc.classRooms);
+            bool isSorted = true;
+            int i = tc.classRooms[0].RequestMatch;
+            int index = 0;
+            int length = tc.classRooms.Count;
+            while (index < length && isSorted == true)
+            {
+                if (tc.classRooms[index].RequestMatch > i)
+                {
+                    i = tc.classRooms[index].RequestMatch;
+                }
 
+                if (tc.classRooms[index].RequestMatch < i)
+                {
+                    isSorted = false;
+                }
+                index++;
+            }
+            Assert.IsTrue(isSorted);
+        }
         //var classList = Unittest.Testmodel.GetClassRoomList();
         // var grouproomList = Unittest.TestmodelGetGroupRoomList();
         // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());

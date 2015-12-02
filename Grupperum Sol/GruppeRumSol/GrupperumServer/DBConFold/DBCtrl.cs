@@ -251,16 +251,7 @@ namespace GrupperumServer.DBConFold
             }
             return stillNotFulfilled;
         }
-        //public List<RequestClassroom> SortListByHighest()
-        //{ List<RequestClassroom> sortedList = new List<RequestClassroom>();
-
-        //    do
-        //    {
-        //       sortedList.Add(RequestClassroom)
-        //    }
-        //    while (RequestClassroom()
-        //}
-
+      
         public int CreateBinaryCode(bool whiteboard, bool monitor, bool projector)
         {
             int requestCode = 0;
