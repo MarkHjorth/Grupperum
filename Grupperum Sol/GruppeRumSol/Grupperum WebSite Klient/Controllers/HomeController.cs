@@ -84,8 +84,8 @@ namespace Grupperum_Website_Klient.Controllers
             GroupRoomListModel model = new GroupRoomListModel();
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                string ds = formModel.DateStart;
-                string df = formModel.DateFinish;
+                DateTime ds = formModel.DateStart;
+                DateTime df = formModel.DateFinish;
 
                 bool cr = formModel.request.ClassRoom;
                 string idS = formModel.GrIdStr;
@@ -109,6 +109,7 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpGet]
         public ActionResult Grouproom(GroupRoomListModel formModel)
         {
+
             return View(formModel);
         }
         [HttpPost]

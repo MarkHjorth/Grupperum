@@ -5,10 +5,10 @@ using System.Web;
 
 namespace Grupperum_Website_Klient.Models.Home
 {
-    public class RentClassroomModel
+    public class SearchGroupRoomModel
     {
-        public DateTime DateStart { get; set; }
-        public DateTime DateFinish { get; set; }
+        public String DateStart { get; set; }
+        public String DateFinish { get; set; }
 
         public int GrId { get; set; }
         public string GrIdStr { get; set; }
@@ -19,10 +19,10 @@ namespace Grupperum_Website_Klient.Models.Home
         public bool Projector { get; set; }
         public Request request { get; set; }
 
-        public RentClassroomModel()
+        public SearchGroupRoomModel()
         {
-            DateStart = DateTime.Today.Date;
-            DateFinish = DateTime.Today.Date;
+            DateStart = DateTime.Today.Date.ToString("dd/MM/yyyy");
+            DateFinish = DateTime.Today.Date.ToString("dd/MM/yyyy");
         }
     }
 }
