@@ -83,7 +83,56 @@ namespace GrupperumServer.DBConFold
             return tempList;
         }
 
-        internal List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
+        public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
+        {
+            bool isRented = false;
+
+            string sqlCmd = string.Format(
+                "INSERT INTO Rent(GroupRoomID, GroupID, StartDate, EndDate) " +
+                "OUTPUT Rent.id " +
+                "VALUES('{0}', '{1}', '{2}', '{3}');", grouproomId, groupId, dateStart, dateEnd);
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
+
+            while (rs.Read())
+            {
+                if (rs.GetValue(0) != null)
+                {
+                    isRented = true;
+                }
+            }
+
+            return isRented;
+        }
+
+        public bool TestGroupRoom(int grouproomId, DateTime dateStart, DateTime dateEnd)
+        {
+            bool isAvailable = false;
+            List<GroupRoom> roomList = new List<GroupRoom>();
+            string sqlCmd = string.Format(
+                "SELECT [GroupRoom].id FROM [GroupRoom] " +
+                "LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId " +
+                "WHERE(StartDate NOT BETWEEN '{0}' AND '{1}' " +
+                "AND EndDate NOT BETWEEN '{0}' AND '{1}' " +
+                "AND '{0}' NOT BETWEEN StartDate AND EndDate " +
+                "AND '{1}' NOT BETWEEN StartDate AND EndDate) " +
+                "OR Rent.GroupRoomId IS NULL" +
+                "AND[GroupRoom].id = '{2}';", dateStart, dateEnd, grouproomId);
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
+
+            while (rs.Read())
+            {
+                if(rs.GetInt32(0) == grouproomId)
+                {
+                    isAvailable = true;
+                }
+            }
+
+            return isAvailable;
+        }
+
+        public List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
         {
             List<GroupRoom> roomList = new List<GroupRoom>();
 
