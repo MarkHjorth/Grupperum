@@ -7,8 +7,8 @@ namespace Grupperum_Website_Klient.Models.Home
 {
     public class SearchGroupRoomModel
     {
-        public String DateStart { get; set; }
-        public String DateFinish { get; set; }
+        public DateTime DateStart { get; set; }
+        public DateTime DateFinish { get; set; }
 
         public int GrId { get; set; }
         public string GrIdStr { get; set; }
@@ -21,8 +21,8 @@ namespace Grupperum_Website_Klient.Models.Home
 
         public SearchGroupRoomModel()
         {
-            DateStart = DateTime.Today.Date.ToString("dd/MM/yyyy");
-            DateFinish = DateTime.Today.Date.ToString("dd/MM/yyyy");
+            DateStart = DateTime.Today.Date;
+            DateFinish = DateTime.Today.Date;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace GrupperumServer.ModelLayer
     public class GroupRoom
     {
         [DataMember]
-        public int Id { get; }
+        public int Id { get; set; }
 
         [DataMember]
         public string Name { get; set; }

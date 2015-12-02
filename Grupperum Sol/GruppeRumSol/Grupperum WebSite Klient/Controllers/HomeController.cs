@@ -62,10 +62,10 @@ namespace Grupperum_Website_Klient.Controllers
                     .Select(s => s.Id)
                     .ToList());
 
-                if (client.HasGroupRooms())
-                {
-                    return Redirect("RentGroupRoom");
-                }
+                //if (client.HasGroupRooms())
+                //{
+                //    return Redirect("Rent");
+                //}
             }
             return Redirect("Rent");
         }
@@ -74,12 +74,12 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpGet]
         public ActionResult Rent()
         {
-            RentClassroomModel model = new RentClassroomModel();
+            SearchGroupRoomModel model = new SearchGroupRoomModel();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Rent(RentClassroomModel formModel)
+        public ActionResult Rent(SearchGroupRoomModel formModel)
         {
             GroupRoomListModel model = new GroupRoomListModel();
             using (GrumServiceClient client = new GrumServiceClient())
@@ -95,8 +95,14 @@ namespace Grupperum_Website_Klient.Controllers
                 bool mon = formModel.request.Monitor;
                 bool pr = formModel.request.Projector;
 
+                List<GroupRoomWeb> tempList = client.GetGroupRoomList(ds, df, si, wh, mon);
                 
-                //model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon);
+                foreach (GroupRoomWeb n in tempList) 
+                {
+                    
+                }
+
+                //model.GroupRoomList;
             }
 
             if (model.GroupRoomList.Count == 0)
