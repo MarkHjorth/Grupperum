@@ -82,6 +82,7 @@ namespace Grupperum_Website_Klient.Controllers
         public ActionResult Rent(SearchGroupRoomModel formModel)
         {
             GroupRoomListModel model = new GroupRoomListModel();
+
             using (GrumServiceClient client = new GrumServiceClient())
             {
                 DateTime ds = formModel.DateStart;
@@ -95,12 +96,12 @@ namespace Grupperum_Website_Klient.Controllers
                 bool mon = formModel.request.Monitor;
                 bool pr = formModel.request.Projector;
 
-                List<GroupRoomWeb> tempList = client.GetGroupRoomList(ds, df, si, wh, mon);
+
+                model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
+                    .Select(gr => new Models.Home.GroupRoom() {GroupId = gr.Id })
+                    .ToList();
                 
-                foreach (GroupRoomWeb n in tempList) 
-                {
-                    
-                }
+              
 
                 //model.GroupRoomList;
             }

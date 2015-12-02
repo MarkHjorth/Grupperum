@@ -126,7 +126,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GroupRoomWeb.cs" />
+    <Compile Include="Models\GroupRoom.cs" />
     <Compile Include="Models\Home\SearchGroupRoomModel.cs" />
     <Compile Include="Models\Home\CreateGroupModel.cs" />
     <Compile Include="Models\Home\GroupRoomListModel.cs" />
