@@ -65,5 +65,15 @@ namespace WcfGrumService
         {
             return grumServer.HasGroupRooms();
         }
+
+        public List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
+        {
+            return grumServer.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
+
+        public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
+        {
+            return grumServer.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+        }
     }
 }

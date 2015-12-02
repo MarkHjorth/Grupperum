@@ -19,5 +19,7 @@ namespace GrupperumServer
         List<GroupRoom> GetGroupRooms();
         bool UpdateGroupRoom(string name, bool whiteboard, bool monitor);
         bool HasGroupRooms();
+        List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
+        bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd);
     }
 }
