@@ -69,10 +69,11 @@ namespace Grupperum_Website_Klient.Controllers
             }
             return Redirect("Rent");
         }
-        
+
+
         [HttpGet]
         public ActionResult Rent()
-        { 
+        {
             RentClassroomModel model = new RentClassroomModel();
             return View(model);
         }
@@ -80,17 +81,40 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpPost]
         public ActionResult Rent(RentClassroomModel formModel)
         {
+            GroupRoomListModel model = new GroupRoomListModel();
             using (GrumServiceClient client = new GrumServiceClient())
             {
+                string ds = formModel.DateStart;
+                string df = formModel.DateFinish;
+
+                bool cr = formModel.request.ClassRoom;
                 string idS = formModel.GrIdStr;
                 int id = Int32.Parse(idS);
-                int si= formModel.request.GrSize;
+                int si = formModel.request.GrSize;
                 bool wh = formModel.request.Whiteboard;
                 bool mon = formModel.request.Monitor;
-                bool pr= formModel.request.Projector;
-                client.RequestClassRoom(id, si, wh, mon, pr);
+                bool pr = formModel.request.Projector;
+
+                
+                //model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon);
             }
-            return Redirect("Rent");
+
+            if (model.GroupRoomList.Count == 0)
+            {
+                model.DisplayList = false;
+            }
+
+            return RedirectToAction("Grouproom", model);
+        }
+        [HttpGet]
+        public ActionResult Grouproom(GroupRoomListModel formModel)
+        {
+            return View(formModel);
+        }
+        [HttpPost]
+        public ActionResult Grouproom()
+        {
+            return Redirect("index");
         }
     }
 }

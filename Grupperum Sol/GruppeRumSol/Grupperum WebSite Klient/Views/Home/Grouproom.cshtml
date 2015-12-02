@@ -1,0 +1,34 @@
+﻿@model Grupperum_Website_Klient.Models.Home.GroupRoomListModel
+
+@{
+    ViewBag.Title = "Vælg Grupperum";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Grouproom", "Home", FormMethod.Post))
+{
+    if (@Model.DisplayList == true)
+    {
+        <table border="1">
+        <tr>
+            <td>Navn</td>
+            <td>Vælg</td>
+        </tr>
+        @for (int i = 0; i < Model.GroupRoomList.Count; i++)
+        {
+            @Html.Hidden("GroupRoomList[" + i + "].Name", Model.GroupRoomList[i].Id);
+            <tr>
+                <td>@Model.GroupRoomList[i].Name</td>
+                <td>@Html.CheckBox("GroupRoomList[" + i + "].Selected")</td>
+            </tr>
+        }
+    </table>
+    }
+    else
+    {
+        <i>Der er ingen grupperum tilbage efter jeres krav</i>
+        
+    }
+    <p class="submit"><input type="submit" name="rentGroupRoom" value="Lej lokale"></p>
+}

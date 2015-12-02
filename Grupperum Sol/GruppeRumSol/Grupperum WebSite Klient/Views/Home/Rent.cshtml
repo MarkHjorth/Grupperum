@@ -11,6 +11,23 @@
 
 @using (Html.BeginForm("Rent", "Home", FormMethod.Post))
 {
+    <h3>Grupperum</h3>
+    <table>
+        <tr>
+            <td>Start dato</td>
+            <td>Slut dato</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.DateStart, null, new { placeholder = "Start dato", required = "required" })
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.DateFinish, null, new { placeholder = "Slut dato", required = "required" })
+            </td>
+        </tr>
+    </table>
+    <br />
+
     <table border="1">
         <tr>
             <td>Atribut</td>
@@ -40,12 +57,33 @@
             <td>@Html.CheckBox("Request.Monitor")</td>
         </tr>
 
-        @Html.Hidden("m.request.Projector", Model.Projector)
-        <tr>
-            <td>Projector</td>
-            <td>@Html.CheckBox("Request.Projector")</td>
-        </tr>
+
     </table>
 
-    <p class="submit"><input type="submit" name="requestClassroom" value="Book klasselokale"></p>
+    <hr />
+    <h3>Klasseværelse</h3>
+
+    <i>
+        Vi tilbyder at låne tomme klasselokaler ud, hvis der ikke er ledige grupperum med dine krav, eller alle grupperum er udlånt<br />
+        Hvis du er i den situation at du skal bruge projektor, kan du også skrive dig op nedenunder.<br />
+        Du vil få information vedr. dit lån på din UCN mail.
+    </i>
+    <br />
+    
+    <table>
+        <tr>
+            <td>Projector</td>
+            @Html.Hidden("m.request.Projector", Model.Projector)
+            <td>@Html.CheckBox("Request.Projector")</td>
+        </tr>
+
+        <tr>
+            <td>Skriv mig op til klasseværelse</td>
+            @Html.Hidden("m.request.ClassRoom", Model.ClassRoom)
+            <td>@Html.CheckBox("Request.ClassRomm")</td>
+        </tr>
+
+    </table>
+    <hr />
+    <p class="submit"><input type="submit" name="requestGroupRoom" value="Find lokale"></p>
 }
