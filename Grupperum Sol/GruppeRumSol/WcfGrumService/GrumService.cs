@@ -71,9 +71,9 @@ namespace WcfGrumService
             return grumServer.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
         }
 
-        public bool RentGroupRoom(int grouproomId, int groupId, string dateStart, string dateEnd)
+        public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
         {
-            throw new NotImplementedException();
+            return grumServer.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
         }
     }
 }

@@ -72,5 +72,10 @@ namespace GrupperumServer
         {
             return dbCtrl.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
         }
+
+        public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
