@@ -7,6 +7,6 @@ namespace Grupperum_Website_Klient.Models.Home
 {
     public class GroupRoom
     {
-
+        public int GroupId { get; set; }
     }
 }
