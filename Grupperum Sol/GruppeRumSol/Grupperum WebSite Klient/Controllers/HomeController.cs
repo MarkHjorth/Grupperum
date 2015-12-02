@@ -16,6 +16,7 @@ namespace Grupperum_Website_Klient.Controllers
             return View();
         }
 
+
         public ActionResult About()
         {
             ViewBag.Message = "Denne side er om os";
@@ -48,6 +49,7 @@ namespace Grupperum_Website_Klient.Controllers
         public ActionResult CreateGroup(CreateGroupModel formModel)
         {
             int[] idList = formModel.Students.Where(s => s.Selected).Select(s => s.Id).ToArray();
+            
             // check for students selected
             if (formModel.Students == null || idList.Length == 0)
             {
@@ -56,16 +58,10 @@ namespace Grupperum_Website_Klient.Controllers
 
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                
                 client.CreateGroup(formModel.Name, formModel.Students
                     .Where(s => s.Selected)
                     .Select(s => s.Id)
                     .ToList());
-
-                //if (client.HasGroupRooms())
-                //{
-                //    return Redirect("Rent");
-                //}
             }
             return Redirect("Rent");
         }
@@ -74,15 +70,14 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpGet]
         public ActionResult Rent()
         {
-            SearchGroupRoomModel model = new SearchGroupRoomModel();
+            RentModel model = new RentModel();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Rent(SearchGroupRoomModel formModel)
+        public ActionResult Rent(RentModel formModel)
         {
-            GroupRoomListModel model = new GroupRoomListModel();
-
+            GroupRoomModel model = new GroupRoomModel();
             using (GrumServiceClient client = new GrumServiceClient())
             {
                 DateTime ds = formModel.DateStart;
@@ -98,24 +93,25 @@ namespace Grupperum_Website_Klient.Controllers
 
 
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
-                    .Select(gr => new Models.Home.GroupRoom() {GroupId = gr.Id, GroupName = gr.Name})
-                    .ToList();
-                
-              
-
-                //model.GroupRoomList;
+                     .Select(gr => new Models.Home.GroupRoom() { GroupId = gr.Id, GroupName = gr.Name })
+                     .ToList();
             }
+            
             if (model.GroupRoomList.Count == 0 || model.GroupRoomList.Count == -1)
             {
                 model.DisplayList = false;
             }
 
-            return RedirectToAction("Grouproom", model);
+            return Redirect("Grouproom"(model));
         }
+
         [HttpGet]
-        public ActionResult Grouproom(GroupRoomListModel formModel)
+        public ActionResult Grouproom(GroupRoomModel model)
         {
-            return View(formModel);
+            using (GrumServiceClient client = new GrumServiceClient())
+            { 
+            
+            } return View(model);
         }
         [HttpPost]
         public ActionResult Grouproom()

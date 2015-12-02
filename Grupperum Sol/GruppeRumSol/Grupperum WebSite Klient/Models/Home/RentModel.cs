@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Grupperum_Website_Klient.Models.Home
 {
-    public class SearchGroupRoomModel
+    public class RentModel
     {
         public DateTime DateStart { get; set; }
         public DateTime DateFinish { get; set; }
@@ -19,7 +19,7 @@ namespace Grupperum_Website_Klient.Models.Home
         public bool Projector { get; set; }
         public Request request { get; set; }
 
-        public SearchGroupRoomModel()
+        public RentModel()
         {
             DateStart = DateTime.Today.Date;
             DateFinish = DateTime.Today.Date;

@@ -5,11 +5,11 @@ using System.Web;
 
 namespace Grupperum_Website_Klient.Models.Home
 {
-    public class GroupRoomListModel
+    public class GroupRoomModel
     {
         public List<GroupRoom> GroupRoomList { get; set; }
         public bool DisplayList { get; set; }
-        public GroupRoomListModel()
+        public GroupRoomModel()
         {
             GroupRoomList = new List<GroupRoom> { };
             DisplayList = true;
