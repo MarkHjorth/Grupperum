@@ -105,6 +105,28 @@ namespace GrupperumServer.DBConFold
             return isRented;
         }
 
+        public bool CanTheyRent(int groupId, DateTime dateStart, DateTime dateEnd)
+        {
+            bool canTheyRent = false;
+            string sqlCmd = string.Format(
+                "SELECT GroupID FROM Rent " +
+                "WHERE(StartDate BETWEEN '{1}' AND '{2}' " +
+                "OR EndDate BETWEEN '{1}' AND '{2}' " +
+                "AND GroupId = '{0}');", groupId, dateStart, dateEnd);
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
+
+            while (rs.Read())
+            {
+                if (rs.GetInt32(0) == groupId)
+                {
+                    canTheyRent = true;
+                }
+            }
+
+            return canTheyRent;
+        }
+
         public bool TestGroupRoom(int grouproomId, DateTime dateStart, DateTime dateEnd)
         {
             bool isAvailable = false;
