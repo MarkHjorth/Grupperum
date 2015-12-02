@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -42,5 +42,8 @@ namespace WcfGrumService
 
         [OperationContract]
         List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
+
+        [OperationContract]
+        bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd); 
     }
 }
