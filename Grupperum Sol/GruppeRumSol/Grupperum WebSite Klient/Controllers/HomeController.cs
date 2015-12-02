@@ -47,17 +47,26 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpPost]
         public ActionResult CreateGroup(CreateGroupModel formModel)
         {
+            int[] idList = formModel.Students.Where(s => s.Selected).Select(s => s.Id).ToArray();
             // check for students selected
-            if (formModel.Students == null || formModel.Students.Count == 0) { return View(formModel); }
+            if (formModel.Students == null || idList.Length == 0)
+            {
+                return Redirect("CreateGroup");
+            }
 
             using (GrumServiceClient client = new GrumServiceClient())
             {
+                
                 client.CreateGroup(formModel.Name, formModel.Students
                     .Where(s => s.Selected)
                     .Select(s => s.Id)
-                    .ToArray());
-            }
+                    .ToList());
 
+                if (client.HasGroupRooms())
+                {
+                    return Redirect("RentGroupRoom");
+                }
+            }
             return Redirect("Rent");
         }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cfd2e2eb-03ab-49fa-96ed-f0c35a1ae87b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7326de5b-357b-4968-8515-8cb058f13a1c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -22,12 +24,12 @@
     <MetadataSource Address="http://localhost:8733/WcfGrumService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e9e624cc-d3ed-4119-a642-5e894c9f5f8f" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="5417a3d3-0af4-48f0-91e5-fd86ae0ca991" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd2" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="8d4b5b47-9d6c-40f4-b114-cf09be6e7cb8" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd3" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="98387602-4876-4017-ab7f-652eaf69c194" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd0" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="3978ab8c-52b4-4487-831f-df21ad1ba56f" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd1" />
-    <MetadataFile FileName="GrumService.wsdl" MetadataType="Wsdl" ID="ec21e838-237f-4554-a7d2-c25d5fc3803b" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="34ea45c1-1ca6-4324-99bb-d3ea8fce044e" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="a5e4bc9c-7196-4c95-b20f-84e2cfb58348" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="49fa399c-0abb-402a-a6ee-b8938cb30999" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd3" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f8b2ee31-92d6-47f8-ab9b-85a635cfe720" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="f0a94f26-00d0-4a7b-bab1-127cbb66f048" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?xsd=xsd1" />
+    <MetadataFile FileName="GrumService.wsdl" MetadataType="Wsdl" ID="2087d99f-2aaf-48e2-9659-dd4e8145614a" SourceId="1" SourceUrl="http://localhost:8733/WcfGrumService/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

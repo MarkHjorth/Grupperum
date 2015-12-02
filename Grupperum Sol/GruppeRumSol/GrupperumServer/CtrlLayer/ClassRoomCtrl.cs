@@ -18,6 +18,7 @@ namespace GrupperumServer.CtrlLayer
             return tempclass;
 
         }
+        // constructor to make classrooms for algorithm comparing.
         public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector)
         {
             return dbCtrl.RequestClassRoom(groupId, groupSize, whiteboard, monitor, projector);

@@ -52,5 +52,25 @@ namespace GrupperumServer
         {
             return classRoomCtrl.GetClassRoomByAttributes(whiteboard, monitor, projector);
         }
+
+        public List<GroupRoom> GetGroupRooms()
+        {
+            return dbCtrl.GetGroupRooms();
+        }
+
+        public bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        {
+            return dbCtrl.UpdateGroupRoom(name, whiteboard, monitor);
+        }
+
+        public bool HasGroupRooms()
+        {
+            return dbCtrl.HasGroupRooms();
+        }
+
+        public List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
+        {
+            return dbCtrl.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
     }
 }
