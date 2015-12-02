@@ -15,15 +15,15 @@
             <td>Navn</td>
             <td>Vælg</td>
         </tr>
-        @for (int i = 0; i < Model.GroupRoomList.Count; i++)
-        {
-            @Html.Hidden("GroupRoomList[" + i + "].Id", Model.GroupRoomList[i].Id);
-            <tr>
-                <td>@Model.GroupRoomList[i].Name</td>
-                <td>@Html.CheckBox("GroupRoomList[" + i + "].Selected")</td>
-            </tr>
-        }
-    </table>
+            @for (int i = 0; i < Model.GroupRoomList.Count; i++)
+            {
+                @Html.Hidden("GroupRoomList[" + i + "].GroupName", Model.GroupRoomList[i].GroupName);
+                <tr>
+                    <td>@Model.GroupRoomList[i].GroupName</td>
+                    <td>@Html.CheckBox("GroupRoomList[" + i + "].Selected")</td>
+                </tr>
+            }
+        </table>
     }
     else
     {

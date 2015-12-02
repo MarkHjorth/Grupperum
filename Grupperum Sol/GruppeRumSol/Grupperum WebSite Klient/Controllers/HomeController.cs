@@ -98,15 +98,14 @@ namespace Grupperum_Website_Klient.Controllers
 
 
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
-                    .Select(gr => new Models.Home.GroupRoom() {GroupId = gr.Id })
+                    .Select(gr => new Models.Home.GroupRoom() {GroupId = gr.Id, GroupName = gr.Name})
                     .ToList();
                 
               
 
                 //model.GroupRoomList;
             }
-
-            if (model.GroupRoomList.Count == 0)
+            if (model.GroupRoomList.Count == 0 || model.GroupRoomList.Count == -1)
             {
                 model.DisplayList = false;
             }
@@ -116,7 +115,6 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpGet]
         public ActionResult Grouproom(GroupRoomListModel formModel)
         {
-
             return View(formModel);
         }
         [HttpPost]

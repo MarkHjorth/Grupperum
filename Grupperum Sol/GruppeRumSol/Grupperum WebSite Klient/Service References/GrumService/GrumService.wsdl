@@ -68,6 +68,12 @@
   <wsdl:message name="IGrumService_GetGroupRoomList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGroupRoomListResponse" />
   </wsdl:message>
+  <wsdl:message name="IGrumService_RentGroupRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:RentGroupRoom" />
+  </wsdl:message>
+  <wsdl:message name="IGrumService_RentGroupRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RentGroupRoomResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGrumService">
     <wsdl:operation name="getClassById">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/getClassById" message="tns:IGrumService_getClassById_InputMessage" />
@@ -108,6 +114,10 @@
     <wsdl:operation name="GetGroupRoomList">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomList" message="tns:IGrumService_GetGroupRoomList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/GetGroupRoomListResponse" message="tns:IGrumService_GetGroupRoomList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RentGroupRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrumService/RentGroupRoom" message="tns:IGrumService_RentGroupRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrumService/RentGroupRoomResponse" message="tns:IGrumService_RentGroupRoom_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGrumService" type="tns:IGrumService">
@@ -195,6 +205,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGroupRoomList">
       <soap:operation soapAction="http://tempuri.org/IGrumService/GetGroupRoomList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RentGroupRoom">
+      <soap:operation soapAction="http://tempuri.org/IGrumService/RentGroupRoom" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

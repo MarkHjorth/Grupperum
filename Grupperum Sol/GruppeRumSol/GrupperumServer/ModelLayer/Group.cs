@@ -10,8 +10,14 @@ namespace GrupperumServer.ModelLayer
     [DataContract]
     public class Group
     {
+        [DataMember]
         private String name;
+        [DataMember]
+        public int Id { get; set; }
+
+        [DataMember]
         private List<int> StudentId;
+
         public Group(String name, List<int> studentId)
         {
             this.name = name;
@@ -24,8 +30,6 @@ namespace GrupperumServer.ModelLayer
             this.name = name;
             this.StudentId = studentId;
         }
-
-        public int Id { get; set; }
 
         public int Size()
         {

@@ -154,4 +154,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RentGroupRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="grouproomId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="dateStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dateEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RentGroupRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RentGroupRoomResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
