@@ -480,6 +480,12 @@ namespace Grupperum_Website_Klient.GrumService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetGroupRoomList", ReplyAction="http://tempuri.org/IGrumService/GetGroupRoomListResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom>> GetGroupRoomListAsync(System.DateTime dateStart, System.DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/RentGroupRoom", ReplyAction="http://tempuri.org/IGrumService/RentGroupRoomResponse")]
+        bool RentGroupRoom(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/RentGroupRoom", ReplyAction="http://tempuri.org/IGrumService/RentGroupRoomResponse")]
+        System.Threading.Tasks.Task<bool> RentGroupRoomAsync(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -587,6 +593,14 @@ namespace Grupperum_Website_Klient.GrumService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom>> GetGroupRoomListAsync(System.DateTime dateStart, System.DateTime dateEnd, int grStrl, bool whiteboard, bool monitor) {
             return base.Channel.GetGroupRoomListAsync(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
+        
+        public bool RentGroupRoom(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd) {
+            return base.Channel.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RentGroupRoomAsync(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd) {
+            return base.Channel.RentGroupRoomAsync(grouproomId, groupId, dateStart, dateEnd);
         }
     }
 }

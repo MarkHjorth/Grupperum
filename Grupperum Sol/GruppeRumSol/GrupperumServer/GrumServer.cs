@@ -16,6 +16,7 @@ namespace GrupperumServer
         LoginCtrl loginCtrl = new LoginCtrl();
         GroupCtrl groupCtrl = new GroupCtrl();
         ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
+        RentCtrl rentCtrl = new RentCtrl();
 
         public Class getClassByStudentId(int id)
         {
@@ -75,7 +76,7 @@ namespace GrupperumServer
 
         public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
         {
-            throw new NotImplementedException();
+            return rentCtrl.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
         }
     }
 }
