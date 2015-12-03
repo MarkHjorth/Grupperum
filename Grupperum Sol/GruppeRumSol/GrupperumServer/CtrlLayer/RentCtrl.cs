@@ -16,7 +16,10 @@ namespace GrupperumServer.CtrlLayer
             bool isRented = false;
             if (TestGroupRoom(grouproomId, dateStart, dateEnd))
             {
-                isRented = dbCtrl.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+                if (dbCtrl.CanTheyRent(groupId, dateStart, dateEnd))
+                {
+                    isRented = dbCtrl.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+                }
             }
             return isRented;
         }

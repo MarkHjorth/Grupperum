@@ -73,7 +73,7 @@ namespace GrupperumServer.CtrlLayer
                     stillNotFulfilled.Remove(stillNotFulfilled[0]);
                     lessThanThree[i].GroupCount++;
                     if (lessThanThree[i].GroupCount >= 3 || lessThanThree[i].Size )
-                    {
+                    {                    
                         lessThanThree.Remove(lessThanThree[i];
                     }
                     i = 0;

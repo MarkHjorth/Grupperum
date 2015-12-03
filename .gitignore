@@ -53,6 +53,7 @@ packages/
 
 #Visual Studio files
 *.[Oo]bj
+*/applicationhost.config
 *.user
 *.aps
 *.pch
@@ -79,3 +80,4 @@ ipch/
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+applicationhost.config
