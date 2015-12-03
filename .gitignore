@@ -80,3 +80,4 @@ ipch/
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+applicationhost.config
