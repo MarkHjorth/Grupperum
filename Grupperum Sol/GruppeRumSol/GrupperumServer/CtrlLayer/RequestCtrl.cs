@@ -60,6 +60,7 @@ namespace GrupperumServer.CtrlLayer
         */
         public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
+            List<int> notFulfilled = new List<int>();
             List<RequestMatch> matchedRequests = new List<RequestMatch>();
             int i = 0;
             while (lessThanThree.Count > 0 && stillNotFulfilled.Count > 0)
@@ -72,13 +73,22 @@ namespace GrupperumServer.CtrlLayer
                     lessThanThree[i].Size -= stillNotFulfilled[0].GroupSize;
                     stillNotFulfilled.Remove(stillNotFulfilled[0]);
                     lessThanThree[i].GroupCount++;
-                    if (lessThanThree[i].GroupCount >= 3 || lessThanThree[i].Size )
-                    {                    
-                        lessThanThree.Remove(lessThanThree[i];
+                    if (lessThanThree[i].GroupCount >= 3)
+                    {
+                        lessThanThree.Remove(lessThanThree[i]);
                     }
                     i = 0;
                 }
-                else i++;
+                else
+                {
+                    i++;
+                    if(lessThanThree.Count <= i)
+                    {
+                        notFulfilled.Add(stillNotFulfilled[0].GroupId);
+                        stillNotFulfilled.Remove(stillNotFulfilled[0]);                            
+                        i = 0;
+                    }
+                }
             }
         }
     } //Slut på klasse
