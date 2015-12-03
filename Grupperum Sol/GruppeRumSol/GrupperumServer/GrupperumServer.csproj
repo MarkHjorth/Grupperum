@@ -45,6 +45,7 @@
     <Compile Include="CtrlLayer\ClassRoomCtrl.cs" />
     <Compile Include="CtrlLayer\GroupCtrl.cs" />
     <Compile Include="CtrlLayer\LoginCtrl.cs" />
+    <Compile Include="CtrlLayer\RentCtrl.cs" />
     <Compile Include="CtrlLayer\RequestCtrl.cs" />
     <Compile Include="CtrlLayer\StudentCtrl.cs" />
     <Compile Include="DBConFold\DBCon.cs" />

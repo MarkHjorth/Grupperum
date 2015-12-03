@@ -17,6 +17,7 @@
         </tr>
             @for (int i = 0; i < Model.GroupRoomList.Count; i++)
             {
+                @Html.Hidden("GroupRoomList[" + i + "].GroupId", Model.GroupRoomList[i].GroupId);
                 @Html.Hidden("GroupRoomList[" + i + "].GroupName", Model.GroupRoomList[i].GroupName);
                 <tr>
                     <td>@Model.GroupRoomList[i].GroupName</td>

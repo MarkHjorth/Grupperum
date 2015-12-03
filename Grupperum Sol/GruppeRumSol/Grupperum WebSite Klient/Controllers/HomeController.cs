@@ -17,11 +17,6 @@ namespace Grupperum_Website_Klient.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index()
-        {
-            return Redirect("CreateGroup");
-        }
 
         public ActionResult About()
         {
@@ -116,6 +111,8 @@ namespace Grupperum_Website_Klient.Controllers
                 int si = (int)TempData["si"];
                 bool wh = (bool)TempData["wh"];
                 bool mon = (bool)TempData["mon"];
+                TempData["ds"] = ds;
+                TempData["df"] = df;
 
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
                      .Select(gr => new Models.Home.GroupRoom() { GroupId = gr.Id, GroupName = gr.Name })
@@ -132,16 +129,15 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpPost]
         public ActionResult Grouproom(GroupRoomModel formModel)
         {
-
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                //= formModel.GroupRoomList
-                //    .Where(s => s.Selected)
-                //    .Select(s => s.GroupId).ToList;
+                var q = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
+
+                bool didRent = false;
                 
                 DateTime ds = (DateTime) TempData["ds"];
                 DateTime df = (DateTime) TempData["df"];
-                client.RentGroupRoom(1, gr, ds, df);
+                didRent = client.RentGroupRoom(1, q.GroupId, ds, df);
 
                 return Redirect("index");
             }
