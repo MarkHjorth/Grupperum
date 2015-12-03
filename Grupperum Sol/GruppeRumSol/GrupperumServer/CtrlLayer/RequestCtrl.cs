@@ -13,6 +13,7 @@ namespace GrupperumServer.CtrlLayer
     public class RequestCtrl
     {
         public List<RequestClassroom> stillNotFulfilled { get; set; }
+        public List<ClassRoom> lessThanThree { get; set; }
         DBCtrl dBCtrl = new DBCtrl();
 
 
@@ -31,16 +32,35 @@ namespace GrupperumServer.CtrlLayer
             return stillNotFulfilled;
         }
             
-        // List<> har en metode OrderBy som bruger en lambda til at sortere på en enkelt attribut.
+        // List<> har en metode OrderByDescending som bruger en lambda til at sortere på en 
+        //enkelt attribut, med højeste først.
         public List<RequestClassroom> sortRequestList(List<RequestClassroom> stillNotFulfilled)
-        {
-           
-            return stillNotFulfilled.OrderBy(x => x.RequestCode).ToList();               
+        {           
+            return stillNotFulfilled.OrderByDescending(x => x.RequestCode).ToList();               
         }
 
-        public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
+        // List<> har metoden OrderBy som sorterer listen på en enkelt 
+        //attribut med mindste først.
+        public List<ClassRoom> sortClassroomList(List<ClassRoom> lessThanThree)
         {
+            return lessThanThree.OrderBy(x => x.RequestMatch).ToList();
+        }
 
+        public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
+        {
+            List<>
+            bool STOP = false;
+            while (stillNotFulfilled.Count > 0 && !STOP)
+            {
+                while (lessThanThree.Count > 0)
+                {
+                    int i = 0;
+                    if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch)
+                    {
+                    
+                    
+                    }
+                }
         }
         /*
         public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)

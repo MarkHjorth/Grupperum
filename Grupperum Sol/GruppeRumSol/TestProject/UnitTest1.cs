@@ -11,6 +11,7 @@ namespace TestProject
     {
         TestContainer tc = new TestContainer();
         RequestCtrl reqCtrl = new RequestCtrl();
+        ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
 
         [TestMethod]
         public void DoesTestContainerExist()
@@ -39,9 +40,8 @@ namespace TestProject
         // Undersøger om Requestkoderne er sorteret efter højest først i listen requests[]. 
         //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
         [TestMethod]
-        public void AreListsSorted()
+        public void AreListsSortedByDescending()
         {
-            System.Diagnostics.Debug.WriteLine(tc.requests[0].RequestCode);
             tc.requests = reqCtrl.sortRequestList(tc.requests);
             bool isSorted = true;
             int i = tc.requests[0].RequestCode;
@@ -49,7 +49,7 @@ namespace TestProject
             int length = tc.requests.Count;
             while (index < length && isSorted == true)
             {
-                if (tc.requests[index].RequestCode < i)
+                if (tc.requests[index].RequestCode <= i)
                 {
                     i = tc.requests[index].RequestCode;                   
                 }
@@ -63,6 +63,24 @@ namespace TestProject
 
             Assert.IsTrue(isSorted);
         }
+<<<<<<< HEAD
+        // Undersøger om klasselokalerne er sorteret på requestmatch efter laveste først i listen af classrooms. 
+        //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
+        [TestMethod]
+        public void AreListSorted()
+        {
+            tc.classRooms = reqCtrl.sortClassroomList(tc.classRooms);
+            bool isSorted = true;
+            int i = tc.classRooms[0].RequestMatch;
+            int index = 0;
+            int length = tc.classRooms.Count;
+            while (index < length && isSorted == true)
+            {
+                if (tc.classRooms[index].RequestMatch >= i)
+                {
+                    i = tc.classRooms[index].RequestMatch;
+                }
+=======
 
         [TestMethod]
         public void CanGetGroupRooms()
@@ -70,7 +88,16 @@ namespace TestProject
             GrupperumServer.GrumServer gs = new GrupperumServer.GrumServer();
             //Assert.IsNotNull(gs.GetGroupRoomList("01-01-01", "01-01-01", 4, true, false));
         }
+>>>>>>> 637a183946a8e4a663df80641468d9e11015885a
 
+                if (tc.classRooms[index].RequestMatch < i)
+                {
+                    isSorted = false;
+                }
+                index++;
+            }
+            Assert.IsTrue(isSorted);
+        }
         //var classList = Unittest.Testmodel.GetClassRoomList();
         // var grouproomList = Unittest.TestmodelGetGroupRoomList();
         // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());
