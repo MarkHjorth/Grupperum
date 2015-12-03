@@ -89,7 +89,7 @@ namespace GrupperumServer.DBConFold
 
             string sqlCmd = string.Format(
                 "INSERT INTO Rent(GroupRoomID, GroupID, StartDate, EndDate) " +
-                "OUTPUT Rent.id " +
+                "OUTPUT INSERTED.id " +
                 "VALUES('{0}', '{1}', '{2}', '{3}');", grouproomId, groupId, dateStart, dateEnd);
 
             SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
@@ -107,7 +107,7 @@ namespace GrupperumServer.DBConFold
 
         public bool CanTheyRent(int groupId, DateTime dateStart, DateTime dateEnd)
         {
-            bool canTheyRent = false;
+            bool canTheyRent = true;
             string sqlCmd = string.Format(
                 "SELECT GroupID FROM Rent " +
                 "WHERE(StartDate BETWEEN '{1}' AND '{2}' " +
@@ -120,7 +120,7 @@ namespace GrupperumServer.DBConFold
             {
                 if (rs.GetInt32(0) == groupId)
                 {
-                    canTheyRent = true;
+                    canTheyRent = false;
                 }
             }
 
@@ -138,7 +138,7 @@ namespace GrupperumServer.DBConFold
                 "AND EndDate NOT BETWEEN '{0}' AND '{1}' " +
                 "AND '{0}' NOT BETWEEN StartDate AND EndDate " +
                 "AND '{1}' NOT BETWEEN StartDate AND EndDate) " +
-                "OR Rent.GroupRoomId IS NULL" +
+                "OR Rent.GroupRoomId IS NULL " +
                 "AND[GroupRoom].id = '{2}';", dateStart, dateEnd, grouproomId);
 
             SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);

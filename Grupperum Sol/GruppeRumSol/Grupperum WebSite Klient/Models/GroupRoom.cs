@@ -7,8 +7,8 @@ namespace Grupperum_Website_Klient.Models.Home
 {
     public class GroupRoom
     {
-        public int GroupId { get; set; }
-        public string GroupName { get; set; }
+        public int GroupRoomId { get; set; }
+        public string GroupRoomName { get; set; }
         public bool Selected { get; set; }
     
         public GroupRoom()
@@ -18,7 +18,7 @@ namespace Grupperum_Website_Klient.Models.Home
 
         public GroupRoom(int id)
         {
-            GroupId = id;
+            GroupRoomId = id;
         }
     }
 }

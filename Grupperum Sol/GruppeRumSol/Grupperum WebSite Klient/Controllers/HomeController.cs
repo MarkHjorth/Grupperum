@@ -115,7 +115,7 @@ namespace Grupperum_Website_Klient.Controllers
                 TempData["df"] = df;
 
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
-                     .Select(gr => new Models.Home.GroupRoom() { GroupId = gr.Id, GroupName = gr.Name })
+                     .Select(gr => new Models.Home.GroupRoom() { GroupRoomId = gr.Id, GroupRoomName = gr.Name })
                      .ToList();
             
                 if (model.GroupRoomList.Count == 0 || model.GroupRoomList.Count == -1)
@@ -133,14 +133,11 @@ namespace Grupperum_Website_Klient.Controllers
             {
                 var q = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
 
-                bool didRent = false;
-                
                 DateTime ds = (DateTime) TempData["ds"];
                 DateTime df = (DateTime) TempData["df"];
-                didRent = client.RentGroupRoom(1, q.GroupId, ds, df);
-
-                return Redirect("index");
+                client.RentGroupRoom(1, 1, ds, df);
             }
+            return Redirect("Index");
         }
     }
 }

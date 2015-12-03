@@ -17,10 +17,10 @@
         </tr>
             @for (int i = 0; i < Model.GroupRoomList.Count; i++)
             {
-                @Html.Hidden("GroupRoomList[" + i + "].GroupId", Model.GroupRoomList[i].GroupId);
-                @Html.Hidden("GroupRoomList[" + i + "].GroupName", Model.GroupRoomList[i].GroupName);
+                @Html.Hidden("GroupRoomList[" + i + "].GroupRoomId", Model.GroupRoomList[i].GroupRoomId);
+                @Html.Hidden("GroupRoomList[" + i + "].GroupRoomName", Model.GroupRoomList[i].GroupRoomName);
                 <tr>
-                    <td>@Model.GroupRoomList[i].GroupName</td>
+                    <td>@Model.GroupRoomList[i].GroupRoomName</td>
                     <td>@Html.CheckBox("GroupRoomList[" + i + "].Selected")</td>
                 </tr>
             }
