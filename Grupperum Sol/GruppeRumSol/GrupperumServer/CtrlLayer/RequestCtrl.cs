@@ -57,6 +57,7 @@ namespace GrupperumServer.CtrlLayer
         eller flere end 18 mennesker i et klasselokale, men da vi har sat max på gruppestørrelser til 7 (en 
         dropdown) vil det ikke være relevant at tælle på antal personer. Til sidst sættes i til 0 så alle lokaler 
         igen køres igennem. Hvis der ikke fandtes match så i++ så næste lokale tjekkes.
+        VI MANGLER AT REQUESTKODEN OGSÅ KAN VÆRE == 7. Det vil alle være tilfredse med.
         */
         public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
