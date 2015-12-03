@@ -63,7 +63,6 @@ namespace TestProject
 
             Assert.IsTrue(isSorted);
         }
-<<<<<<< HEAD
         // Undersøger om klasselokalerne er sorteret på requestmatch efter laveste først i listen af classrooms. 
         //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
         [TestMethod]
@@ -80,24 +79,9 @@ namespace TestProject
                 {
                     i = tc.classRooms[index].RequestMatch;
                 }
-=======
-
-        [TestMethod]
-        public void CanGetGroupRooms()
-        {
-            GrupperumServer.GrumServer gs = new GrupperumServer.GrumServer();
-            //Assert.IsNotNull(gs.GetGroupRoomList("01-01-01", "01-01-01", 4, true, false));
-        }
->>>>>>> 637a183946a8e4a663df80641468d9e11015885a
-
-                if (tc.classRooms[index].RequestMatch < i)
-                {
-                    isSorted = false;
-                }
-                index++;
             }
-            Assert.IsTrue(isSorted);
         }
+
         //var classList = Unittest.Testmodel.GetClassRoomList();
         // var grouproomList = Unittest.TestmodelGetGroupRoomList();
         // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());
