@@ -11,11 +11,17 @@ namespace Grupperum_Website_Klient.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index()
+        {
+            return Redirect("CreateGroup");
+        }
 
         public ActionResult About()
         {
@@ -126,7 +132,19 @@ namespace Grupperum_Website_Klient.Controllers
         [HttpPost]
         public ActionResult Grouproom(GroupRoomModel formModel)
         {
-            return Redirect("index");
+
+            using (GrumServiceClient client = new GrumServiceClient())
+            {
+                //= formModel.GroupRoomList
+                //    .Where(s => s.Selected)
+                //    .Select(s => s.GroupId).ToList;
+                
+                DateTime ds = (DateTime) TempData["ds"];
+                DateTime df = (DateTime) TempData["df"];
+                client.RentGroupRoom(1, gr, ds, df);
+
+                return Redirect("index");
+            }
         }
     }
 }

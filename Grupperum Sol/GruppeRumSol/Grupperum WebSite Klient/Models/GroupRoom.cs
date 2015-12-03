@@ -16,5 +16,9 @@ namespace Grupperum_Website_Klient.Models.Home
 
         }
 
+        public GroupRoom(int id)
+        {
+            GroupId = id;
+        }
     }
 }
