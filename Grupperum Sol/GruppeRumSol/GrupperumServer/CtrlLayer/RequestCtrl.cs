@@ -48,19 +48,19 @@ namespace GrupperumServer.CtrlLayer
 
         public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
-            List<>
-            bool STOP = false;
-            while (stillNotFulfilled.Count > 0 && !STOP)
+            bool stop = false;
+            while (stillNotFulfilled.Count > 0 && !stop)
             {
                 while (lessThanThree.Count > 0)
                 {
                     int i = 0;
                     if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch)
                     {
-                    
-                    
+
+
                     }
                 }
+            }
         }
         /*
         public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
