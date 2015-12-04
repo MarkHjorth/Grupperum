@@ -8,6 +8,9 @@ namespace MailSystem
 {
     class Mail
     {
+        static void Main(string[] args)
+        {
+        }
         public Mail(List<int> reqListGroupId, List<int> reqListClassRoomId, List<int> failList)
         {
             PrintRent(reqListGroupId, reqListClassRoomId, failList);
