@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E4A75D09-486B-4FFC-957C-73DF9BF6C018}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{90336CEB-9638-463E-B3D5-3F89764E4AB7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GrupperumServer</RootNamespace>
-    <AssemblyName>GrupperumServer</AssemblyName>
+    <RootNamespace>MailSystem</RootNamespace>
+    <AssemblyName>MailSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,25 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CtrlLayer\ClassCtrl.cs" />
-    <Compile Include="CtrlLayer\ClassRoomCtrl.cs" />
-    <Compile Include="CtrlLayer\GroupCtrl.cs" />
-    <Compile Include="CtrlLayer\LoginCtrl.cs" />
-    <Compile Include="CtrlLayer\RentCtrl.cs" />
-    <Compile Include="CtrlLayer\RequestCtrl.cs" />
-    <Compile Include="CtrlLayer\StudentCtrl.cs" />
-    <Compile Include="DBConFold\DBCon.cs" />
-    <Compile Include="DBConFold\DBCtrl.cs" />
-    <Compile Include="GrumServer.cs" />
-    <Compile Include="IGrumServer.cs" />
-    <Compile Include="ModelLayer\Class.cs" />
-    <Compile Include="ModelLayer\ClassRoom.cs" />
-    <Compile Include="ModelLayer\Group.cs" />
-    <Compile Include="ModelLayer\GroupRoom.cs" />
-    <Compile Include="ModelLayer\RequestClassroom.cs" />
-    <Compile Include="ModelLayer\RequestMatch.cs" />
-    <Compile Include="ModelLayer\Student.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrupperumServer\GrupperumServer.csproj">
+      <Project>{e4a75d09-486b-4ffc-957c-73df9bf6c018}</Project>
+      <Name>GrupperumServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
