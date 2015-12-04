@@ -66,14 +66,14 @@ namespace GrupperumServer.CtrlLayer
             int i = 0;
             while (lessThanThree.Count > 0 && stillNotFulfilled.Count > 0)
             {
-                if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch)
+                if ((lessThanThree[i].RequestMatch & stillNotFulfilled[0].RequestCode) == stillNotFulfilled[i].RequestCode)
                 {
                     RequestMatch requestMatch = new RequestMatch(stillNotFulfilled[0].GroupId, lessThanThree[i].Id);
                     matchedRequests.Add(requestMatch);
                     lessThanThree[i].RequestMatch -= stillNotFulfilled[0].RequestCode;
                     lessThanThree[i].Size -= stillNotFulfilled[0].GroupSize;
                     stillNotFulfilled.Remove(stillNotFulfilled[0]);
-                    lessThanThree[i].GroupCount++;
+                    lessThanThree[i].GroupCount++; 
                     if (lessThanThree[i].GroupCount >= 3)
                     {
                         lessThanThree.Remove(lessThanThree[i]);
@@ -91,6 +91,7 @@ namespace GrupperumServer.CtrlLayer
                     }
                 }
             }
+            //Pass on the lists ! !
         }
     } //Slut på klasse
 } // Slut på namespace

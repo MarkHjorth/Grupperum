@@ -11,11 +11,13 @@ namespace GrupperumServer.ModelLayer
     public class RequestClassroom
     {
         [DataMember]
-        public int GroupId { get; set; } 
+        public int GroupId { get; set; }
         [DataMember]
         public int GroupSize { get; set; }
         [DataMember]
         public int RequestCode { get; set; }
+        [DataMember]
+        public string ClassroomName { get; set; }
 
         public RequestClassroom(int groupId, int groupSize, int requestCode)
         {
