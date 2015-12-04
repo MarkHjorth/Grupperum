@@ -15,7 +15,7 @@ namespace GrupperumServer.CtrlLayer
         public List<RequestClassroom> stillNotFulfilled { get; set; }
         public List<ClassRoom> lessThanThree { get; set; }
         DBCtrl dBCtrl = new DBCtrl();
-
+        RentCtrl rCtrl = new RentCtrl();
 
         public RequestCtrl()
         {
@@ -91,7 +91,14 @@ namespace GrupperumServer.CtrlLayer
                     }
                 }
             }
-            //Pass on the lists ! !
+            rCtrl.RentClassRooms(matchedRequests);
+            List<int> groupIds = new List<int>();
+            List<int> classroomIds = new List<int>();
+            foreach (RequestMatch rm in matchedRequests)
+            {
+                groupIds.Add(rm.GroupId);
+                classroomIds.Add(rm.ClassroomId);
+            }
         }
     } //Slut på klasse
 } // Slut på namespace
