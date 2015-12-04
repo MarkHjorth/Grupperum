@@ -105,6 +105,27 @@ namespace GrupperumServer.DBConFold
             return isRented;
         }
 
+        public bool RentClassRoom(int classRoomId, int groupId, DateTime startDate, DateTime endDate)
+        {
+            bool rentCreated = false;
+
+            string sqlCmd = string.Format(
+                "INSERT INTO Rent(ClassRoomID, GroupID, StartDate, EndDate) " +
+                "OUTPUT INSERTED.id " +
+                "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate, endDate);
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
+
+            while (rs.Read())
+            {
+                if (rs.GetValue(0) != null)
+                {
+                    rentCreated = true;
+                }
+            }
+            return rentCreated;
+        }
+
         public bool CanTheyRent(int groupId, DateTime dateStart, DateTime dateEnd)
         {
             bool canTheyRent = true;
@@ -429,5 +450,4 @@ namespace GrupperumServer.DBConFold
             return false;
         }
     }
-    
 }

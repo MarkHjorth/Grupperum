@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailSystem;
 
 namespace GrupperumServer.CtrlLayer
 {
@@ -15,7 +16,7 @@ namespace GrupperumServer.CtrlLayer
         public List<RequestClassroom> stillNotFulfilled { get; set; }
         public List<ClassRoom> lessThanThree { get; set; }
         DBCtrl dBCtrl = new DBCtrl();
-
+        RentCtrl rCtrl = new RentCtrl();
 
         public RequestCtrl()
         {
@@ -91,7 +92,15 @@ namespace GrupperumServer.CtrlLayer
                     }
                 }
             }
-            //Pass on the lists ! !
+            rCtrl.RentClassRooms(matchedRequests);
+            List<int> groupIds = new List<int>();
+            List<int> classroomIds = new List<int>();
+            foreach (RequestMatch rm in matchedRequests)
+            {
+                groupIds.Add(rm.GroupId);
+                classroomIds.Add(rm.ClassroomId);
+            }
+            Mail mail = new Mail(groupIds, classroomIds, notFulfilled);
         }
     } //Slut på klasse
 } // Slut på namespace

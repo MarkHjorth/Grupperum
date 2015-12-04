@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GrupperumServer.ModelLayer
+{
+    [DataContract]
+    public class RequestClassroom
+    {
+<<<<<<< HEAD
+        [DataMember]
+        int groupId, groupSize, requestCode;
+=======
+        public int GroupId { get; set; } 
+        public int GroupSize { get; set; }
+        public int RequestCode { get; set; }
+>>>>>>> ed20d969c2677c845f417922621eb1606f9948ec
+
+        public RequestClassroom(int groupId, int groupSize, int requestCode)
+        {
+            this.GroupId = groupId;
+            this.GroupSize = groupSize;
+<<<<<<< HEAD
+            this.RequestCode = requestCode;
+            
+        }
+        [DataMember]
+        public int RequestCode { get; set; }
+
+        [DataMember]
+        public string ClassroomName { get; set; }
+
+        [DataMember]
+        public int GroupSize { get; set; }
+=======
+            this.RequestCode = requestCode;            
+        }        
+>>>>>>> ed20d969c2677c845f417922621eb1606f9948ec
+    }
+}

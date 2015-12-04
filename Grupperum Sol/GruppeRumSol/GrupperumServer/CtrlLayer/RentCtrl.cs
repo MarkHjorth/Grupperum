@@ -1,4 +1,5 @@
 ﻿using GrupperumServer.DBConFold;
+using GrupperumServer.ModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,5 +30,19 @@ namespace GrupperumServer.CtrlLayer
             return dbCtrl.TestGroupRoom(grouproomId, dateStart, dateEnd);
         }
 
+        public bool RentClassRooms(List<RequestMatch> requests)
+        {
+            bool didWork = true;
+            foreach(RequestMatch rm in requests)
+            {
+                TimeSpan ts = new TimeSpan(7, 0, 0, 0);
+                bool t = dbCtrl.RentClassRoom(rm.ClassroomId, rm.GroupId, DateTime.Now, DateTime.Now.Add(ts));
+                if (!t)
+                {
+                    didWork = false;
+                }
+            }
+            return didWork;
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MailSystem
 {
-    class Mail
+    public class Mail
     {
         static void Main(string[] args)
         {
