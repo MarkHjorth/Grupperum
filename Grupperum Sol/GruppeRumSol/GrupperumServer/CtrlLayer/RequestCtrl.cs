@@ -66,7 +66,9 @@ namespace GrupperumServer.CtrlLayer
             int i = 0;
             while (lessThanThree.Count > 0 && stillNotFulfilled.Count > 0)
             {
-                if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch)
+                if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch || 
+                   lessThanThree[i].RequestMatch == 7 ||
+                   stillNotFulfilled[0].RequestCode == 0)
                 {
                     RequestMatch requestMatch = new RequestMatch(stillNotFulfilled[0].GroupId, lessThanThree[i].Id);
                     matchedRequests.Add(requestMatch);
