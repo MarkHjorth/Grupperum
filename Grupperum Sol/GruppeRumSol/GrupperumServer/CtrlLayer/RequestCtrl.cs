@@ -31,12 +31,12 @@ namespace GrupperumServer.CtrlLayer
             stillNotFulfilled = sortRequestList(stillNotFulfilled);
             return stillNotFulfilled;
         }
-            
+
         // List<> har en metode OrderByDescending som bruger en lambda til at sortere på en 
         //enkelt attribut, med højeste først.
         public List<RequestClassroom> sortRequestList(List<RequestClassroom> stillNotFulfilled)
-        {           
-            return stillNotFulfilled.OrderByDescending(x => x.RequestCode).ToList();               
+        {
+            return stillNotFulfilled.OrderByDescending(x => x.RequestCode).ToList();
         }
 
         // List<> har metoden OrderBy som sorterer listen på en enkelt 
@@ -45,52 +45,52 @@ namespace GrupperumServer.CtrlLayer
         {
             return lessThanThree.OrderBy(x => x.RequestMatch).ToList();
         }
-
+        /* Vi kigger på en request og gennemgår lokaler for at finde et match. Når vi finder et match 
+        opretter vi et nyt objekt med gruppeid og klasseid og lægger på en liste matchedRequests. 
+        Konkret: 
+        int i sættes til 0. Hvis listen af stillNotfulfilled er længere end 0 OG  listen af lokaler er 
+        større end 0 så undersøg for requestCode = requestMatch.
+        (Finder kun == og ikke de lokaler som er større som matcher, da det ikke er alle lokaler med en større 
+        kode, der vil matche) Findes et match så dannes det ny objekt og lægges på en liste og lokalets
+        requestMatch nedskrives, size nedskrives og groupcount tælles op. Hvis GroupCount er >= 3 fjernes 
+        dette lokale fra lokalelisten. (Oprindelig var kravet at der ikke måtte være flere end 3 grupper 
+        eller flere end 18 mennesker i et klasselokale, men da vi har sat max på gruppestørrelser til 7 (en 
+        dropdown) vil det ikke være relevant at tælle på antal personer. Til sidst sættes i til 0 så alle lokaler 
+        igen køres igennem. Hvis der ikke fandtes match så i++ så næste lokale tjekkes.
+        VI MANGLER AT REQUESTKODEN OGSÅ KAN VÆRE == 7. Det vil alle være tilfredse med.
+        */
         public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
-            bool stop = false;
-            while (stillNotFulfilled.Count > 0 && !stop)
+            List<int> notFulfilled = new List<int>();
+            List<RequestMatch> matchedRequests = new List<RequestMatch>();
+            int i = 0;
+            while (lessThanThree.Count > 0 && stillNotFulfilled.Count > 0)
             {
-                while (lessThanThree.Count > 0)
+                if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch)
                 {
-                    int i = 0;
-                    if (stillNotFulfilled[0].RequestCode == lessThanThree[i].RequestMatch)
+                    RequestMatch requestMatch = new RequestMatch(stillNotFulfilled[0].GroupId, lessThanThree[i].Id);
+                    matchedRequests.Add(requestMatch);
+                    lessThanThree[i].RequestMatch -= stillNotFulfilled[0].RequestCode;
+                    lessThanThree[i].Size -= stillNotFulfilled[0].GroupSize;
+                    stillNotFulfilled.Remove(stillNotFulfilled[0]);
+                    lessThanThree[i].GroupCount++;
+                    if (lessThanThree[i].GroupCount >= 3)
                     {
-
-
+                        lessThanThree.Remove(lessThanThree[i]);
+                    }
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                    if(lessThanThree.Count <= i)
+                    {
+                        notFulfilled.Add(stillNotFulfilled[0].GroupId);
+                        stillNotFulfilled.Remove(stillNotFulfilled[0]);                            
+                        i = 0;
                     }
                 }
             }
         }
-        /*
-        public void doTheFunkyAlgorythm(RequestClassroom requestClassroom, List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
-        {
-            foreach (RequestClassroom rc in stillNotFulfilled)
-            {
-                if (rc.RequestCode == 7)
-                {
-                    //kald metode                       
-                }
-            }
-
-        }*/
-        /*public void CycleLessThanThree()
-        {
-            foreach (ClassRoom c in lessThanThree)
-            {
-                for (int y = 0; y <= 7; y++)
-                {
-                    if (c.RequestMatch == y)
-                    {
-                        rc.ClassroomName = c.Name;
-                        stillNotFulfilled.Remove(rc);
-                        c.SpaceLeft -= rc.GroupSize;
-                        c.RequestMatch -= rc.RequestCode;
-                        c.GroupCount++;
-                        y = 10;
-                    }
-                }
-            }
-        }*/
     } //Slut på klasse
 } // Slut på namespace
