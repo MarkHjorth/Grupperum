@@ -51,12 +51,12 @@ namespace TestProject
             {
                 if (tc.requests[index].RequestCode <= i)
                 {
-                    i = tc.requests[index].RequestCode;                   
+                    i = tc.requests[index].RequestCode;
                 }
 
-                if(tc.requests[index].RequestCode > i)
+                if (tc.requests[index].RequestCode > i)
                 {
-                    isSorted = false;              
+                    isSorted = false;
                 }
                 index++;
             }
@@ -79,13 +79,13 @@ namespace TestProject
                 {
                     i = tc.classRooms[index].RequestMatch;
                 }
+                if (tc.classRooms[index].RequestMatch < i)
+                {
+                    isSorted = false;
+                }
+                index++;
             }
+            Assert.IsTrue(isSorted);
         }
-
-        //var classList = Unittest.Testmodel.GetClassRoomList();
-        // var grouproomList = Unittest.TestmodelGetGroupRoomList();
-        // ControlLayer.GrooupRoomControler ctlr = new ControlLayer.GrooupRoomControler(new TestContainer());
-
-        // ctlr.Add()..
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="ModelLayer\Group.cs" />
     <Compile Include="ModelLayer\GroupRoom.cs" />
     <Compile Include="ModelLayer\RequestClassroom.cs" />
+    <Compile Include="ModelLayer\RequestMatch.cs" />
     <Compile Include="ModelLayer\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

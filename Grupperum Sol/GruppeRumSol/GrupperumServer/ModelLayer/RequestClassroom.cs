@@ -11,22 +11,19 @@ namespace GrupperumServer.ModelLayer
     public class RequestClassroom
     {
         [DataMember]
-        int groupId, groupSize, requestCode;
-
-        public RequestClassroom(int groupId, int groupSize, int requestCode)
-        {
-            this.groupId = groupId;
-            this.GroupSize = groupSize;
-            this.RequestCode = requestCode;
-            
-        }
+        public int GroupId { get; set; }
+        [DataMember]
+        public int GroupSize { get; set; }
         [DataMember]
         public int RequestCode { get; set; }
-
         [DataMember]
         public string ClassroomName { get; set; }
 
-        [DataMember]
-        public int GroupSize { get; set; }
+        public RequestClassroom(int groupId, int groupSize, int requestCode)
+        {
+            this.GroupId = groupId;
+            this.GroupSize = groupSize;
+            this.RequestCode = requestCode;
+        }        
     }
 }
