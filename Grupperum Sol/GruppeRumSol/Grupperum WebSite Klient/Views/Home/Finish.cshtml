@@ -1,0 +1,21 @@
+﻿@model Grupperum_Website_Klient.Models.Home.FinishModel
+@{
+    ViewBag.Title = "Finish";
+}
+
+
+@if (Model.RentedGroupRoom.Equals(true)) 
+{
+    <h2>Du har lånt grupperum: </h2> 
+}
+
+else if (Model.ListedForClassRoom.Equals(true))
+{
+    <h2>Ingen grupperum var ledige</h2>
+    <p><i>Du er blevet noteret på venteliste for klasselokale, og vil blive informeret pr. mail</i></p>
+}
+
+else
+{
+    <h2 color="red">Ingen klasselokaler eller grupperum var ledige, og kunne opfylde dine kriterier</h2>
+}

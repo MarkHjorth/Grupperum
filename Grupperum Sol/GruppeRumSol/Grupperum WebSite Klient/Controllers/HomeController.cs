@@ -91,14 +91,20 @@ namespace Grupperum_Website_Klient.Controllers
             bool mon = formModel.request.Monitor;
             bool pr = formModel.request.Projector;
 
+            //Saves session cookie if they want classroom
+            Session["cr"] = cr;
+            //Saves session cookie: GroupId
             Session["id"] = id;
+            //Saves session cookie: GroupSize
             Session["si"] = si;
+            //Saves session cookie: start/finish date
             Session["ds"] = ds;
             Session["df"] = df;
-            Session["si"] = si;
+            //Saves session cookie: preferences about whiteboard, monitor and projector(classroom only)
             Session["wh"] = wh;
             Session["mon"] = mon;
-            
+            Session["pr"] = pr;
+
             return Redirect("Grouproom");
         }
 
@@ -143,9 +149,39 @@ namespace Grupperum_Website_Klient.Controllers
                 int groupSize = (int) Session["si"];
                 DateTime ds = (DateTime) Session["ds"];
                 DateTime df = (DateTime) Session["df"];
-                client.RentGroupRoom(gr.GroupRoomId, groupSize, ds, df);
+                bool wh = (bool) Session["wh"];
+                bool mon = (bool) Session["mon"];
+                bool pr = (bool) Session["pr"]; 
+
+                bool RentedGroupRoom = client.RentGroupRoom(gr.GroupRoomId, groupSize, ds, df);
+                Session["groupRoomName"] = gr.GroupRoomName;                
+                Session["rgr"] = RentedGroupRoom;
+                bool ListedToClassRoom = false;
+                Session["ltcr"] = false;
+                
+                if (!RentedGroupRoom)
+                {
+                    ListedToClassRoom = client.RequestClassRoom(gr.GroupRoomId, groupSize, wh, mon, pr);
+                    Session["ltcr"] = ListedToClassRoom;
+                }
             }
-            return Redirect("Index");
+            return Redirect("Finish");
         }
+
+        public ActionResult Finish()
+        {
+            FinishModel model = new FinishModel();
+            model.RentedGroupRoom = (bool)Session["rgr"];
+            if (model.RentedGroupRoom == null)
+            {
+                model.RentedGroupRoom = false;
+            }
+            model.ListedForClassRoom = (bool)Session["ltcr"];
+            if (model.ListedForClassRoom == null)
+            {
+                model.ListedForClassRoom = false;
+            }
+            return View(model);
+        }    
     }
 }
