@@ -171,16 +171,10 @@ namespace Grupperum_Website_Klient.Controllers
         public ActionResult Finish()
         {
             FinishModel model = new FinishModel();
+            
             model.RentedGroupRoom = (bool)Session["rgr"];
-            if (model.RentedGroupRoom == null)
-            {
-                model.RentedGroupRoom = false;
-            }
             model.ListedForClassRoom = (bool)Session["ltcr"];
-            if (model.ListedForClassRoom == null)
-            {
-                model.ListedForClassRoom = false;
-            }
+
             return View(model);
         }    
     }
