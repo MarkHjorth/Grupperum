@@ -90,11 +90,14 @@ namespace Grupperum_Website_Klient.Controllers
             bool wh = formModel.request.Whiteboard;
             bool mon = formModel.request.Monitor;
             bool pr = formModel.request.Projector;
-            TempData["ds"] = ds;
-            TempData["df"] = df;
-            TempData["si"] = si;
-            TempData["wh"] = wh;
-            TempData["mon"] = mon;
+
+            Session["id"] = id;
+            Session["si"] = si;
+            Session["ds"] = ds;
+            Session["df"] = df;
+            Session["si"] = si;
+            Session["wh"] = wh;
+            Session["mon"] = mon;
             
             return Redirect("Grouproom");
         }
@@ -106,14 +109,18 @@ namespace Grupperum_Website_Klient.Controllers
 
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                DateTime ds = (DateTime)TempData["ds"];
-                DateTime df = (DateTime)TempData["df"];
-                int si = (int)TempData["si"];
-                bool wh = (bool)TempData["wh"];
-                bool mon = (bool)TempData["mon"];
-                TempData["ds"] = ds;
-                TempData["df"] = df;
+                if (Session.Count == 0)
+                {
+                    return Redirect("Rent");
+                }
 
+                int id = (int) Session["id"];
+                DateTime ds = (DateTime)Session["ds"];
+                DateTime df = (DateTime)Session["df"];
+                int si = (int)Session["si"];
+                bool wh = (bool)Session["wh"];
+                bool mon = (bool)Session["mon"];
+                
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
                      .Select(gr => new Models.Home.GroupRoom() { GroupRoomId = gr.Id, GroupRoomName = gr.Name })
                      .ToList();
@@ -131,11 +138,12 @@ namespace Grupperum_Website_Klient.Controllers
         {
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                var q = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
+                var gr = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
 
-                DateTime ds = (DateTime) TempData["ds"];
-                DateTime df = (DateTime) TempData["df"];
-                client.RentGroupRoom(1, 1, ds, df);
+                int groupSize = (int) Session["si"];
+                DateTime ds = (DateTime) Session["ds"];
+                DateTime df = (DateTime) Session["df"];
+                client.RentGroupRoom(gr.GroupRoomId, groupSize, ds, df);
             }
             return Redirect("Index");
         }
