@@ -3,31 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GrupperumServer.ModelLayer;
 
 namespace MailSystem
 {
-    class Program
+    class Mail
     {
-        static void Main(string[] args)
-        {
-            Program prog = new Program(10);
 
+        public Mail(List<RequestMatch> reqList)
+        {
+            PrintRent(reqList);
         }
 
-        public Program(int length)
+        public void PrintRent(List<RequestMatch> reqList)
         {
-            DateTime startDate = new DateTime(2015, 12, 3);
-            DateTime endDate = new DateTime(2015, 12, 3);
-            PrintRent(1, 1, 1, startDate, endDate);
-        }
+            int length = reqList.Count();
 
-        public void PrintRent(int length, int groupId, int classRoomId, DateTime startDate, DateTime endDate)
-        {
-            string print = string.Format("Mail sedt til {0}. " +
-                "Gruppen har fået lokale {1} " +
-                "fra d. {2} til den {3}", groupId, classRoomId, startDate, endDate);
             for (int i = 0; i < length; i++)
             {
+                string print = string.Format("Mail sedt til {0}. " +
+                "Gruppen har fået lokale {1}", reqList[i].GroupId, reqList[i].ClassroomId);
                 Console.WriteLine(print);
             }
             Console.ReadKey();
