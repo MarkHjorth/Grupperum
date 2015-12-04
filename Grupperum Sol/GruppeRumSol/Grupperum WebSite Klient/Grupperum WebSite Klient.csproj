@@ -127,6 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\GroupRoom.cs" />
+    <Compile Include="Models\Home\FinishModel.cs" />
     <Compile Include="Models\Home\RentModel.cs" />
     <Compile Include="Models\Home\CreateGroupModel.cs" />
     <Compile Include="Models\Home\GroupRoomModel.cs" />
@@ -208,6 +209,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Home\Grouproom.cshtml" />
+    <Content Include="Views\Home\Finish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

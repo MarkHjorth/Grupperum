@@ -90,12 +90,21 @@ namespace Grupperum_Website_Klient.Controllers
             bool wh = formModel.request.Whiteboard;
             bool mon = formModel.request.Monitor;
             bool pr = formModel.request.Projector;
-            TempData["ds"] = ds;
-            TempData["df"] = df;
-            TempData["si"] = si;
-            TempData["wh"] = wh;
-            TempData["mon"] = mon;
-            
+
+            //Saves session cookie if they want classroom
+            Session["cr"] = cr;
+            //Saves session cookie: GroupId
+            Session["id"] = id;
+            //Saves session cookie: GroupSize
+            Session["si"] = si;
+            //Saves session cookie: start/finish date
+            Session["ds"] = ds;
+            Session["df"] = df;
+            //Saves session cookie: preferences about whiteboard, monitor and projector(classroom only)
+            Session["wh"] = wh;
+            Session["mon"] = mon;
+            Session["pr"] = pr;
+
             return Redirect("Grouproom");
         }
 
@@ -106,14 +115,18 @@ namespace Grupperum_Website_Klient.Controllers
 
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                DateTime ds = (DateTime)TempData["ds"];
-                DateTime df = (DateTime)TempData["df"];
-                int si = (int)TempData["si"];
-                bool wh = (bool)TempData["wh"];
-                bool mon = (bool)TempData["mon"];
-                TempData["ds"] = ds;
-                TempData["df"] = df;
+                if (Session.Count == 0)
+                {
+                    return Redirect("Rent");
+                }
 
+                int id = (int) Session["id"];
+                DateTime ds = (DateTime)Session["ds"];
+                DateTime df = (DateTime)Session["df"];
+                int si = (int)Session["si"];
+                bool wh = (bool)Session["wh"];
+                bool mon = (bool)Session["mon"];
+                
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
                      .Select(gr => new Models.Home.GroupRoom() { GroupRoomId = gr.Id, GroupRoomName = gr.Name })
                      .ToList();
@@ -131,13 +144,38 @@ namespace Grupperum_Website_Klient.Controllers
         {
             using (GrumServiceClient client = new GrumServiceClient())
             {
-                var q = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
+                var gr = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
 
-                DateTime ds = (DateTime) TempData["ds"];
-                DateTime df = (DateTime) TempData["df"];
-                client.RentGroupRoom(1, 1, ds, df);
+                int groupSize = (int) Session["si"];
+                DateTime ds = (DateTime) Session["ds"];
+                DateTime df = (DateTime) Session["df"];
+                bool wh = (bool) Session["wh"];
+                bool mon = (bool) Session["mon"];
+                bool pr = (bool) Session["pr"]; 
+
+                bool RentedGroupRoom = client.RentGroupRoom(gr.GroupRoomId, groupSize, ds, df);
+                Session["groupRoomName"] = gr.GroupRoomName;                
+                Session["rgr"] = RentedGroupRoom;
+                bool ListedToClassRoom = false;
+                Session["ltcr"] = false;
+                
+                if (!RentedGroupRoom)
+                {
+                    ListedToClassRoom = client.RequestClassRoom(gr.GroupRoomId, groupSize, wh, mon, pr);
+                    Session["ltcr"] = ListedToClassRoom;
+                }
             }
-            return Redirect("Index");
+            return Redirect("Finish");
         }
+
+        public ActionResult Finish()
+        {
+            FinishModel model = new FinishModel();
+            
+            model.RentedGroupRoom = (bool)Session["rgr"];
+            model.ListedForClassRoom = (bool)Session["ltcr"];
+
+            return View(model);
+        }    
     }
 }

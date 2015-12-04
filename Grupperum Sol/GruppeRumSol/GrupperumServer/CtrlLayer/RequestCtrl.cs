@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailSystem;
 
 namespace GrupperumServer.CtrlLayer
 {
@@ -99,6 +100,7 @@ namespace GrupperumServer.CtrlLayer
                 groupIds.Add(rm.GroupId);
                 classroomIds.Add(rm.ClassroomId);
             }
+            Mail mail = new Mail(groupIds, classroomIds, notFulfilled);
         }
     } //Slut på klasse
 } // Slut på namespace
