@@ -17,7 +17,6 @@ namespace Grupperum_Website_Klient.Controllers
             return View();
         }
 
-
         public ActionResult About()
         {
             ViewBag.Message = "Denne side er om os";
@@ -126,7 +125,6 @@ namespace Grupperum_Website_Klient.Controllers
                 int si = (int)Session["si"];
                 bool wh = (bool)Session["wh"];
                 bool mon = (bool)Session["mon"];
-                
                 model.GroupRoomList = client.GetGroupRoomList(ds, df, si, wh, mon)
                      .Select(gr => new Models.Home.GroupRoom() { GroupRoomId = gr.Id, GroupRoomName = gr.Name })
                      .ToList();
