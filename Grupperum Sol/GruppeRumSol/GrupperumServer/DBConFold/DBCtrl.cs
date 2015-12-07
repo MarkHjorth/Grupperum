@@ -132,7 +132,7 @@ namespace GrupperumServer.DBConFold
                 string sqlCmd = string.Format(
                     "INSERT INTO Rent(ClassRoomID, GroupID, StartDate, EndDate) " +
                     "OUTPUT INSERTED.id " +
-                    "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate, endDate);
+                    "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate.ToString("s"), endDate.ToString("s"));
 
                 SqlDataReader rs = con.ExecuteStringGet(sqlCmd);
 
