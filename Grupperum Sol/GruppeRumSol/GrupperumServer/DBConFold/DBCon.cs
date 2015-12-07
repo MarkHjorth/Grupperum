@@ -23,9 +23,15 @@ namespace GrupperumServer.DBConFold
         public SqlDataReader ExecuteStringGet(string command)
         {
             SqlDataReader resultSet = null;
-            
-            con.Open();
-            
+
+            try
+            {
+                con.Open();
+            }
+            catch (Exception e)
+            {
+            }
+
             SqlCommand sc = new SqlCommand(command, con);
             try
             {
