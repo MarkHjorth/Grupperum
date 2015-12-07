@@ -15,6 +15,17 @@ namespace GrupperumServer.DBConFold
         {
         }
 
+        public bool ClearRents()
+        {
+            bool didClear = false;
+            using (var con = new DBCon())
+            {
+                string sqlCmd = "DELETE FROM Rent WHERE ClassRoomId is not null";
+                didClear = con.ExecuteStringPut(sqlCmd);
+            }
+            return didClear;
+        }
+
         public Student GetStudentById(int id)
         {
             Student tempStudent = null;
