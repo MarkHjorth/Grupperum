@@ -143,25 +143,8 @@ namespace Grupperum_Website_Klient.Controllers
             using (GrumServiceClient client = new GrumServiceClient())
             {
                 var gr = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
-
-                int groupSize = (int) Session["si"];
-                DateTime ds = (DateTime) Session["ds"];
-                DateTime df = (DateTime) Session["df"];
-                bool wh = (bool) Session["wh"];
-                bool mon = (bool) Session["mon"];
-                bool pr = (bool) Session["pr"]; 
-
-                bool RentedGroupRoom = client.RentGroupRoom(gr.GroupRoomId, groupSize, ds, df);
-                Session["groupRoomName"] = gr.GroupRoomName;                
-                Session["rgr"] = RentedGroupRoom;
-                bool ListedToClassRoom = false;
-                Session["ltcr"] = false;
-                
-                if (!RentedGroupRoom)
-                {
-                    ListedToClassRoom = client.RequestClassRoom(gr.GroupRoomId, groupSize, wh, mon, pr);
-                    Session["ltcr"] = ListedToClassRoom;
-                }
+                Session["GroupRoomName"] = gr.GroupRoomName;
+                Session["GroupRoomId"] = gr.GroupRoomId;
             }
             return Redirect("Finish");
         }
@@ -169,10 +152,26 @@ namespace Grupperum_Website_Klient.Controllers
         public ActionResult Finish()
         {
             FinishModel model = new FinishModel();
-            
-            model.RentedGroupRoom = (bool)Session["rgr"];
-            model.ListedForClassRoom = (bool)Session["ltcr"];
 
+            using (GrumServiceClient client = new GrumServiceClient())
+            {
+                int groupRoomId = (int)Session["GroupRoomId"];
+                int groupSize = (int)Session["si"];
+                DateTime ds = (DateTime)Session["ds"];
+                DateTime df = (DateTime)Session["df"];
+
+            model.RentedGroupRoom = client.RentGroupRoom(groupRoomId, groupSize, ds, df);
+
+
+            bool wh = (bool)Session["wh"];
+            bool mon = (bool)Session["mon"];
+            bool pr = (bool)Session["pr"]; 
+
+            if (!model.RentedGroupRoom)
+                {
+                    model.ListedToClassRoom = client.RequestClassRoom(groupRoomId, groupSize, wh, mon, pr);
+                }
+            }
             return View(model);
         }    
     }
