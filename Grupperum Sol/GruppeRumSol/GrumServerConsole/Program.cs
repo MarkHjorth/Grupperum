@@ -14,6 +14,7 @@ namespace GrumServerConsole
         {
             using (ServiceHost serviceHost = new ServiceHost(typeof(GrumService)))
             {
+                
                 serviceHost.Open();
                 DisplayHostInfo(serviceHost);
                 Console.WriteLine("The service is ready.");

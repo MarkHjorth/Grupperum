@@ -26,7 +26,7 @@ namespace Grupperum_Website_Klient.GrumService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Grupperum_Website_Klient.GrumService.Student[] StudentListField;
+        private System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.Student> StudentListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -52,7 +52,7 @@ namespace Grupperum_Website_Klient.GrumService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Grupperum_Website_Klient.GrumService.Student[] StudentList {
+        public System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.Student> StudentList {
             get {
                 return this.StudentListField;
             }
@@ -151,6 +151,272 @@ namespace Grupperum_Website_Klient.GrumService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClassRoom", Namespace="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class ClassRoom : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GroupCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool MonitorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ProjectorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RequestMatchField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SpaceLeftField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool WhiteboardField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GroupCount {
+            get {
+                return this.GroupCountField;
+            }
+            set {
+                if ((this.GroupCountField.Equals(value) != true)) {
+                    this.GroupCountField = value;
+                    this.RaisePropertyChanged("GroupCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Monitor {
+            get {
+                return this.MonitorField;
+            }
+            set {
+                if ((this.MonitorField.Equals(value) != true)) {
+                    this.MonitorField = value;
+                    this.RaisePropertyChanged("Monitor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Projector {
+            get {
+                return this.ProjectorField;
+            }
+            set {
+                if ((this.ProjectorField.Equals(value) != true)) {
+                    this.ProjectorField = value;
+                    this.RaisePropertyChanged("Projector");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RequestMatch {
+            get {
+                return this.RequestMatchField;
+            }
+            set {
+                if ((this.RequestMatchField.Equals(value) != true)) {
+                    this.RequestMatchField = value;
+                    this.RaisePropertyChanged("RequestMatch");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((this.SizeField.Equals(value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SpaceLeft {
+            get {
+                return this.SpaceLeftField;
+            }
+            set {
+                if ((this.SpaceLeftField.Equals(value) != true)) {
+                    this.SpaceLeftField = value;
+                    this.RaisePropertyChanged("SpaceLeft");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Whiteboard {
+            get {
+                return this.WhiteboardField;
+            }
+            set {
+                if ((this.WhiteboardField.Equals(value) != true)) {
+                    this.WhiteboardField = value;
+                    this.RaisePropertyChanged("Whiteboard");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GroupRoom", Namespace="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class GroupRoom : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool MonitorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool WhiteboardField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Monitor {
+            get {
+                return this.MonitorField;
+            }
+            set {
+                if ((this.MonitorField.Equals(value) != true)) {
+                    this.MonitorField = value;
+                    this.RaisePropertyChanged("Monitor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Whiteboard {
+            get {
+                return this.WhiteboardField;
+            }
+            set {
+                if ((this.WhiteboardField.Equals(value) != true)) {
+                    this.WhiteboardField = value;
+                    this.RaisePropertyChanged("Whiteboard");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GrumService.IGrumService")]
     public interface IGrumService {
@@ -174,16 +440,52 @@ namespace Grupperum_Website_Klient.GrumService {
         System.Threading.Tasks.Task<bool> AuthenticateAsync(int user, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/CreateGroup", ReplyAction="http://tempuri.org/IGrumService/CreateGroupResponse")]
-        bool CreateGroup(string name, int[] studentId);
+        bool CreateGroup(string name, System.Collections.Generic.List<int> studentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/CreateGroup", ReplyAction="http://tempuri.org/IGrumService/CreateGroupResponse")]
-        System.Threading.Tasks.Task<bool> CreateGroupAsync(string name, int[] studentId);
+        System.Threading.Tasks.Task<bool> CreateGroupAsync(string name, System.Collections.Generic.List<int> studentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/UpdateGroupRoom", ReplyAction="http://tempuri.org/IGrumService/UpdateGroupRoomResponse")]
+        bool UpdateGroupRoom(string name, bool whiteboard, bool monitor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/UpdateGroupRoom", ReplyAction="http://tempuri.org/IGrumService/UpdateGroupRoomResponse")]
+        System.Threading.Tasks.Task<bool> UpdateGroupRoomAsync(string name, bool whiteboard, bool monitor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/RequestClassRoom", ReplyAction="http://tempuri.org/IGrumService/RequestClassRoomResponse")]
         bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/RequestClassRoom", ReplyAction="http://tempuri.org/IGrumService/RequestClassRoomResponse")]
         System.Threading.Tasks.Task<bool> RequestClassRoomAsync(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetClassRoomByAttributes", ReplyAction="http://tempuri.org/IGrumService/GetClassRoomByAttributesResponse")]
+        System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetClassRoomByAttributes", ReplyAction="http://tempuri.org/IGrumService/GetClassRoomByAttributesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.ClassRoom>> GetClassRoomByAttributesAsync(bool whiteboard, bool monitor, bool projector);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetGroupRooms", ReplyAction="http://tempuri.org/IGrumService/GetGroupRoomsResponse")]
+        System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom> GetGroupRooms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetGroupRooms", ReplyAction="http://tempuri.org/IGrumService/GetGroupRoomsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom>> GetGroupRoomsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/HasGroupRooms", ReplyAction="http://tempuri.org/IGrumService/HasGroupRoomsResponse")]
+        bool HasGroupRooms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/HasGroupRooms", ReplyAction="http://tempuri.org/IGrumService/HasGroupRoomsResponse")]
+        System.Threading.Tasks.Task<bool> HasGroupRoomsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetGroupRoomList", ReplyAction="http://tempuri.org/IGrumService/GetGroupRoomListResponse")]
+        System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom> GetGroupRoomList(System.DateTime dateStart, System.DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/GetGroupRoomList", ReplyAction="http://tempuri.org/IGrumService/GetGroupRoomListResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom>> GetGroupRoomListAsync(System.DateTime dateStart, System.DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/RentGroupRoom", ReplyAction="http://tempuri.org/IGrumService/RentGroupRoomResponse")]
+        bool RentGroupRoom(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrumService/RentGroupRoom", ReplyAction="http://tempuri.org/IGrumService/RentGroupRoomResponse")]
+        System.Threading.Tasks.Task<bool> RentGroupRoomAsync(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,12 +539,20 @@ namespace Grupperum_Website_Klient.GrumService {
             return base.Channel.AuthenticateAsync(user, password);
         }
         
-        public bool CreateGroup(string name, int[] studentId) {
+        public bool CreateGroup(string name, System.Collections.Generic.List<int> studentId) {
             return base.Channel.CreateGroup(name, studentId);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateGroupAsync(string name, int[] studentId) {
+        public System.Threading.Tasks.Task<bool> CreateGroupAsync(string name, System.Collections.Generic.List<int> studentId) {
             return base.Channel.CreateGroupAsync(name, studentId);
+        }
+        
+        public bool UpdateGroupRoom(string name, bool whiteboard, bool monitor) {
+            return base.Channel.UpdateGroupRoom(name, whiteboard, monitor);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateGroupRoomAsync(string name, bool whiteboard, bool monitor) {
+            return base.Channel.UpdateGroupRoomAsync(name, whiteboard, monitor);
         }
         
         public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector) {
@@ -251,6 +561,46 @@ namespace Grupperum_Website_Klient.GrumService {
         
         public System.Threading.Tasks.Task<bool> RequestClassRoomAsync(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector) {
             return base.Channel.RequestClassRoomAsync(groupId, groupSize, whiteboard, monitor, projector);
+        }
+        
+        public System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector) {
+            return base.Channel.GetClassRoomByAttributes(whiteboard, monitor, projector);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.ClassRoom>> GetClassRoomByAttributesAsync(bool whiteboard, bool monitor, bool projector) {
+            return base.Channel.GetClassRoomByAttributesAsync(whiteboard, monitor, projector);
+        }
+        
+        public System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom> GetGroupRooms() {
+            return base.Channel.GetGroupRooms();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom>> GetGroupRoomsAsync() {
+            return base.Channel.GetGroupRoomsAsync();
+        }
+        
+        public bool HasGroupRooms() {
+            return base.Channel.HasGroupRooms();
+        }
+        
+        public System.Threading.Tasks.Task<bool> HasGroupRoomsAsync() {
+            return base.Channel.HasGroupRoomsAsync();
+        }
+        
+        public System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom> GetGroupRoomList(System.DateTime dateStart, System.DateTime dateEnd, int grStrl, bool whiteboard, bool monitor) {
+            return base.Channel.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Grupperum_Website_Klient.GrumService.GroupRoom>> GetGroupRoomListAsync(System.DateTime dateStart, System.DateTime dateEnd, int grStrl, bool whiteboard, bool monitor) {
+            return base.Channel.GetGroupRoomListAsync(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
+        
+        public bool RentGroupRoom(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd) {
+            return base.Channel.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RentGroupRoomAsync(int grouproomId, int groupId, System.DateTime dateStart, System.DateTime dateEnd) {
+            return base.Channel.RentGroupRoomAsync(grouproomId, groupId, dateStart, dateEnd);
         }
     }
 }

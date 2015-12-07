@@ -16,6 +16,8 @@ namespace GrupperumServer
         LoginCtrl loginCtrl = new LoginCtrl();
         GroupCtrl groupCtrl = new GroupCtrl();
         ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
+        RentCtrl rentCtrl = new RentCtrl();
+        RequestCtrl reqCtrl = new RequestCtrl();
 
         public Class getClassByStudentId(int id)
         {
@@ -51,6 +53,36 @@ namespace GrupperumServer
         public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
         {
             return classRoomCtrl.GetClassRoomByAttributes(whiteboard, monitor, projector);
+        }
+
+        public List<GroupRoom> GetGroupRooms()
+        {
+            return dbCtrl.GetGroupRooms();
+        }
+
+        public bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        {
+            return dbCtrl.UpdateGroupRoom(name, whiteboard, monitor);
+        }
+
+        public bool HasGroupRooms()
+        {
+            return dbCtrl.HasGroupRooms();
+        }
+
+        public List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
+        {
+            return dbCtrl.GetGroupRoomList(dateStart, dateEnd, grStrl, whiteboard, monitor);
+        }
+
+        public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
+        {
+            return rentCtrl.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+        }
+
+        public void DoTheFunkyAlgorithm()
+        {
+            reqCtrl.DoAllDaThings();
         }
     }
 }

@@ -45,6 +45,8 @@
     <Compile Include="CtrlLayer\ClassRoomCtrl.cs" />
     <Compile Include="CtrlLayer\GroupCtrl.cs" />
     <Compile Include="CtrlLayer\LoginCtrl.cs" />
+    <Compile Include="CtrlLayer\RentCtrl.cs" />
+    <Compile Include="CtrlLayer\RequestCtrl.cs" />
     <Compile Include="CtrlLayer\StudentCtrl.cs" />
     <Compile Include="DBConFold\DBCon.cs" />
     <Compile Include="DBConFold\DBCtrl.cs" />
@@ -53,8 +55,17 @@
     <Compile Include="ModelLayer\Class.cs" />
     <Compile Include="ModelLayer\ClassRoom.cs" />
     <Compile Include="ModelLayer\Group.cs" />
+    <Compile Include="ModelLayer\GroupRoom.cs" />
+    <Compile Include="ModelLayer\RequestClassroom.cs" />
+    <Compile Include="ModelLayer\RequestMatch.cs" />
     <Compile Include="ModelLayer\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailSystem\MailSystem.csproj">
+      <Project>{90336ceb-9638-463e-b3d5-3f89764e4ab7}</Project>
+      <Name>MailSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

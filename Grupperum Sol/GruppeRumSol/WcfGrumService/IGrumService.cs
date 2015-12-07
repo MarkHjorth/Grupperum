@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -26,8 +26,27 @@ namespace WcfGrumService
         bool CreateGroup(string name, List<int> studentId);
 
         [OperationContract]
+        bool UpdateGroupRoom(string name, bool whiteboard, bool monitor);
+
+        [OperationContract]
         bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector);
+
         [OperationContract]
         List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector);
+
+        [OperationContract]
+        List<GroupRoom> GetGroupRooms();
+
+        [OperationContract]
+        bool HasGroupRooms();
+
+        [OperationContract]
+        List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
+
+        [OperationContract]
+        bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd);
+
+        [OperationContract]
+        void DoTheFunkyAlgorithm();
     }
 }

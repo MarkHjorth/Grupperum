@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrumHostConsole", "GrumServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{EFC907CB-D7D9-44F6-AE42-03FC61EB287F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData", "TestData\TestData.csproj", "{C4CCD1CA-3A57-425D-80FC-074717D92E06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSystem", "MailSystem\MailSystem.csproj", "{90336CEB-9638-463E-B3D5-3F89764E4AB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 		{EFC907CB-D7D9-44F6-AE42-03FC61EB287F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFC907CB-D7D9-44F6-AE42-03FC61EB287F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFC907CB-D7D9-44F6-AE42-03FC61EB287F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4CCD1CA-3A57-425D-80FC-074717D92E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4CCD1CA-3A57-425D-80FC-074717D92E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4CCD1CA-3A57-425D-80FC-074717D92E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4CCD1CA-3A57-425D-80FC-074717D92E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90336CEB-9638-463E-B3D5-3F89764E4AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90336CEB-9638-463E-B3D5-3F89764E4AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90336CEB-9638-463E-B3D5-3F89764E4AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90336CEB-9638-463E-B3D5-3F89764E4AB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

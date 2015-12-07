@@ -62,6 +62,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateGroupRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whiteboard" type="xs:boolean" />
+        <xs:element minOccurs="0" name="monitor" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateGroupRoomResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RequestClassRoom">
     <xs:complexType>
       <xs:sequence>
@@ -77,6 +93,81 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="RequestClassRoomResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClassRoomByAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whiteboard" type="xs:boolean" />
+        <xs:element minOccurs="0" name="monitor" type="xs:boolean" />
+        <xs:element minOccurs="0" name="projector" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClassRoomByAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer" minOccurs="0" name="GetClassRoomByAttributesResult" nillable="true" type="q3:ArrayOfClassRoom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupRooms">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupRoomsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer" minOccurs="0" name="GetGroupRoomsResult" nillable="true" type="q4:ArrayOfGroupRoom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasGroupRooms">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasGroupRoomsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasGroupRoomsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupRoomList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dateEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="grStrl" type="xs:int" />
+        <xs:element minOccurs="0" name="whiteboard" type="xs:boolean" />
+        <xs:element minOccurs="0" name="monitor" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupRoomListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GrupperumServer.ModelLayer" minOccurs="0" name="GetGroupRoomListResult" nillable="true" type="q5:ArrayOfGroupRoom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RentGroupRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="grouproomId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="dateStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dateEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RentGroupRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RentGroupRoomResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

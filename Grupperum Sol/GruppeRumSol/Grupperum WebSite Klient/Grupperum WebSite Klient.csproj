@@ -126,8 +126,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupRoom.cs" />
+    <Compile Include="Models\Home\FinishModel.cs" />
+    <Compile Include="Models\Home\RentModel.cs" />
     <Compile Include="Models\Home\CreateGroupModel.cs" />
-    <Compile Include="Models\Home\RentClassroomModel.cs" />
+    <Compile Include="Models\Home\GroupRoomModel.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\StudentList.cs" />
     <Compile Include="Models\Student.cs" />
@@ -139,13 +142,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\style.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -162,6 +162,12 @@
     <Content Include="Scripts\_references.js" />
     <None Include="Service References\GrumService\GrumService.wsdl" />
     <Content Include="Service References\GrumService\Grupperum_Website_Klient.GrumService.Class.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GrumService\Grupperum_Website_Klient.GrumService.ClassRoom.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\GrumService\Grupperum_Website_Klient.GrumService.GroupRoom1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\GrumService\item.disco" />
@@ -199,10 +205,11 @@
     <None Include="Service References\GrumService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Home\Grouproom.cshtml" />
+    <Content Include="Views\Home\Finish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\RentClassroom\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
