@@ -61,6 +61,12 @@
     <Compile Include="ModelLayer\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailSystem\MailSystem.csproj">
+      <Project>{90336ceb-9638-463e-b3d5-3f89764e4ab7}</Project>
+      <Name>MailSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
