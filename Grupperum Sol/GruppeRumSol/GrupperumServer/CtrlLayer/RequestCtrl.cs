@@ -20,17 +20,28 @@ namespace GrupperumServer.CtrlLayer
 
         public RequestCtrl()
         {
-            RequestClassroom requestClassroom;
             stillNotFulfilled = new List<RequestClassroom>();
-            ClassRoom classRoom;
-            List<ClassRoom> lessThanThree = new List<ClassRoom>();
+            lessThanThree = new List<ClassRoom>();
         }
+
+        public void DoAllDaThings()
+        {
+            doTheFunkyAlgorythm(GetAllRequests(), GetAllClassRooms());
+        }
+
         // Det er denne metode der skal kaldes når man vil have fat i listen af requestClassrooms som også er sorteret.
         public List<RequestClassroom> GetAllRequests()
         {
             stillNotFulfilled = dBCtrl.GetAllRequests();
             stillNotFulfilled = sortRequestList(stillNotFulfilled);
             return stillNotFulfilled;
+        }
+
+        public List<ClassRoom> GetAllClassRooms()
+        {
+            lessThanThree = dBCtrl.GetClassRoomByAttributes(false, false, false);
+            lessThanThree = sortClassroomList(lessThanThree);
+            return lessThanThree;
         }
 
         // List<> har en metode OrderByDescending som bruger en lambda til at sortere på en 
