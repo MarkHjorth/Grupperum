@@ -15,8 +15,8 @@ namespace TestData.TestContainer
 
         public List<RequestClassroom> requests { get; set; }
 
-        private static int ox = 0;
-        private static int xo = 0;
+        private static int ox = 1;
+        private static int xo = 1;
 
         public TestContainer()
         {

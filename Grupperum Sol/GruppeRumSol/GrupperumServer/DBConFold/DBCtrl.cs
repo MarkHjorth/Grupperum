@@ -19,7 +19,7 @@ namespace GrupperumServer.DBConFold
 
         public bool ClearRents()
         {
-            string sqlCmd = "DELETE FROM Rent WHERE ClassRoomId != null";
+            string sqlCmd = "DELETE FROM Rent WHERE ClassRoomId is not null";
             return dbCon.ExecuteStringPut(sqlCmd);
         }
 
@@ -116,10 +116,10 @@ namespace GrupperumServer.DBConFold
             string sqlCmd = string.Format(
                 "INSERT INTO Rent(ClassRoomID, GroupID, StartDate, EndDate) " +
                 "OUTPUT INSERTED.id " +
-                "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate, endDate);
+                "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate.ToString("s"), endDate.ToString("s"));
 
             SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
-
+            
             while (rs.Read())
             {
                 if (rs.GetValue(0) != null)
@@ -201,11 +201,25 @@ namespace GrupperumServer.DBConFold
 
             SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
 
+            List<GroupRoom> tempList = new List<GroupRoom>();
+
             while(rs.Read())
             {
-                roomList.Add(new GroupRoom(rs.GetInt32(0), rs.GetString(1), rs.GetBoolean(2), rs.GetBoolean(3)));
+                tempList.Add(new GroupRoom(rs.GetInt32(0), rs.GetString(1), rs.GetBoolean(2), rs.GetBoolean(3)));
             }
 
+            while (tempList.Count > 0)
+            {
+                roomList.Add(tempList[0]);
+                tempList.Remove(tempList[0]);
+                foreach (GroupRoom g in tempList)
+                {
+                    if ((roomList.Count > 0) && (g.Id == (roomList[roomList.Count - 1].Id)))
+                    {
+                        roomList.Remove(roomList[roomList.Count - 1]);
+                    }
+                }
+            }
             return roomList;
         }
 

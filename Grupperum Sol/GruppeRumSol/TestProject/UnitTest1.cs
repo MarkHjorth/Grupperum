@@ -113,7 +113,6 @@ namespace TestProject
             requests.AddRange(tc.GetRequests(1, 0, 1));
             requests.AddRange(tc.GetRequests(3, 0, 1));
             requests.AddRange(tc.GetRequests(1, 0, 1));
-            requests.AddRange(tc.GetRequests(2, 0, 1));
 
             reqCtrl.doTheFunkyAlgorythm(requests, classRooms);
             Assert.IsTrue(true);
