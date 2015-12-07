@@ -15,6 +15,9 @@ namespace TestData.TestContainer
 
         public List<RequestClassroom> requests { get; set; }
 
+        private static int ox = 0;
+        private static int xo = 0;
+
         public TestContainer()
         {
             classRooms = new List<ClassRoom>();
@@ -34,7 +37,7 @@ namespace TestData.TestContainer
 
                 int indx = rand.Next(0, 4);
                 
-                ClassRoom c = new ClassRoom(i, iray[indx], wat(rand), wat(rand), wat(rand));
+                ClassRoom c = new ClassRoom(i, iray[indx], createRandom(rand), createRandom(rand), createRandom(rand));
                 classRooms.Add(c);
             }
         }
@@ -76,14 +79,42 @@ namespace TestData.TestContainer
             }
         }
 
-        private bool wat(Random rand)
+        private bool createRandom(Random rand)
         {
-            bool wat = false;
+            bool createRandom = false;
             if (rand.Next(0, 1) == 1)
             {
-                wat = true;
+                createRandom = true;
             }
-            return wat;
+            return createRandom;
+        }
+
+//Usable data for the algorithm
+        
+        //Generating desired classrooms
+        public List<ClassRoom> GetClassRooms(int type, int amount)
+        {
+            List<ClassRoom> cr = new List<ClassRoom>();
+
+            for(int i = 0; i < amount; i++)
+            {
+                cr.Add(new ClassRoom(ox, i * 18, "", type, 3, 0));
+                ox++;
+            }
+            return cr;
+        }
+
+        //Generating desired requests
+        public List<RequestClassroom> GetRequests(int groupSize, int request, int amount)
+        {
+            List<RequestClassroom> rc = new List<RequestClassroom>();
+
+            for(int i = 0; i < amount; i++)
+            {
+                rc.Add(new RequestClassroom(xo, groupSize, request));
+                xo++;
+            }
+            return rc;
         }
     }
 }

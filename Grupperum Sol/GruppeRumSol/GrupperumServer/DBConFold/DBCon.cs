@@ -48,6 +48,7 @@ namespace GrupperumServer.DBConFold
             try
             {
                 sc.ExecuteReader();
+                return true;
             }
             catch (SqlException e)
             {
@@ -58,7 +59,6 @@ namespace GrupperumServer.DBConFold
             {
                // con.Close();
             }
-            return true;
         }
     }
 }

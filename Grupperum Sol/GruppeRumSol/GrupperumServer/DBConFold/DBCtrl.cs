@@ -17,12 +17,16 @@ namespace GrupperumServer.DBConFold
 
         }
 
+        public bool ClearRents()
+        {
+            string sqlCmd = "DELETE FROM Rent WHERE ClassRoomId != null";
+            return dbCon.ExecuteStringPut(sqlCmd);
+        }
+
         public Student GetStudentById(int id)
         {
             SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM Student where id=" + id + ");");
-
-
-
+            
             int tempId = 0;
             string tempName = null;
             string tempPassword = null;
@@ -124,6 +128,7 @@ namespace GrupperumServer.DBConFold
                 }
             }
             return rentCreated;
+
         }
 
         public bool CanTheyRent(int groupId, DateTime dateStart, DateTime dateEnd)

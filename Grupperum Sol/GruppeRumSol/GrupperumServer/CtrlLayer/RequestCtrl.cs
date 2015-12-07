@@ -62,6 +62,8 @@ namespace GrupperumServer.CtrlLayer
         */
         public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
+            dBCtrl.ClearRents();
+
             List<int> notFulfilled = new List<int>();
             List<RequestMatch> matchedRequests = new List<RequestMatch>();
             int i = 0;
