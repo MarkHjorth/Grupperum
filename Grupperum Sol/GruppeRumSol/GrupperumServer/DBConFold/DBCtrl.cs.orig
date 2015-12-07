@@ -10,110 +10,323 @@ namespace GrupperumServer.DBConFold
 {
     public class DBCtrl
     {
-        public DBCon dbCon = new DBCon();
 
         public DBCtrl()
         {
+        }
 
+        public bool ClearRents()
+        {
+            string sqlCmd = "DELETE FROM Rent WHERE ClassRoomId is not null";
+            return dbCon.ExecuteStringPut(sqlCmd);
         }
 
         public Student GetStudentById(int id)
         {
+<<<<<<< HEAD
+            Student tempStudent = null;
+            using (var con = new DBCon())
+=======
             SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM Student where id=" + id + ");");
-
-
-
+            
             int tempId = 0;
             string tempName = null;
             string tempPassword = null;
             if (rs.HasRows)
+>>>>>>> e4f80db2092ada6084491133c925341fd15ea021
             {
-                while (rs.Read())
+                SqlDataReader rs = con.ExecuteStringGet("SELECT * FROM Student where id=" + id + ");");
+
+                int tempId = 0;
+                string tempName = null;
+                string tempPassword = null;
+                if (rs.HasRows)
                 {
-                    tempId = (int)rs.GetValue(0);
-                    tempName = rs.GetString(1);
-                    tempPassword = rs.GetString(2);
+                    while (rs.Read())
+                    {
+                        tempId = (int)rs.GetValue(0);
+                        tempName = rs.GetString(1);
+                        tempPassword = rs.GetString(2);
+                    }
                 }
+
+                tempStudent = new Student(tempId, tempName, tempPassword);
             }
-
-            Student tempStudent = new Student(tempId, tempName, tempPassword);
-
             return tempStudent;
         }
 
         public Class GetClassFromStudentId(int id)
         {
-            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM Class where id=(SELECT classId FROM Student where id=" + id + ");");
-
-            int tempId = 0;
-            string tempName = null;
-            if(rs.HasRows)
+            Class tempClass = null;
+            using (var con = new DBCon())
             {
-                while (rs.Read())
+                SqlDataReader rs = con.ExecuteStringGet("SELECT * FROM Class where id=(SELECT classId FROM Student where id=" + id + ");");
+
+                int tempId = 0;
+                string tempName = null;
+                if (rs.HasRows)
                 {
-                    tempId = (int)rs.GetValue(0);
-                    tempName = rs.GetString(1);
+                    while (rs.Read())
+                    {
+                        tempId = (int)rs.GetValue(0);
+                        tempName = rs.GetString(1);
+                    }
                 }
+
+                tempClass = new Class(tempId, tempName);
+
             }
-            
-            Class tempClass = new Class(tempId, tempName);
-                
             return tempClass;
          }
 
         public List<Student> GetStudentsFromClassId(int id)
         {
-            int tempId = 0;
-            string tempName = null;
             List<Student> tempList = new List<Student>();
-
-            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM student WHERE ClassID = " + id);
-
-            if(rs.HasRows)
+            using (var con = new DBCon())
             {
-                while (rs.Read())
+                int tempId = 0;
+                string tempName = null;
+                
+
+                SqlDataReader rs = con.ExecuteStringGet("SELECT * FROM student WHERE ClassID = " + id);
+
+                if (rs.HasRows)
                 {
-                    tempId = (int)rs.GetValue(0);
-                    tempName = (string)rs.GetValue(2);
-                    Student tempStudent = new Student(tempId, tempName);
-                    tempList.Add(tempStudent);
+                    while (rs.Read())
+                    {
+                        tempId = (int)rs.GetValue(0);
+                        tempName = (string)rs.GetValue(2);
+                        Student tempStudent = new Student(tempId, tempName);
+                        tempList.Add(tempStudent);
+                    }
                 }
             }
 
             return tempList;
         }
 
-        internal bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
         {
-            int whiteboardBit = 0;
-            int monitorBit = 0;
-
-            if(whiteboard)
+            bool isRented = false;
+            using (var con = new DBCon())
             {
-                whiteboardBit = 1;
-            }
-            if(monitor)
-            {
-                monitorBit = 1;
-            }
+                string sqlCmd = string.Format(
+                    "INSERT INTO Rent(GroupRoomID, GroupID, StartDate, EndDate) " +
+                    "OUTPUT INSERTED.id " +
+                    "VALUES('{0}', '{1}', '{2}', '{3}');", grouproomId, groupId, dateStart, dateEnd);
 
-            string sqlCommand = string.Format("UPDATE GroupRoom SET whiteboard={0}, monitor={1} WHERE name='{2}'", whiteboardBit, monitorBit, name);
-            return dbCon.ExecuteStringPut(sqlCommand);
+                SqlDataReader rs = con.ExecuteStringGet(sqlCmd);
+
+                while (rs.Read())
+                {
+                    if (rs.GetValue(0) != null)
+                    {
+                        isRented = true;
+                    }
+                }
+            }
+            return isRented;
         }
 
-        internal List<string> GetGroupRoomNames()
+        public bool RentClassRoom(int classRoomId, int groupId, DateTime startDate, DateTime endDate)
         {
-            List<string> roomNames = new List<string>();
+            bool rentCreated = false;
+            using (var con = new DBCon())
+            {
+                string sqlCmd = string.Format(
+                    "INSERT INTO Rent(ClassRoomID, GroupID, StartDate, EndDate) " +
+                    "OUTPUT INSERTED.id " +
+                    "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate, endDate);
 
-            string sqlCommand = "SELECT [name] FROM [GroupRoom]";
-            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCommand);
+<<<<<<< HEAD
+                SqlDataReader rs = con.ExecuteStringGet(sqlCmd);
+
+                while (rs.Read())
+=======
+            string sqlCmd = string.Format(
+                "INSERT INTO Rent(ClassRoomID, GroupID, StartDate, EndDate) " +
+                "OUTPUT INSERTED.id " +
+                "VALUES('{0}', '{1}', '{2}', '{3}');", classRoomId, groupId, startDate.ToString("s"), endDate.ToString("s"));
+
+            SqlDataReader rs = dbCon.ExecuteStringGet(sqlCmd);
+            
+            while (rs.Read())
+            {
+                if (rs.GetValue(0) != null)
+>>>>>>> e4f80db2092ada6084491133c925341fd15ea021
+                {
+                    if (rs.GetValue(0) != null)
+                    {
+                        rentCreated = true;
+                    }
+                }
+            }
+            return rentCreated;
+
+        }
+
+        public bool CanTheyRent(int groupId, DateTime dateStart, DateTime dateEnd)
+        {
+            bool canTheyRent = true;
+            using (var con = new DBCon())
+            {
+                string sqlCmd = string.Format(
+                    "SELECT GroupID FROM Rent " +
+                    "WHERE(StartDate BETWEEN '{1}' AND '{2}' " +
+                    "OR EndDate BETWEEN '{1}' AND '{2}' " +
+                    "AND GroupId = '{0}');", groupId, dateStart, dateEnd);
+
+                SqlDataReader rs = con.ExecuteStringGet(sqlCmd);
+
+                while (rs.Read())
+                {
+                    if (rs.GetInt32(0) == groupId)
+                    {
+                        canTheyRent = false;
+                    }
+                }
+            }
+            return canTheyRent;
+        }
+
+        public bool TestGroupRoom(int grouproomId, DateTime dateStart, DateTime dateEnd)
+        {
+            bool isAvailable = false;
+            using (var con = new DBCon())
+            {
+                
+                List<GroupRoom> roomList = new List<GroupRoom>();
+                string sqlCmd = string.Format(
+                    "SELECT [GroupRoom].id FROM [GroupRoom] " +
+                    "LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId " +
+                    "WHERE(StartDate NOT BETWEEN '{0}' AND '{1}' " +
+                    "AND EndDate NOT BETWEEN '{0}' AND '{1}' " +
+                    "AND '{0}' NOT BETWEEN StartDate AND EndDate " +
+                    "AND '{1}' NOT BETWEEN StartDate AND EndDate) " +
+                    "OR Rent.GroupRoomId IS NULL " +
+                    "AND[GroupRoom].id = '{2}';", dateStart, dateEnd, grouproomId);
+
+                SqlDataReader rs = con.ExecuteStringGet(sqlCmd);
+
+                while (rs.Read())
+                {
+                    if (rs.GetInt32(0) == grouproomId)
+                    {
+                        isAvailable = true;
+                    }
+                }
+            }
+            return isAvailable;
+        }
+
+        public List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor)
+        {
+            List<GroupRoom> roomList = new List<GroupRoom>();
+            using (var con = new DBCon())
+            {
+                //Her kunne man have brugt en 'SELECT x FROM (SELECT y FROM...)'
+                //For at lette overskuelighed
+                string sqlCmd = string.Format(
+                    "SELECT * FROM [GroupRoom] " +
+                    "LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId " +
+                    "WHERE ((StartDate NOT BETWEEN '{0}' AND '{1}' " +
+                        "AND EndDate NOT BETWEEN '{0}' AND '{1}' " +
+                        "AND '{0}' NOT BETWEEN StartDate AND EndDate " +
+                        "AND '{1}' NOT BETWEEN StartDate AND EndDate) " +
+                        "OR Rent.GroupRoomId IS NULL) " +
+                    "AND ([GroupRoom].whiteboard = '{2}' " +
+                        "OR [GroupRoom].whiteboard = '1') " +
+                    "AND ([GroupRoom].monitor = '{3}' " +
+                        "OR [GroupRoom].monitor = '1'); ", dateStart, dateEnd, whiteboard, monitor);
+
+                SqlDataReader rs = con.ExecuteStringGet(sqlCmd);
+
+                List<GroupRoom> tempList = new List<GroupRoom>();
+
+                while (rs.Read())
+                {
+                    tempList.Add(new GroupRoom(rs.GetInt32(0), rs.GetString(1), rs.GetBoolean(2), rs.GetBoolean(3)));
+                }
+
+<<<<<<< HEAD
+                while (tempList.Count > 0)
+                {
+                    roomList.Add(tempList[0]);
+                    tempList.Remove(tempList[0]);
+                    foreach (GroupRoom g in tempList)
+                    {
+                        if ((roomList.Count > 0) && (g.Id == (roomList[roomList.Count - 1].Id)))
+                        {
+                            roomList.Remove(roomList[roomList.Count - 1]);
+                        }
+                    }
+                }
+            }
+=======
+            List<GroupRoom> tempList = new List<GroupRoom>();
 
             while(rs.Read())
             {
-                roomNames.Add(rs.GetString(0));
+                tempList.Add(new GroupRoom(rs.GetInt32(0), rs.GetString(1), rs.GetBoolean(2), rs.GetBoolean(3)));
             }
 
-            return roomNames;
+            while (tempList.Count > 0)
+            {
+                roomList.Add(tempList[0]);
+                tempList.Remove(tempList[0]);
+                foreach (GroupRoom g in tempList)
+                {
+                    if ((roomList.Count > 0) && (g.Id == (roomList[roomList.Count - 1].Id)))
+                    {
+                        roomList.Remove(roomList[roomList.Count - 1]);
+                    }
+                }
+            }
+>>>>>>> e4f80db2092ada6084491133c925341fd15ea021
+            return roomList;
+        }
+
+        internal bool UpdateGroupRoom(string name, bool whiteboard, bool monitor)
+        {
+            bool didUpdate = false;
+            using (var con = new DBCon())
+            {
+                int whiteboardBit = 0;
+                int monitorBit = 0;
+
+                if (whiteboard)
+                {
+                    whiteboardBit = 1;
+                }
+                if (monitor)
+                {
+                    monitorBit = 1;
+                }
+
+                string sqlCommand = string.Format("UPDATE GroupRoom SET whiteboard={0}, monitor={1} WHERE name='{2}'", whiteboardBit, monitorBit, name);
+                didUpdate = con.ExecuteStringPut(sqlCommand);
+            }
+            return didUpdate;
+        }
+
+        public List<GroupRoom> GetGroupRooms()
+        {
+            List<GroupRoom> groupRooms = new List<GroupRoom>();
+            using (var con = new DBCon())
+            {
+                string sqlCommand = "SELECT * FROM [GroupRoom]";
+                SqlDataReader rs = con.ExecuteStringGet(sqlCommand);
+
+                while (rs.Read())
+                {
+                    bool whiteboard = (bool)rs.GetValue(2);
+                    bool monitor = (bool)rs.GetValue(2);
+
+                    GroupRoom room = new GroupRoom(rs.GetInt32(0), rs.GetString(1), whiteboard, monitor);
+                    groupRooms.Add(room);
+                }
+            }
+            return groupRooms;
         }
 
         public bool CreateGroup(string name, List<int> studentId)
@@ -121,216 +334,238 @@ namespace GrupperumServer.DBConFold
             int groupId = 0;
             int groupSize = studentId.Count();
             bool done = false;
-            SqlDataReader rs = dbCon.ExecuteStringGet("INSERT INTO [Group] (name, size) OUTPUT Inserted.id VALUES('" + name + "', '" + groupSize + "');");
-
-            while (rs.Read())
+            using (var con = new DBCon())
             {
-                groupId = (int)rs.GetValue(0);
-                done = true;
-            }
+                SqlDataReader rs = con.ExecuteStringGet("INSERT INTO [Group] (name, size) OUTPUT Inserted.id VALUES('" + name + "', '" + groupSize + "');");
 
-            foreach (int id in studentId)
+                while (rs.Read())
+                {
+                    groupId = (int)rs.GetValue(0);
+                    done = true;
+                }
+            }
+            using (var con = new DBCon())
             {
-                done = dbCon.ExecuteStringPut("UPDATE Student SET groupId = " + groupId + " WHERE id = " + id + ";");
-            }
 
+                foreach (int id in studentId)
+                {
+                    done = con.ExecuteStringPut("UPDATE Student SET groupId = " + groupId + " WHERE id = " + id + ";");
+                }
+            }
             return done;
         }
 
         public bool CreateGroupRoom(string name, bool whiteboard, bool monitor)
         {
-            string bitWhiteboard = "0";
-            string bitMonitor = "0";
-
-            if(whiteboard)
+            bool didCreate = false;
+            using (var con = new DBCon())
             {
-                bitWhiteboard = "1";
-            }
-            if(monitor)
-            {
-                bitMonitor = "1";
-            }
+                string bitWhiteboard = "0";
+                string bitMonitor = "0";
 
-            String command = string.Format(
-                "insert into GroupRoom (name, whiteboard, monitor) VALUES ('{0}', {1}, {2});", 
-                name, bitWhiteboard, bitMonitor);
-            return dbCon.ExecuteStringPut(command);
+                if (whiteboard)
+                {
+                    bitWhiteboard = "1";
+                }
+                if (monitor)
+                {
+                    bitMonitor = "1";
+                }
+
+                String command = string.Format(
+                    "insert into GroupRoom (name, whiteboard, monitor) VALUES ('{0}', {1}, {2});",
+                    name, bitWhiteboard, bitMonitor);
+                didCreate = con.ExecuteStringPut(command);
+            }
+            return didCreate;
         }
         public List<ClassRoom> GetClassRoomByAttributes(bool whiteboard, bool monitor, bool projector)
         {
-            String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
-            if(whiteboard)
-            {
-                exString = exString + " AND whiteboard = 1";
-            }
-
-            if (monitor)
-            {
-                exString = exString + " AND monitor = 1";
-            }
-
-            if (projector)
-            {
-                exString = exString + " AND projector = 1";
-            }
-            exString = exString + ");";
-
-            SqlDataReader rs = dbCon.ExecuteStringGet(exString);
-
-            int classRoomId;
             List<ClassRoom> classRoomList = new List<ClassRoom>();
-            while (rs.Read())
+            using (var con = new DBCon())
             {
-                classRoomId = (int)rs.GetValue(0);
-                ClassRoom tempClassRoom = new ClassRoom(classRoomId);
+                String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
+                if (whiteboard)
+                {
+                    exString = exString + " AND whiteboard = 1";
+                }
 
-                classRoomList.Add(tempClassRoom);
+                if (monitor)
+                {
+                    exString = exString + " AND monitor = 1";
+                }
+
+                if (projector)
+                {
+                    exString = exString + " AND projector = 1";
+                }
+                exString = exString + ");";
+
+                SqlDataReader rs = con.ExecuteStringGet(exString);
+
+                int classRoomId;
+                while (rs.Read())
+                {
+                    classRoomId = (int)rs.GetValue(0);
+                    ClassRoom tempClassRoom = new ClassRoom(classRoomId);
+
+                    classRoomList.Add(tempClassRoom);
+                }
             }
             return classRoomList;
         }
 
         public bool RequestClassRoom(int groupId, int groupSize, bool whiteboard, bool monitor, bool projector)
         {
-            int whiteboardInt = 0, monitorInt = 0, projectorInt = 0;
-
-            if(whiteboard)
+            bool didRequest = false;
+            using (var con = new DBCon())
             {
-                whiteboardInt = 1;
-            }
+                int whiteboardInt = 0, monitorInt = 0, projectorInt = 0;
 
-            if (monitor)
-            {
-                monitorInt = 1;
-            }
+                if (whiteboard)
+                {
+                    whiteboardInt = 1;
+                }
 
-            if (projector)
-            {
-                projectorInt = 1;
-            }
+                if (monitor)
+                {
+                    monitorInt = 1;
+                }
 
-            string exString = string.Format("INSERT INTO ClassRoomWaitingList(groupId, size, whiteboard, monitor, projector) VALUES ({0}, {1}, {2}, {3}, {4});", groupId, groupSize, whiteboardInt, monitorInt, projectorInt);
-            return dbCon.ExecuteStringPut(exString);
+                if (projector)
+                {
+                    projectorInt = 1;
+                }
+
+                string exString = string.Format("INSERT INTO ClassRoomWaitingList(groupId, size, whiteboard, monitor, projector) VALUES ({0}, {1}, {2}, {3}, {4});", groupId, groupSize, whiteboardInt, monitorInt, projectorInt);
+                didRequest = con.ExecuteStringPut(exString);
+            }
+            return didRequest;
         }
 
-<<<<<<< HEAD
         //takes boolbits from DB and creates a binary code to int... Denne metode skal bruges når DB-table 
         // over classRoomWaitingList skal omskrives til objekter. Objektet skal dannes som et 
         //  RequestClassroom med denne property requestCode.
-        public List<RequestClassroom> GetAllRequests(int id)
+        public List<RequestClassroom> GetAllRequests()
         {
-            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM ClassRoomWaitinglist");
-
-            int tempId = 0;
-            int tempGroupId = 0;
-            int tempSize = 0;
-            int requestCode = 0;
-            bool bitWhiteboard = false;
-            bool bitMonitor = false;
-            bool bitProjector = false;
             List<RequestClassroom> stillNotFulfilled = new List<RequestClassroom>();
-
-            if (rs.HasRows)
+            using (var con = new DBCon())
             {
-                while (rs.Read())
+                SqlDataReader rs = con.ExecuteStringGet("SELECT * FROM ClassRoomWaitinglist");
+
+                int tempId = 0;
+                int tempGroupId = 0;
+                int tempSize = 0;
+                int requestCode = 0;
+                bool bitWhiteboard = false;
+                bool bitMonitor = false;
+                bool bitProjector = false;
+
+                if (rs.HasRows)
                 {
-                    tempId = (int) rs.GetValue(0);
-                    tempGroupId = (int) rs.GetValue(1);
-                    tempSize = (int) rs.GetValue(2);
-                    bitWhiteboard = (bool) rs.GetValue(3);
-                    bitMonitor = (bool)rs.GetValue(4);
-                    bitProjector = (bool)rs.GetValue(5);
+                    while (rs.Read())
+                    {
+                        tempId = (int)rs.GetValue(0);
+                        tempGroupId = (int)rs.GetValue(1);
+                        tempSize = (int)rs.GetValue(2);
+                        bitWhiteboard = (bool)rs.GetValue(3);
+                        bitMonitor = (bool)rs.GetValue(4);
+                        bitProjector = (bool)rs.GetValue(5);
 
-                    requestCode = CreateBinaryCode(bitWhiteboard, bitMonitor, bitProjector);
+                        requestCode = CreateBinaryCode(bitWhiteboard, bitMonitor, bitProjector);
 
-                    RequestClassroom requestClassroom = new RequestClassroom(tempGroupId, tempSize, requestCode);
-                    stillNotFulfilled.Add(requestClassroom);
-                   
+                        RequestClassroom requestClassroom = new RequestClassroom(tempGroupId, tempSize, requestCode);
+                        stillNotFulfilled.Add(requestClassroom);
+                    }
                 }
-
-
             }
             return stillNotFulfilled;
-
         }
-
+      
         public int CreateBinaryCode(bool whiteboard, bool monitor, bool projector)
         {
             int requestCode = 0;
-
-            if (whiteboard)
+            using (var con = new DBCon())
             {
-               requestCode += 4;
-               if (monitor)
+                
+                if (whiteboard)
                 {
-                    requestCode += 2;
-                    if (projector)
+                    requestCode += 4;
+                    if (monitor)
                     {
-                        requestCode += 1;
+                        requestCode += 2;
+                        if (projector)
+                        {
+                            requestCode += 1;
+                        }
                     }
                 }
             }
             return requestCode;
-    
         }
         // Her laves liste LessThanThree med klasselokaler hentet fra DB. Denne liste bruges til 
         // algoritmesammenligningen. LessThanThree refererer til at objekterne kun skal blive på
         // listen så længe groupCount er under 3.       
         public List<ClassRoom> LessThanThree()
         {
-            SqlDataReader rs = dbCon.ExecuteStringGet("SELECT * FROM ClassRoom");
-
-            int tempId = 0;
-            string tempName = null;
-            int tempSize = 0;
-            bool bitWhiteboard = false;
-            bool bitMonitor = false;
-            bool bitProjector = false;
-            int requestMatch = 0;
-            int groupCount = 0;
-            int spaceLeft = 0;
             List<ClassRoom> LessThanThree = new List<ClassRoom>();
-
-            if (rs.HasRows)
+            using (var con = new DBCon())
             {
-                while (rs.Read())
+                SqlDataReader rs = con.ExecuteStringGet("SELECT * FROM ClassRoom");
+
+                int tempId = 0;
+                string tempName = null;
+                int tempSize = 0;
+                bool bitWhiteboard = false;
+                bool bitMonitor = false;
+                bool bitProjector = false;
+                int requestMatch = 0;
+                int groupCount = 0;
+                int spaceLeft = 0;
+
+                if (rs.HasRows)
                 {
-                    tempId = (int)rs.GetValue(0);
-                    tempName = rs.GetString(1);
-                    tempSize = (int)rs.GetValue(2);
-                    bitWhiteboard = (bool)rs.GetValue(3);
-                    bitMonitor = (bool)rs.GetValue(4);
-                    bitProjector = (bool)rs.GetValue(5);
+                    while (rs.Read())
+                    {
+                        tempId = (int)rs.GetValue(0);
+                        tempName = rs.GetString(1);
+                        tempSize = (int)rs.GetValue(2);
+                        bitWhiteboard = (bool)rs.GetValue(3);
+                        bitMonitor = (bool)rs.GetValue(4);
+                        bitProjector = (bool)rs.GetValue(5);
 
-                    requestMatch = CreateBinaryCode(bitWhiteboard, bitMonitor, bitProjector);
+                        requestMatch = CreateBinaryCode(bitWhiteboard, bitMonitor, bitProjector);
 
-                    ClassRoom classroom = new ClassRoom(tempId, tempSize, tempName, requestMatch, spaceLeft, groupCount);
-                    LessThanThree.Add(classroom);
+                        ClassRoom classroom = new ClassRoom(tempId, tempSize, tempName, requestMatch, spaceLeft, groupCount);
+                        LessThanThree.Add(classroom);
 
+                    }
                 }
             }
             return LessThanThree;
         }
 
-=======
         public bool HasGroupRooms()
         {
-            string dbCommand = "SELECT GroupRoom.id FROM GroupRoom LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId WHERE Rent.GroupRoomId IS NULL";
-            SqlDataReader rs = dbCon.ExecuteStringGet(dbCommand);
-            
-            while(rs.Read())
+            bool hasRooms = false;
+            using (var con = new DBCon())
             {
-                if(rs.HasRows)
+                string dbCommand = "SELECT GroupRoom.id FROM GroupRoom LEFT JOIN Rent ON GroupRoom.id = Rent.GroupRoomId WHERE Rent.GroupRoomId IS NULL";
+                SqlDataReader rs = con.ExecuteStringGet(dbCommand);
+
+                while (rs.Read())
                 {
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    if (rs.HasRows)
+                    {
+                        hasRooms = true;
+                    }
+                    else
+                    {
+                        hasRooms = false;
+                    }
                 }
             }
-            return false;
+            return hasRooms;
         }
->>>>>>> David
     }
-    
 }

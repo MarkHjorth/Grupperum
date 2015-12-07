@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GrupperumServer.CtrlLayer;
 using TestData.TestContainer;
 using GrupperumServer.ModelLayer;
+using System.Collections.Generic;
 
 namespace TestProject
 {
@@ -12,6 +13,8 @@ namespace TestProject
         TestContainer tc = new TestContainer();
         RequestCtrl reqCtrl = new RequestCtrl();
         ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
+        List<RequestClassroom> requests = new List<RequestClassroom>();
+        List<ClassRoom> classRooms = new List<ClassRoom>();
 
         [TestMethod]
         public void DoesTestContainerExist()
@@ -86,6 +89,54 @@ namespace TestProject
                 index++;
             }
             Assert.IsTrue(isSorted);
+        }
+
+// TESTS OF ACTUAL ALGORITHM:::
+
+        //Test where there are more rooms than groups
+        [TestMethod]
+        public void TestAlgorithmOne()
+        {
+            classRooms.Clear();
+            classRooms.AddRange(tc.GetClassRooms(1, 1));
+            classRooms.AddRange(tc.GetClassRooms(2, 1));
+            classRooms.AddRange(tc.GetClassRooms(3, 1));
+            classRooms.AddRange(tc.GetClassRooms(4, 1));
+            classRooms.AddRange(tc.GetClassRooms(5, 1));
+            classRooms.AddRange(tc.GetClassRooms(6, 1));
+            classRooms.AddRange(tc.GetClassRooms(7, 1));
+            classRooms.AddRange(tc.GetClassRooms(0, 1));
+
+            requests.Clear();
+            requests.AddRange(tc.GetRequests(1, 0, 1));
+            requests.AddRange(tc.GetRequests(2, 0, 1));
+            requests.AddRange(tc.GetRequests(1, 0, 1));
+            requests.AddRange(tc.GetRequests(3, 0, 1));
+            requests.AddRange(tc.GetRequests(1, 0, 1));
+
+            reqCtrl.doTheFunkyAlgorythm(requests, classRooms);
+            Assert.IsTrue(true);
+        }
+
+        //Test where just enough rooms
+        [TestMethod]
+        public void TestAlgorithmTwo()
+        {
+
+        }
+
+        //Test where all rooms are filled
+        [TestMethod]
+        public void TestAlgorithmThree()
+        {
+
+        }
+
+        //Test where not enough rooms
+        [TestMethod]
+        public void TestAlgorithmFour()
+        {
+
         }
     }
 }

@@ -146,22 +146,22 @@ namespace Grupperum_Website_Klient.Controllers
             {
                 var gr = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
 
-                int groupSize = (int) Session["si"];
+                int groupId = (int) Session["id"];
                 DateTime ds = (DateTime) Session["ds"];
                 DateTime df = (DateTime) Session["df"];
                 bool wh = (bool) Session["wh"];
                 bool mon = (bool) Session["mon"];
                 bool pr = (bool) Session["pr"]; 
 
-                bool RentedGroupRoom = client.RentGroupRoom(gr.GroupRoomId, groupSize, ds, df);
-                Session["groupRoomName"] = gr.GroupRoomName;                
+                bool RentedGroupRoom = client.RentGroupRoom(gr.GroupRoomId, groupId, ds, df);
+                Session["groupRoomName"] = gr.GroupRoomName;
                 Session["rgr"] = RentedGroupRoom;
                 bool ListedToClassRoom = false;
                 Session["ltcr"] = false;
                 
                 if (!RentedGroupRoom)
                 {
-                    ListedToClassRoom = client.RequestClassRoom(gr.GroupRoomId, groupSize, wh, mon, pr);
+                    ListedToClassRoom = client.RequestClassRoom(gr.GroupRoomId, groupId, wh, mon, pr);
                     Session["ltcr"] = ListedToClassRoom;
                 }
             }
