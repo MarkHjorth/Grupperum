@@ -31,6 +31,7 @@
             this.btn_CreateRoom = new System.Windows.Forms.Button();
             this.btn_editRoom = new System.Windows.Forms.Button();
             this.comBx_groupRooms = new System.Windows.Forms.ComboBox();
+            this.btn_doTheFunk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_CreateRoom
@@ -58,14 +59,26 @@
             this.comBx_groupRooms.FormattingEnabled = true;
             this.comBx_groupRooms.Location = new System.Drawing.Point(150, 16);
             this.comBx_groupRooms.Name = "comBx_groupRooms";
-            this.comBx_groupRooms.Size = new System.Drawing.Size(121, 21);
+            this.comBx_groupRooms.Size = new System.Drawing.Size(88, 21);
             this.comBx_groupRooms.TabIndex = 2;
+            // 
+            // btn_doTheFunk
+            // 
+            this.btn_doTheFunk.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_doTheFunk.Location = new System.Drawing.Point(32, 115);
+            this.btn_doTheFunk.Name = "btn_doTheFunk";
+            this.btn_doTheFunk.Size = new System.Drawing.Size(206, 97);
+            this.btn_doTheFunk.TabIndex = 3;
+            this.btn_doTheFunk.Text = "Do the Funky Algorithm";
+            this.btn_doTheFunk.UseVisualStyleBackColor = true;
+            this.btn_doTheFunk.Click += new System.EventHandler(this.btn_doTheFunk_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btn_doTheFunk);
             this.Controls.Add(this.comBx_groupRooms);
             this.Controls.Add(this.btn_editRoom);
             this.Controls.Add(this.btn_CreateRoom);
@@ -80,6 +93,7 @@
         private System.Windows.Forms.Button btn_CreateRoom;
         private System.Windows.Forms.Button btn_editRoom;
         private System.Windows.Forms.ComboBox comBx_groupRooms;
+        private System.Windows.Forms.Button btn_doTheFunk;
     }
 }
 

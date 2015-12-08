@@ -75,5 +75,10 @@ namespace WcfGrumService
         {
             return grumServer.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
         }
+
+        public void DoTheFunkyAlgorithm()
+        {
+            grumServer.DoTheFunkyAlgorithm();
+        }
     }
 }

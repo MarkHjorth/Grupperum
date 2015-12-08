@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.ModelLayer
 {
-    class RequestMatch
+    public class RequestMatch
     {
-        int groupId;
-        int classroomId;
+        public int GroupId { get; set; }
+        public int ClassroomId { get; set; }
 
         public RequestMatch(int groupId, int classroomId)
         {
-            this.groupId = groupId;
-            this.classroomId = classroomId;
+            this.GroupId = groupId;
+            this.ClassroomId = classroomId;
         }
 
         

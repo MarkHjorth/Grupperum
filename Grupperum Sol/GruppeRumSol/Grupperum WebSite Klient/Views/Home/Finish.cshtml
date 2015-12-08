@@ -1,0 +1,17 @@
+﻿@model Grupperum_Website_Klient.Models.Home.FinishModel
+@{
+    ViewBag.Title = "Finish";
+}
+
+
+@if (Model.RentedGroupRoom.Equals(true)) 
+{
+    <h2>Du har lånt grupperum: </h2> 
+}
+
+else
+{
+    <h2>Error</h2>
+    <p><i>Du har enten allerede et grupperum i det tidspunkt, <br />
+        eller en anden gruppe har lånt det lokale du valgte i mellemtiden</i></p>
+}

@@ -15,6 +15,7 @@ namespace Grupperum_Dedikeret_Klient
     public partial class Form1 : Form
     {
         private static IGrumService igs = new GrumService();
+
         List<GroupRoom> grl = new List<GroupRoom>();
 
         public Form1()
@@ -57,6 +58,11 @@ namespace Grupperum_Dedikeret_Klient
                 comBx_groupRooms.Items.Add(gr.Name);
             }
             comBx_groupRooms.SelectedIndex = 0;
+        }
+
+        private void btn_doTheFunk_Click(object sender, EventArgs e)
+        {
+            igs.DoTheFunkyAlgorithm();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailSystem;
 
 namespace GrupperumServer.CtrlLayer
 {
@@ -15,21 +16,32 @@ namespace GrupperumServer.CtrlLayer
         public List<RequestClassroom> stillNotFulfilled { get; set; }
         public List<ClassRoom> lessThanThree { get; set; }
         DBCtrl dBCtrl = new DBCtrl();
-
+        RentCtrl rCtrl = new RentCtrl();
 
         public RequestCtrl()
         {
-            RequestClassroom requestClassroom;
             stillNotFulfilled = new List<RequestClassroom>();
-            ClassRoom classRoom;
-            List<ClassRoom> lessThanThree = new List<ClassRoom>();
+            lessThanThree = new List<ClassRoom>();
         }
+
+        public void DoAllDaThings()
+        {
+            doTheFunkyAlgorythm(GetAllRequests(), GetAllClassRooms());
+        }
+
         // Det er denne metode der skal kaldes når man vil have fat i listen af requestClassrooms som også er sorteret.
         public List<RequestClassroom> GetAllRequests()
         {
             stillNotFulfilled = dBCtrl.GetAllRequests();
             stillNotFulfilled = sortRequestList(stillNotFulfilled);
             return stillNotFulfilled;
+        }
+
+        public List<ClassRoom> GetAllClassRooms()
+        {
+            lessThanThree = dBCtrl.GetClassRoomByAttributes(false, false, false);
+            lessThanThree = sortClassroomList(lessThanThree);
+            return lessThanThree;
         }
 
         // List<> har en metode OrderByDescending som bruger en lambda til at sortere på en 
@@ -61,6 +73,8 @@ namespace GrupperumServer.CtrlLayer
         */
         public void doTheFunkyAlgorythm(List<RequestClassroom> stillNotFulfilled, List<ClassRoom> lessThanThree)
         {
+            dBCtrl.ClearRents();
+
             List<int> notFulfilled = new List<int>();
             List<RequestMatch> matchedRequests = new List<RequestMatch>();
             int i = 0;
@@ -91,7 +105,15 @@ namespace GrupperumServer.CtrlLayer
                     }
                 }
             }
-            //Pass on the lists ! !
+            rCtrl.RentClassRooms(matchedRequests);
+            List<int> groupIds = new List<int>();
+            List<int> classroomIds = new List<int>();
+            foreach (RequestMatch rm in matchedRequests)
+            {
+                groupIds.Add(rm.GroupId);
+                classroomIds.Add(rm.ClassroomId);
+            }
+            Mail mail = new Mail(groupIds, classroomIds, notFulfilled);
         }
     } //Slut på klasse
 } // Slut på namespace

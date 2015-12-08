@@ -17,6 +17,7 @@ namespace GrupperumServer
         GroupCtrl groupCtrl = new GroupCtrl();
         ClassRoomCtrl classRoomCtrl = new ClassRoomCtrl();
         RentCtrl rentCtrl = new RentCtrl();
+        RequestCtrl reqCtrl = new RequestCtrl();
 
         public Class getClassByStudentId(int id)
         {
@@ -77,6 +78,11 @@ namespace GrupperumServer
         public bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd)
         {
             return rentCtrl.RentGroupRoom(grouproomId, groupId, dateStart, dateEnd);
+        }
+
+        public void DoTheFunkyAlgorithm()
+        {
+            reqCtrl.DoAllDaThings();
         }
     }
 }

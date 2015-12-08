@@ -7,20 +7,31 @@ using System.Threading.Tasks;
 
 namespace GrupperumServer.DBConFold
 {
-    public class DBCon
+    public class DBCon : IDisposable
     {
-        string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
+        static string conString = "user id=dmaa0914_3Sem_2_Grupperum;" +
                                    "password=IsAllowed;server=kraka.ucn.dk;" +
                                    "database=dmaa0914_3Sem_2_Grupperum; " +
                                    "connection timeout=30";
+        SqlConnection con = new SqlConnection(conString);
+
+        public void Dispose()
+        {
+            con.Close();
+        }
 
         public SqlDataReader ExecuteStringGet(string command)
         {
             SqlDataReader resultSet = null;
-            SqlConnection con = new SqlConnection(conString);
 
-            con.Open();
-            
+            try
+            {
+                con.Open();
+            }
+            catch (Exception e)
+            {
+            }
+
             SqlCommand sc = new SqlCommand(command, con);
             try
             {
@@ -29,10 +40,6 @@ namespace GrupperumServer.DBConFold
             catch (SqlException e)
             {
                 e.ToString();
-            }
-            finally
-            {
-                //con.Close();
             }
             
             return resultSet;
@@ -48,6 +55,7 @@ namespace GrupperumServer.DBConFold
             try
             {
                 sc.ExecuteReader();
+                return true;
             }
             catch (SqlException e)
             {
@@ -58,7 +66,6 @@ namespace GrupperumServer.DBConFold
             {
                // con.Close();
             }
-            return true;
         }
     }
 }

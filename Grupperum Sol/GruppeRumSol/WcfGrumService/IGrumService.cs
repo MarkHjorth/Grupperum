@@ -44,6 +44,9 @@ namespace WcfGrumService
         List<GroupRoom> GetGroupRoomList(DateTime dateStart, DateTime dateEnd, int grStrl, bool whiteboard, bool monitor);
 
         [OperationContract]
-        bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd); 
+        bool RentGroupRoom(int grouproomId, int groupId, DateTime dateStart, DateTime dateEnd);
+
+        [OperationContract]
+        void DoTheFunkyAlgorithm();
     }
 }
