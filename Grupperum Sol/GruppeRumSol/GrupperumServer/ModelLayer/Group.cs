@@ -14,7 +14,6 @@ namespace GrupperumServer.ModelLayer
         private String name;
         [DataMember]
         public int Id { get; set; }
-
         [DataMember]
         private List<int> StudentId;
 

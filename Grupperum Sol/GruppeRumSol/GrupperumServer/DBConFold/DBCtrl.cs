@@ -451,18 +451,21 @@ namespace GrupperumServer.DBConFold
                 if (whiteboard)
                 {
                     requestCode += 4;
-                    if (monitor)
-                    {
-                        requestCode += 2;
-                        if (projector)
-                        {
-                            requestCode += 1;
-                        }
-                    }
+                }
+
+                if (monitor)
+                {
+                    requestCode += 2;
+                }
+
+                if (projector)
+                {
+                    requestCode += 1;
                 }
             }
             return requestCode;
         }
+
         // Her laves liste LessThanThree med klasselokaler hentet fra DB. Denne liste bruges til 
         // algoritmesammenligningen. LessThanThree refererer til at objekterne kun skal blive på
         // listen så længe groupCount er under 3.       
