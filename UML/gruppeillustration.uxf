@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>160</x>
+      <y>500</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>160</x>
+      <y>400</y>
+      <w>310</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Gruppeforespørgsel:
+whiteboard jatak, monitor jatak, projector nejtak
+oversat til bit: 1-1-0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>350</y>
+      <w>340</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Klasselokale A
+Har 0 grupper
+har whiteboard, har ikke monitor, har projector
+oversat til bit: 1-0-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>430</y>
+      <w>340</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Klasselokale B
+Har 0 grupper
+har whiteboard, har monitor, har projector
+oversat til bit: 1-1-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>510</y>
+      <w>340</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Klasselokale C
+Har 2 grupper
+har whiteboard, har monitor, har ikke projector
+oversat til bit: 1-1-0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>190</x>
+      <y>510</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>230</x>
+      <y>500</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>370</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>
+Kan ikke bruges &gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>440</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>
+Kan bruges &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>490</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>
+Kan bruges &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;50.0</additional_attributes>
+  </element>
+</diagram>
