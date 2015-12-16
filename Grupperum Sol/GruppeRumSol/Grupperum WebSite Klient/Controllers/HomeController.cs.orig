@@ -1,4 +1,4 @@
-using Grupperum_Website_Klient.GrumService;
+﻿using Grupperum_Website_Klient.GrumService;
 using Grupperum_Website_Klient.Models;
 using Grupperum_Website_Klient.Models.Home;
 using System;
@@ -143,8 +143,30 @@ namespace Grupperum_Website_Klient.Controllers
             using (GrumServiceClient client = new GrumServiceClient())
             {
                 var gr = formModel.GroupRoomList.Where(x => x.Selected == true).FirstOrDefault();
+<<<<<<< HEAD
+
+                int groupId = (int) Session["id"];
+                DateTime ds = (DateTime) Session["ds"];
+                DateTime df = (DateTime) Session["df"];
+                bool wh = (bool) Session["wh"];
+                bool mon = (bool) Session["mon"];
+                bool pr = (bool) Session["pr"]; 
+
+                bool RentedGroupRoom = client.RentGroupRoom(gr.GroupRoomId, groupId, ds, df);
+                Session["groupRoomName"] = gr.GroupRoomName;
+                Session["rgr"] = RentedGroupRoom;
+                bool ListedToClassRoom = false;
+                Session["ltcr"] = false;
+                
+                if (!RentedGroupRoom)
+                {
+                    ListedToClassRoom = client.RequestClassRoom(gr.GroupRoomId, groupId, wh, mon, pr);
+                    Session["ltcr"] = ListedToClassRoom;
+                }
+=======
                 Session["GroupRoomName"] = gr.GroupRoomName;
                 Session["GroupRoomId"] = gr.GroupRoomId;
+>>>>>>> f118e093dc5ee29587d43292188a24bbb88f296d
             }
             return Redirect("Finish");
         }
