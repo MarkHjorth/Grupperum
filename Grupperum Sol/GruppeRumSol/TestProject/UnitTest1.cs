@@ -40,6 +40,69 @@ namespace TestProject
             Assert.AreEqual<int>(tc.requests.Count, 100);
         }
 
+        //Test at lokaler modeleres korrekt til algoritmen
+        [TestMethod]
+        public void CheckClassRoomValues()
+        {
+            List<ClassRoom> zero = new List<ClassRoom>();
+            List<ClassRoom> one = new List<ClassRoom>();
+            List<ClassRoom> two = new List<ClassRoom>();
+            List<ClassRoom> three = new List<ClassRoom>();
+            List<ClassRoom> four = new List<ClassRoom>();
+            List<ClassRoom> five = new List<ClassRoom>();
+            List<ClassRoom> six = new List<ClassRoom>();
+            List<ClassRoom> seven = new List<ClassRoom>();
+            
+            foreach (ClassRoom c in tc.FetchClassRooms())
+            {
+                switch (c.RequestMatch)
+                {
+                    case 0:
+                        zero.Add(c);
+                        break;
+                    case 1:
+                        one.Add(c);
+                        break;
+                    case 2:
+                        two.Add(c);
+                        break;
+                    case 3:
+                        three.Add(c);
+                        break;
+                    case 4:
+                        four.Add(c);
+                        break;
+                    case 5:
+                        five.Add(c);
+                        break;
+                    case 6:
+                        six.Add(c);
+                        break;
+                    case 7:
+                        seven.Add(c);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            Assert.Equals(zero.Count, 2);
+            Assert.Equals(one.Count, 2);
+            Assert.Equals(two.Count, 2);
+            Assert.Equals(three.Count, 2);
+            Assert.Equals(four.Count, 2);
+            Assert.Equals(five.Count, 2);
+            Assert.Equals(six.Count, 2);
+            Assert.Equals(seven.Count, 2);
+        }
+
+        //Test at requests modeleres korrekt til algoritmen
+        [TestMethod]
+        public void CheckRequestValues()
+        {
+
+        }
+
         // Undersøger om Requestkoderne er sorteret efter højest først i listen requests[]. 
         //Dvs at den requestkode vi undersøger på er mindre end den vi lige havde.
         [TestMethod]

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GrupperumServer.ModelLayer;
+using GrupperumServer.DBConFold;
 
 namespace TestData.TestContainer
 {
@@ -114,6 +115,28 @@ namespace TestData.TestContainer
                 rc.Add(new RequestClassroom(xo, groupSize, request));
                 xo++;
             }
+            return rc;
+        }
+
+//True data for algoritm
+        
+        //Generating desired classrooms
+        public List<ClassRoom> FetchClassRooms()
+        {
+            List<ClassRoom> cr = new List<ClassRoom>();
+
+            DBCtrl dbC = new DBCtrl();
+
+            cr = dbC.GetClassRoomByAttributes(false, false, false);
+
+            return cr;
+        }
+
+        //Generating desired requests
+        public List<RequestClassroom> FetchRequests()
+        {
+            List<RequestClassroom> rc = new List<RequestClassroom>();
+            
             return rc;
         }
     }
