@@ -86,14 +86,14 @@ namespace TestProject
                 }
             }
 
-            Assert.Equals(zero.Count, 2);
-            Assert.Equals(one.Count, 2);
-            Assert.Equals(two.Count, 2);
-            Assert.Equals(three.Count, 2);
-            Assert.Equals(four.Count, 2);
-            Assert.Equals(five.Count, 2);
-            Assert.Equals(six.Count, 2);
-            Assert.Equals(seven.Count, 2);
+            Assert.AreEqual(zero.Count, 2);
+            Assert.AreEqual(one.Count, 2);
+            Assert.AreEqual(two.Count, 2);
+            Assert.AreEqual(three.Count, 2);
+            Assert.AreEqual(four.Count, 2);
+            Assert.AreEqual(five.Count, 2);
+            Assert.AreEqual(six.Count, 2);
+            Assert.AreEqual(seven.Count, 2);
         }
 
         //Test at requests modeleres korrekt til algoritmen
