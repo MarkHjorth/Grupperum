@@ -344,7 +344,7 @@ namespace GrupperumServer.DBConFold
             List<ClassRoom> classRoomList = new List<ClassRoom>();
             using (var con = new DBCon())
             {
-                String exString = ("SELECT id FROM ClassRoom WHERE(1=1");
+                String exString = ("SELECT * FROM ClassRoom WHERE(1=1");
                 if (whiteboard)
                 {
                     exString = exString + " AND whiteboard = 1";
@@ -364,10 +364,29 @@ namespace GrupperumServer.DBConFold
                 SqlDataReader rs = con.ExecuteStringGet(exString);
 
                 int classRoomId;
+                string classRoomName;
+                int classRoomSize;
+                int classRoomRequestMach;
+                bool classRoomWhiteboard;
+                bool classRoomMonitor;
+                bool classRoomProjector;
+
                 while (rs.Read())
                 {
-                    classRoomId = (int)rs.GetValue(0);
-                    ClassRoom tempClassRoom = new ClassRoom(classRoomId);
+                    classRoomId = rs.GetInt32(0);
+                    classRoomName = rs.GetString(1);
+                    classRoomSize = rs.GetInt32(2);
+                    classRoomWhiteboard = rs.GetBoolean(3);
+                    classRoomMonitor = rs.GetBoolean(4);
+                    classRoomProjector = rs.GetBoolean(5);
+                    classRoomRequestMach = CreateBinaryCode(
+                        classRoomWhiteboard, classRoomMonitor, classRoomProjector);
+
+                    ClassRoom tempClassRoom = new ClassRoom(
+                        classRoomId, classRoomSize, classRoomName, classRoomRequestMach, classRoomSize, 0);
+
+                    //ClassRoom tempClassRoom = new ClassRoom(
+                    //    classRoomId, classRoomSize, classRoomWhiteboard, classRoomMonitor, classRoomProjector);
 
                     classRoomList.Add(tempClassRoom);
                 }

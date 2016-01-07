@@ -63,6 +63,7 @@ namespace Grupperum_Dedikeret_Klient
         private void btn_doTheFunk_Click(object sender, EventArgs e)
         {
             igs.DoTheFunkyAlgorithm();
+            MessageBox.Show("Algoritmen er færdig!", "Done");
         }
     }
 }
